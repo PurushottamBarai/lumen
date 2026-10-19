@@ -10,25 +10,81 @@
     <link rel="shortcut icon" href="../assets/lumen-favicon.ico">
     <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
 
-</head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 bottom-0 w-[260px] bg-[#0F172A] text-inverse-on-surface z-50 flex flex-col justify-between overflow-y-auto"><a class="flex items-center gap-space-xs px-space-sm py-space-xs text-outline-variant hover:text-surface-container-lowest text-label-sm font-label-sm transition-colors" data-path="documentation" href="#"><span class="material-symbols-outlined text-[18px]">help</span><span class="">Documentation</span></a></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-14 bg-surface-container-lowest border-b border-outline-variant/50 z-40 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Lumen CMS" class="h-8 w-auto object-contain" src="../assets/lumen_logo.png" /></div>
-<div class="flex items-center gap-space-sm self-start md:self-auto shrink-0">
-<div class="relative flex items-center">
-<span class="material-symbols-outlined absolute left-space-sm text-[18px] text-outline pointer-events-none">search</span>
-<input class="h-9 w-64 pl-8 pr-space-md bg-surface-container-lowest rounded-lg text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none shadow-sm transition-all focus:ring-1 focus:ring-primary-container" placeholder="Search readers or emails..." type="text"/>
-</div>
-<div class="relative">
-<select class="h-9 pl-space-md pr-8 bg-surface-container-lowest rounded-lg text-label-md font-label-md text-on-surface appearance-none focus:outline-none cursor-pointer shadow-sm">
-<option value="all">Status: All</option>
-<option value="active">Active</option>
-<option value="pending">Pending Renewal</option>
-<option value="canceled">Canceled</option>
-<option value="expired">Expired</option>
-</select>
-<span class="material-symbols-outlined absolute right-space-xs top-1/2 -translate-y-1/2 text-[18px] text-outline pointer-events-none">expand_more</span>
-</div>
-</div>
-</div>
-</div>
+</head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[260px] bg-inverse-surface z-50 flex flex-col justify-between overflow-y-auto">
+  <div class="flex flex-col">
+    <div class="h-16 px-space-lg flex items-center justify-between border-b border-outline-variant/20">
+      <div class="flex items-center gap-space-sm">
+        <img alt="Lumen CMS" class="h-8 w-auto object-contain" src="../assets/lumen_logo.png" />
+      </div>
+      <span class="font-label-sm text-label-sm px-space-xs py-space-2xs rounded bg-surface-container-highest/20 text-inverse-on-surface font-medium">v2.4</span>
+    </div>
+    <nav class="px-space-md py-space-lg flex flex-col gap-space-lg" data-active-classes="bg-primary-container text-on-primary font-medium rounded-lg">
+      <div class="flex flex-col gap-space-xs">
+        <span class="px-space-sm font-label-sm text-label-sm uppercase tracking-wider text-outline-variant font-semibold">Main</span>
+        <div class="flex flex-col gap-space-2xs">
+          <a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors" data-path="overview" href="admin_overview.html"><span class="material-symbols-outlined text-lg">dashboard</span><span class="font-label-md text-label-md">Admin Overview</span></a>
+          <a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors" data-path="articles" href="admin_article_management.html"><span class="material-symbols-outlined text-lg">article</span><span class="font-label-md text-label-md">Articles</span></a>
+          <a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors" data-path="quiz-builder" href="../quizzes/quiz_builder.html"><span class="material-symbols-outlined text-lg">edit_note</span><span class="font-label-md text-label-md">Quiz Builder</span></a>
+          <a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors" data-path="quizzes" href="admin_quiz_management.html"><span class="material-symbols-outlined text-lg">quiz</span><span class="font-label-md text-label-md">Quizzes</span></a>
+          <a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors" data-path="comments" href="admin_comment_management.html"><span class="material-symbols-outlined text-lg">forum</span><span class="font-label-md text-label-md">Comments</span></a>
+        </div>
+      </div>
+      <div class="flex flex-col gap-space-xs">
+        <span class="px-space-sm font-label-sm text-label-sm uppercase tracking-wider text-outline-variant font-semibold">Moderation & Trust</span>
+        <div class="flex flex-col gap-space-2xs">
+          <a class="flex items-center justify-between px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors" data-path="ai-moderation" href="admin_ai_moderation.html"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg">smart_toy</span><span class="font-label-md text-label-md">AI Moderation</span></div><span class="font-label-sm text-label-sm px-space-xs py-space-2xs rounded bg-tertiary-container/20 text-on-tertiary-container font-semibold">98.4%</span></a>
+          <a class="flex items-center justify-between px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors" data-path="reports" href="admin_reports_management.html"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg">flag</span><span class="font-label-md text-label-md">Reports</span></div><span class="font-label-sm text-label-sm px-space-xs py-space-2xs rounded-full bg-error-container text-on-error-container font-semibold">14</span></a>
+          <a class="flex items-center justify-between px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors" data-path="content-verification" href="admin_content_verification.html"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg">verified</span><span class="font-label-md text-label-md">Content Verification</span></div><span class="font-label-sm text-label-sm px-space-xs py-space-2xs rounded-full bg-primary-container text-on-primary font-semibold">48</span></a>
+          <a class="flex items-center justify-between px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors" data-path="appeals" href="admin_appeals_management.html"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg">gavel</span><span class="font-label-md text-label-md">Appeals</span></div><span class="font-label-sm text-label-sm px-space-xs py-space-2xs rounded-full bg-surface-container-highest/30 text-inverse-on-surface font-semibold">5</span></a>
+          <a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors" data-path="spam-abuse" href="admin_spam_management.html"><span class="material-symbols-outlined text-lg">shield</span><span class="font-label-md text-label-md">Spam & Abuse</span></a>
+        </div>
+      </div>
+      <div class="flex flex-col gap-space-xs">
+        <span class="px-space-sm font-label-sm text-label-sm uppercase tracking-wider text-outline-variant font-semibold">Audience & Settings</span>
+        <div class="flex flex-col gap-space-2xs">
+          <a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors" data-path="users" href="admin_user_management.html"><span class="material-symbols-outlined text-lg">group</span><span class="font-label-md text-label-md">Users</span></a>
+          <a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-sm bg-primary-container text-on-primary font-medium rounded-lg" data-path="subscriptions" href="admin_subscription_management.html"><span class="material-symbols-outlined text-lg">loyalty</span><span class="font-label-md text-label-md">Subscriptions</span></a>
+          <a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-lg">settings</span><span class="font-label-md text-label-md">Settings</span></a>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="p-space-lg border-t border-outline-variant/20 flex flex-col gap-space-md">
+    <a class="flex items-center gap-space-xs font-label-md text-label-md text-outline-variant hover:text-inverse-on-surface transition-colors" data-path="documentation" href="#"><span class="material-symbols-outlined text-base">help_outline</span>Documentation</a>
+  </div>
+</aside>
+<div class="pl-[260px]">
+  <header class="fixed top-0 left-[260px] right-0 h-16 bg-surface-container-lowest border-b border-outline-variant/40 z-40 px-space-2xl flex items-center justify-between">
+    <div class="flex items-center gap-space-md">
+      <div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+        <span class="hover:text-on-surface cursor-pointer">Admin</span>
+        <span class="material-symbols-outlined text-sm">chevron_right</span>
+        <span class="text-on-surface font-semibold">Subscriptions</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-space-sm self-start md:self-auto shrink-0">
+      <div class="relative flex items-center">
+        <span class="material-symbols-outlined absolute left-space-sm text-[18px] text-outline pointer-events-none">search</span>
+        <input class="h-9 w-64 pl-8 pr-space-md bg-surface-container-lowest rounded-lg text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none shadow-sm transition-all focus:ring-1 focus:ring-primary-container border border-outline-variant/60" placeholder="Search readers or emails..." type="text"/>
+      </div>
+      <div class="relative">
+        <select class="h-9 pl-space-md pr-8 bg-surface-container-lowest rounded-lg text-label-md font-label-md text-on-surface appearance-none focus:outline-none cursor-pointer shadow-sm border border-outline-variant/60">
+          <option value="all">Status: All</option>
+          <option value="active">Active</option>
+          <option value="pending">Pending Renewal</option>
+          <option value="canceled">Canceled</option>
+          <option value="expired">Expired</option>
+        </select>
+        <span class="material-symbols-outlined absolute right-space-xs top-1/2 -translate-y-1/2 text-[18px] text-outline pointer-events-none">expand_more</span>
+      </div>
+      <div class="h-6 w-px bg-outline-variant/40 mx-1"></div>
+      <div class="flex items-center gap-space-sm pl-space-xs">
+        <div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs">SJ</div>
+      </div>
+    </div>
+  </header>
+  <main class="w-full pt-16 bg-surface px-space-2xl py-space-xl">
+    <div class="flex flex-col w-full">
 <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
 <div class="overflow-x-auto w-full">
 <table class="w-full text-left border-collapse min-w-[840px]">
