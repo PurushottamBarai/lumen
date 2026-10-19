@@ -132,8 +132,8 @@
 <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
 <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
-<span class="text-xs font-semibold text-slate-800">Quiz Builder Studio</span>
-<span class="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 font-medium border border-blue-200">Knowledge Checkpoint Engine</span>
+<span class="text-xs font-semibold text-slate-800">Article Submission Confirmation</span>
+<span class="text-xs px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-medium border border-emerald-200">Submission Accepted</span>
 </div>
 <div class="flex items-center space-x-2">
 <span class="text-xs text-slate-500">Authenticated Role:</span>
@@ -231,10 +231,14 @@
 <span class="material-symbols-outlined text-lg">dashboard</span>
 <span>Back to Author Studio</span>
 </a>
-<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition" href="#">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition" href="write_article.html">
 <span class="material-symbols-outlined text-lg">edit_document</span>
 <span>Create Another Article</span>
 </a>
+<button type="button" onclick="toggleModal(true)" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-700 font-label-lg text-label-lg hover:bg-slate-50 transition shadow-xs">
+<span class="material-symbols-outlined text-lg text-blue-600">visibility</span>
+<span>Preview Quiz Assessment</span>
+</button>
 </div>
 <!-- Secondary Home Link -->
 <div class="mt-6">
@@ -254,92 +258,92 @@
 </div>
 </div></main>
 <!-- MODAL / DIALOG: Quiz Reader Preview State (Displayed as an active inspectable overlay) -->
-<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs" id="quizPreviewModal">
-<div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-2xl w-full overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+<div class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs" id="quizPreviewModal" onclick="if(event.target===this) toggleModal(false)">
+<div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-xl w-full max-h-[85vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200" onclick="event.stopPropagation()">
 <!-- Dialog Header -->
-<div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+<div class="bg-slate-50 px-5 py-3.5 border-b border-slate-200 flex items-center justify-between shrink-0">
 <div class="flex items-center space-x-2.5">
-<span class="p-1.5 rounded-md bg-blue-100 text-brand-700">
+<span class="p-1.5 rounded-md bg-blue-100 text-blue-700">
 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
 <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
 </span>
 <div>
-<h3 class="text-sm font-bold text-slate-900">Reader Experience Preview</h3>
-<p class="text-xs text-slate-500">Live preview matching public reader styling</p>
+<h3 class="text-sm font-bold text-slate-900 leading-tight">Reader Experience Preview</h3>
+<p class="text-[11px] text-slate-500 leading-tight">Live preview matching public reader styling</p>
 </div>
 </div>
 <div class="flex items-center space-x-2">
-<span class="text-xs font-medium text-slate-500 bg-white px-2.5 py-1 rounded-md border border-slate-200">Question 1 of 3</span>
-<button class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-200 transition" onclick="toggleModal(false)">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<span class="text-xs font-medium text-slate-500 bg-white px-2 py-0.5 rounded-md border border-slate-200">Question 1 of 3</span>
+<button class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-200 transition" onclick="toggleModal(false)" title="Close modal">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
 <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
 </button>
 </div>
 </div>
 <!-- Preview Body (Faithful to the public article reader knowledge checkpoint module) -->
-<div class="p-6 sm:p-8 space-y-6">
+<div class="p-4 sm:p-5 space-y-3.5 overflow-y-auto flex-1 custom-scrollbar">
 <!-- Attached Article Context Banner -->
-<div class="flex items-center justify-between text-xs text-slate-500 pb-3 border-b border-slate-100">
-<div>Attached to: <span class="font-medium text-slate-700">Architecting Resilient Event Streams with Distributed Kafka Clusters</span></div>
-<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-medium">Peer-Reviewed Checkpoint</span>
+<div class="flex items-center justify-between text-xs text-slate-500 pb-2 border-b border-slate-100">
+<div class="truncate mr-2">Attached to: <span class="font-medium text-slate-700">Architecting Resilient Event Streams...</span></div>
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-medium shrink-0 text-[11px]">Peer-Reviewed Checkpoint</span>
 </div>
 <!-- Question Prompt -->
 <div>
-<span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">Assessment Question 1</span>
-<h4 class="text-base sm:text-lg font-bold text-slate-900 mt-1 leading-snug">
-            Which delivery guarantee does standard Kafka broker partitioning provide without supplementary clustering configuration?
-          </h4>
+<span class="text-[11px] font-semibold text-blue-600 uppercase tracking-wider">Assessment Question 1</span>
+<h4 class="text-sm sm:text-base font-bold text-slate-900 mt-0.5 leading-snug">
+  Which delivery guarantee does standard Kafka broker partitioning provide without supplementary clustering configuration?
+</h4>
 </div>
 <!-- Reader Options Mockup -->
-<div class="space-y-3">
+<div class="space-y-2">
 <!-- Option A (Unselected) -->
-<label class="flex items-center p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
-<input class="w-4 h-4 text-brand-600 border-slate-300 focus:ring-brand-500" name="preview_choice" type="radio"/>
-<span class="ml-3 text-sm text-slate-700">A. Global strict total ordering across all consumer topics and decoupled partition offsets.</span>
+<label class="flex items-center p-2.5 sm:p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
+<input class="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500" name="preview_choice" type="radio"/>
+<span class="ml-3 text-xs sm:text-sm text-slate-700">A. Global strict total ordering across all consumer topics and decoupled partition offsets.</span>
 </label>
 <!-- Option B (Selected by Reader Preview) -->
-<label class="flex items-center p-3.5 rounded-xl border-2 border-brand-600 bg-blue-50/50 cursor-pointer transition">
-<input checked="" class="w-4 h-4 text-brand-600 border-brand-600 focus:ring-brand-500" name="preview_choice" type="radio"/>
-<span class="ml-3 text-sm font-semibold text-brand-900">B. Strict FIFO ordering guaranteed strictly within a specific, single partition key stream.</span>
+<label class="flex items-center p-2.5 sm:p-3 rounded-xl border-2 border-blue-600 bg-blue-50/50 cursor-pointer transition">
+<input checked="" class="w-4 h-4 text-blue-600 border-blue-600 focus:ring-blue-500" name="preview_choice" type="radio"/>
+<span class="ml-3 text-xs sm:text-sm font-semibold text-blue-900">B. Strict FIFO ordering guaranteed strictly within a specific, single partition key stream.</span>
 </label>
 <!-- Option C (Unselected) -->
-<label class="flex items-center p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
-<input class="w-4 h-4 text-brand-600 border-slate-300 focus:ring-brand-500" name="preview_choice" type="radio"/>
-<span class="ml-3 text-sm text-slate-700">C. Idempotent exactly-once delivery across multi-broker clusters without transaction coordination.</span>
+<label class="flex items-center p-2.5 sm:p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
+<input class="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500" name="preview_choice" type="radio"/>
+<span class="ml-3 text-xs sm:text-sm text-slate-700">C. Idempotent exactly-once delivery across multi-broker clusters without transaction coordination.</span>
 </label>
 <!-- Option D (Unselected) -->
-<label class="flex items-center p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
-<input class="w-4 h-4 text-brand-600 border-slate-300 focus:ring-brand-500" name="preview_choice" type="radio"/>
-<span class="ml-3 text-sm text-slate-700">D. Synchronous page-cache persistence to disk on every individual producer batch.</span>
+<label class="flex items-center p-2.5 sm:p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
+<input class="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500" name="preview_choice" type="radio"/>
+<span class="ml-3 text-xs sm:text-sm text-slate-700">D. Synchronous page-cache persistence to disk on every individual producer batch.</span>
 </label>
 </div>
 <!-- Verified Explanation Box Preview -->
-<div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
-<div class="flex items-center space-x-1.5 text-xs font-bold text-slate-800 uppercase tracking-wider mb-1">
-<svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewbox="0 0 20 20">
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+<div class="flex items-center space-x-1.5 text-xs font-bold text-slate-800 uppercase tracking-wider mb-0.5">
+<svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewbox="0 0 20 20">
 <path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" fill-rule="evenodd"></path>
 </svg>
 <span>Author's Technical Explanation</span>
 </div>
 <p class="text-xs text-slate-600 leading-relaxed">
-            Kafka guarantees strict FIFO message ordering exclusively within an isolated individual partition. Global ordering across distinct partitions requires external sequence coordination or dedicated single-partition topics.
-          </p>
+  Kafka guarantees strict FIFO message ordering exclusively within an isolated individual partition. Global ordering across distinct partitions requires external sequence coordination or dedicated single-partition topics.
+</p>
 </div>
 </div>
 <!-- Preview Footer Controls -->
-<div class="bg-slate-50 px-6 py-4 border-t border-slate-200 flex items-center justify-between">
+<div class="bg-slate-50 px-5 py-3 border-t border-slate-200 flex items-center justify-between shrink-0">
 <div class="text-xs text-slate-500">
-          Showing reader assessment simulation
-        </div>
-<div class="flex items-center space-x-3">
-<button class="px-4 py-2 text-xs font-medium text-slate-700 bg-white hover:bg-slate-100 rounded-lg border border-slate-300 transition" onclick="toggleModal(false)">
-            Close Preview
-          </button>
-<button class="px-4 py-2 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-lg shadow-sm transition">
-            Validate Choice
-          </button>
+  Showing reader assessment simulation
+</div>
+<div class="flex items-center space-x-2.5">
+<button class="px-3.5 py-1.5 text-xs font-medium text-slate-700 bg-white hover:bg-slate-100 rounded-lg border border-slate-300 transition" onclick="toggleModal(false)">
+  Close Preview
+</button>
+<button class="px-3.5 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-sm transition" onclick="toggleModal(false)">
+  Validate Choice
+</button>
 </div>
 </div>
 </div>
