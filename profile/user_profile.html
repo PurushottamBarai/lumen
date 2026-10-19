@@ -11,22 +11,58 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
     tailwind.config = {
+      darkMode: "class",
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            serif: ['Newsreader', 'serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          },
           colors: {
-            surface: {
-              DEFAULT: '#f8f9ff',
-              container: '#eff4ff',
-              lowest: '#ffffff',
-              border: '#e2e8f0',
-              muted: '#64748b'
-            },
-            brand: {
+            "tertiary": "#006242",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary-fixed": "#dbe1ff",
+            "on-secondary-fixed-variant": "#3f465c",
+            "secondary": "#565e74",
+            "tertiary-fixed": "#6ffbbe",
+            "on-tertiary-container": "#bdffdb",
+            "secondary-container": "#dae2fd",
+            "surface-tint": "#0053db",
+            "surface-variant": "#d3e4fe",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#eaf1ff",
+            "primary": "#004ac6",
+            "outline-variant": "#c3c6d7",
+            "on-tertiary-fixed-variant": "#005236",
+            "secondary-fixed": "#dae2fd",
+            "tertiary-container": "#007d55",
+            "surface-dim": "#cbdbf5",
+            "on-primary": "#ffffff",
+            "surface-container-highest": "#d3e4fe",
+            "on-primary-fixed": "#00174b",
+            "background": "#f8f9ff",
+            "surface-container-lowest": "#ffffff",
+            "outline": "#737686",
+            "surface-container-low": "#eff4ff",
+            "surface-container": "#e5eeff",
+            "surface-container-high": "#dce9ff",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#b4c5ff",
+            "on-tertiary": "#ffffff",
+            "on-secondary-container": "#5c647a",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#bec6e0",
+            "surface-bright": "#f8f9ff",
+            "inverse-primary": "#b4c5ff",
+            "on-background": "#0b1c30",
+            "on-primary-fixed-variant": "#003ea8",
+            "primary-container": "#2563eb",
+            "on-secondary-fixed": "#131b2e",
+            "on-primary-container": "#eeefff",
+            "on-surface-variant": "#434655",
+            "on-surface": "#0b1c30",
+            "inverse-surface": "#213145",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed": "#002113",
+            "surface": "#f8f9ff",
+            "brand": {
               50: '#eff6ff',
               100: '#dbeafe',
               500: '#3b82f6',
@@ -34,10 +70,45 @@
               700: '#1d4ed8',
               navy: '#0f172a'
             }
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Newsreader', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            "metric-display": [ "Inter" ],
+            "headline-md": [ "Inter" ],
+            "label-lg": [ "Inter" ],
+            "body-md": [ "Inter" ],
+            "headline-lg": [ "Inter" ],
+            "body-lg": [ "Inter" ],
+            "headline-xl": [ "Inter" ],
+            "body-sm": [ "Inter" ],
+            "headline-sm": [ "Inter" ],
+            "label-md": [ "Inter" ],
+            "label-sm": [ "Inter" ]
+          },
+          fontSize: {
+            "metric-display": [ "1.75rem", { lineHeight: "2rem", letterSpacing: "-0.02em", fontWeight: "600" } ],
+            "headline-md": [ "1.25rem", { lineHeight: "1.75rem", letterSpacing: "-0.015em", fontWeight: "600" } ],
+            "label-lg": [ "0.875rem", { lineHeight: "1.25rem", fontWeight: "500" } ],
+            "body-md": [ "0.875rem", { lineHeight: "1.25rem", fontWeight: "400" } ],
+            "headline-lg": [ "1.5rem", { lineHeight: "2rem", letterSpacing: "-0.02em", fontWeight: "600" } ],
+            "body-lg": [ "1rem", { lineHeight: "1.5rem", fontWeight: "400" } ],
+            "headline-xl": [ "2rem", { lineHeight: "2.5rem", letterSpacing: "-0.025em", fontWeight: "700" } ],
+            "body-sm": [ "0.75rem", { lineHeight: "1rem", fontWeight: "400" } ],
+            "headline-sm": [ "1.125rem", { lineHeight: "1.5rem", letterSpacing: "-0.01em", fontWeight: "600" } ],
+            "label-md": [ "0.8125rem", { lineHeight: "1.125rem", fontWeight: "500" } ],
+            "label-sm": [ "0.75rem", { lineHeight: "1rem", letterSpacing: "0.025em", fontWeight: "600" } ]
           }
         }
       }
-    }
+    };
   </script>
 <style>
     body {
@@ -66,7 +137,7 @@
 <body class="font-sans min-h-screen flex flex-col antialiased bg-[#f8fafc]">
 <!-- Top Navbar (Spans full width edge-to-edge) -->
 <header class="fixed top-0 left-0 right-0 h-16 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs flex items-center">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"><a class="flex items-center gap-2.5 focus:outline-none hover:opacity-90 transition-opacity shrink-0 mr-4" href="../articles/home.html"><img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-8 w-auto object-contain" /></a>
+<div class="h-16 w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4"><a class="flex items-center gap-2.5 focus:outline-none hover:opacity-90 transition-opacity shrink-0 mr-4" href="../articles/home.html"><img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-8 w-auto object-contain" /></a>
 <div class="flex items-center space-x-8">
 
 
@@ -772,97 +843,6 @@
     }
   </script>
 </div></main>
-<!-- MODAL / DIALOG: Quiz Reader Preview State (Displayed as an active inspectable overlay) -->
-<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs" id="quizPreviewModal">
-<div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-2xl w-full overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-<!-- Dialog Header -->
-<div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center justify-between">
-<div class="flex items-center space-x-2.5">
-<span class="p-1.5 rounded-md bg-blue-100 text-brand-700">
-<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</span>
-<div>
-<h3 class="text-sm font-bold text-slate-900">Reader Experience Preview</h3>
-<p class="text-xs text-slate-500">Live preview matching public reader styling</p>
-</div>
-</div>
-<div class="flex items-center space-x-2">
-<span class="text-xs font-medium text-slate-500 bg-white px-2.5 py-1 rounded-md border border-slate-200">Question 1 of 3</span>
-<button class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-200 transition" onclick="toggleModal(false)">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</button>
-</div>
-</div>
-<!-- Preview Body (Faithful to the public article reader knowledge checkpoint module) -->
-<div class="p-6 sm:p-8 space-y-6">
-<!-- Attached Article Context Banner -->
-<div class="flex items-center justify-between text-xs text-slate-500 pb-3 border-b border-slate-100">
-<div>Attached to: <span class="font-medium text-slate-700">Architecting Resilient Event Streams with Distributed Kafka Clusters</span></div>
-<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-medium">Peer-Reviewed Checkpoint</span>
-</div>
-<!-- Question Prompt -->
-<div>
-<span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">Assessment Question 1</span>
-<h4 class="text-base sm:text-lg font-bold text-slate-900 mt-1 leading-snug">
-            Which delivery guarantee does standard Kafka broker partitioning provide without supplementary clustering configuration?
-          </h4>
-</div>
-<!-- Reader Options Mockup -->
-<div class="space-y-3">
-<!-- Option A (Unselected) -->
-<label class="flex items-center p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
-<input class="w-4 h-4 text-brand-600 border-slate-300 focus:ring-brand-500" name="preview_choice" type="radio"/>
-<span class="ml-3 text-sm text-slate-700">A. Global strict total ordering across all consumer topics and decoupled partition offsets.</span>
-</label>
-<!-- Option B (Selected by Reader Preview) -->
-<label class="flex items-center p-3.5 rounded-xl border-2 border-brand-600 bg-blue-50/50 cursor-pointer transition">
-<input checked="" class="w-4 h-4 text-brand-600 border-brand-600 focus:ring-brand-500" name="preview_choice" type="radio"/>
-<span class="ml-3 text-sm font-semibold text-brand-900">B. Strict FIFO ordering guaranteed strictly within a specific, single partition key stream.</span>
-</label>
-<!-- Option C (Unselected) -->
-<label class="flex items-center p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
-<input class="w-4 h-4 text-brand-600 border-slate-300 focus:ring-brand-500" name="preview_choice" type="radio"/>
-<span class="ml-3 text-sm text-slate-700">C. Idempotent exactly-once delivery across multi-broker clusters without transaction coordination.</span>
-</label>
-<!-- Option D (Unselected) -->
-<label class="flex items-center p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
-<input class="w-4 h-4 text-brand-600 border-slate-300 focus:ring-brand-500" name="preview_choice" type="radio"/>
-<span class="ml-3 text-sm text-slate-700">D. Synchronous page-cache persistence to disk on every individual producer batch.</span>
-</label>
-</div>
-<!-- Verified Explanation Box Preview -->
-<div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
-<div class="flex items-center space-x-1.5 text-xs font-bold text-slate-800 uppercase tracking-wider mb-1">
-<svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" fill-rule="evenodd"></path>
-</svg>
-<span>Author's Technical Explanation</span>
-</div>
-<p class="text-xs text-slate-600 leading-relaxed">
-            Kafka guarantees strict FIFO message ordering exclusively within an isolated individual partition. Global ordering across distinct partitions requires external sequence coordination or dedicated single-partition topics.
-          </p>
-</div>
-</div>
-<!-- Preview Footer Controls -->
-<div class="bg-slate-50 px-6 py-4 border-t border-slate-200 flex items-center justify-between">
-<div class="text-xs text-slate-500">
-          Showing reader assessment simulation
-        </div>
-<div class="flex items-center space-x-3">
-<button class="px-4 py-2 text-xs font-medium text-slate-700 bg-white hover:bg-slate-100 rounded-lg border border-slate-300 transition" onclick="toggleModal(false)">
-            Close Preview
-          </button>
-<button class="px-4 py-2 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-lg shadow-sm transition">
-            Validate Choice
-          </button>
-</div>
-</div>
-</div>
-</div>
 <!-- Footer -->
 <footer class="bg-white border-t border-slate-200 py-6 text-xs text-slate-500 mt-auto">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
