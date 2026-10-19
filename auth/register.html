@@ -38,13 +38,22 @@
     <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
 
 </head>
-<body class="min-h-full flex flex-col justify-between bg-[#F8FAFC] font-sans text-slate-800 antialiased py-8 px-4 sm:px-6">
+<body class="min-h-screen flex flex-col bg-[#F8FAFC] font-sans text-slate-800 antialiased">
+<!-- Top Navbar -->
+<header class="fixed top-0 left-0 right-0 h-16 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs flex items-center">
+  <div class="h-16 w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+    <a class="flex items-center gap-2.5 focus:outline-none hover:opacity-90 transition-opacity shrink-0" href="../articles/home.html">
+      <img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-8 w-auto object-contain" />
+    </a>
+    <div class="flex items-center gap-3">
+      <span class="text-xs text-slate-500 hidden sm:inline">Already have an account?</span>
+      <a href="login.html" class="inline-flex items-center justify-center h-9 px-4 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-semibold transition-colors shadow-xs">Sign In</a>
+    </div>
+  </div>
+</header>
+
 <!-- Centered Form Container Wrapper -->
-<div class="w-full flex-1 flex flex-col items-center justify-center">
-<!-- Brand Header -->
-<div class="mb-6 flex items-center justify-center">
-<a class="flex items-center focus:outline-none" href="/"><img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-11 w-auto object-contain" /></a>
-</div>
+<main class="w-full flex-1 flex flex-col items-center justify-center pt-24 pb-8 px-4 sm:px-6">
 <!-- Registration Card -->
 <div class="w-full max-w-md bg-white border border-slate-200 rounded-2xl shadow-sm p-6 sm:p-8">
 <!-- Heading & Subtitle -->
@@ -129,7 +138,7 @@
 <!-- Bottom link -->
 <div class="mt-6 text-center text-sm text-slate-500">
         Already have an account? 
-        <a class="font-medium text-blue-600 hover:underline transition-colors ml-1" href="#">Sign in</a>
+        <a class="font-medium text-blue-600 hover:underline transition-colors ml-1" href="login.html">Sign in</a>
 </div>
 </div>
 </div>
