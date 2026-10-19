@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><title>Lumen CMS - Subscription & Revenue Management</title><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#f8f9ff","secondary-fixed-dim":"#bec6e0","on-surface-variant":"#434655","surface-bright":"#f8f9ff","on-tertiary-fixed-variant":"#005236","primary-fixed":"#dbe1ff","on-secondary-container":"#5c647a","tertiary-fixed-dim":"#4edea3","on-primary-fixed":"#00174b","surface-variant":"#d3e4fe","primary-fixed-dim":"#b4c5ff","secondary-container":"#dae2fd","surface-container-high":"#dce9ff","on-tertiary":"#ffffff","surface-dim":"#cbdbf5","surface-container-highest":"#d3e4fe","tertiary-container":"#007d55","surface-container-low":"#eff4ff","background":"#f8f9ff","on-surface":"#0b1c30","primary-container":"#2563eb","on-primary-container":"#eeefff","inverse-surface":"#213145","on-secondary-fixed-variant":"#3f465c","primary":"#004ac6","on-background":"#0b1c30","surface-container-lowest":"#ffffff","on-tertiary-container":"#bdffdb","tertiary":"#006242","error":"#ba1a1a","outline":"#737686","secondary-fixed":"#dae2fd","surface-container":"#e5eeff","surface-tint":"#0053db","on-secondary":"#ffffff","on-tertiary-fixed":"#002113","inverse-primary":"#b4c5ff","on-primary":"#ffffff","tertiary-fixed":"#6ffbbe","secondary":"#565e74","inverse-on-surface":"#eaf1ff","error-container":"#ffdad6","on-secondary-fixed":"#131b2e","on-error":"#ffffff","outline-variant":"#c3c6d7","on-primary-fixed-variant":"#003ea8","on-error-container":"#93000a"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-md":"0.75rem","gutter":"1.5rem","margin":"2rem","space-sm":"0.5rem","margin-sm":"1rem","gutter-sm":"1rem","space-xs":"0.25rem","space-xl":"1.5rem","space-2xl":"2rem","space-lg":"1rem","space-2xs":"0.125rem"},fontFamily:{"label-sm":["Inter"],"body-lg":["Inter"],"headline-md":["Inter"],"headline-sm":["Inter"],"headline-lg":["Inter"],"label-lg":["Inter"],"body-md":["Inter"],"label-md":["Inter"],"headline-xl":["Inter"],"body-sm":["Inter"],"metric-display":["Inter"]},fontSize:{"label-sm":["0.75rem",{lineHeight:"1rem",letterSpacing:"0.025em",fontWeight:"600"}],"body-lg":["1rem",{lineHeight:"1.5rem",fontWeight:"400"}],"headline-md":["1.25rem",{lineHeight:"1.75rem",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-sm":["1.125rem",{lineHeight:"1.5rem",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-lg":["1.5rem",{lineHeight:"2rem",letterSpacing:"-0.02em",fontWeight:"600"}],"label-lg":["0.875rem",{lineHeight:"1.25rem",fontWeight:"500"}],"body-md":["0.875rem",{lineHeight:"1.25rem",fontWeight:"400"}],"label-md":["0.8125rem",{lineHeight:"1.125rem",fontWeight:"500"}],"headline-xl":["2rem",{lineHeight:"2.5rem",letterSpacing:"-0.025em",fontWeight:"700"}],"body-sm":["0.75rem",{lineHeight:"1rem",fontWeight:"400"}],"metric-display":["1.75rem",{lineHeight:"2rem",letterSpacing:"-0.02em",fontWeight:"600"}]}}}}</script>
+    <!-- Lumen Favicons -->
+    <link rel="icon" type="image/png" href="../assets/lumen-favicon.png">
+    <link rel="shortcut icon" href="../assets/lumen-favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
+
+</head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 bottom-0 w-[260px] bg-[#0F172A] text-inverse-on-surface z-50 flex flex-col justify-between overflow-y-auto"><a class="flex items-center gap-space-xs px-space-sm py-space-xs text-outline-variant hover:text-surface-container-lowest text-label-sm font-label-sm transition-colors" data-path="documentation" href="#"><span class="material-symbols-outlined text-[18px]">help</span><span class="">Documentation</span></a></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-14 bg-surface-container-lowest border-b border-outline-variant/50 z-40 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Lumen CMS" class="h-8 w-auto object-contain" src="../assets/lumen_logo.png" /></div>
+<div class="flex items-center gap-space-sm self-start md:self-auto shrink-0">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-space-sm text-[18px] text-outline pointer-events-none">search</span>
+<input class="h-9 w-64 pl-8 pr-space-md bg-surface-container-lowest rounded-lg text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none shadow-sm transition-all focus:ring-1 focus:ring-primary-container" placeholder="Search readers or emails..." type="text"/>
+</div>
+<div class="relative">
+<select class="h-9 pl-space-md pr-8 bg-surface-container-lowest rounded-lg text-label-md font-label-md text-on-surface appearance-none focus:outline-none cursor-pointer shadow-sm">
+<option value="all">Status: All</option>
+<option value="active">Active</option>
+<option value="pending">Pending Renewal</option>
+<option value="canceled">Canceled</option>
+<option value="expired">Expired</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-xs top-1/2 -translate-y-1/2 text-[18px] text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse min-w-[840px]">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-md px-space-xl font-semibold" scope="col">Reader</th>
+<th class="py-space-md px-space-lg font-semibold" scope="col">Email</th>
+<th class="py-space-md px-space-lg font-semibold" scope="col">Subscription Plan</th>
+<th class="py-space-md px-space-lg font-semibold" scope="col">Plan Status</th>
+<th class="py-space-md px-space-xl font-semibold text-right" scope="col">Renewal Date</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container text-body-md font-body-md text-on-surface">
+<!-- Row 1: Elena Rostova -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-on-secondary-fixed flex items-center justify-center font-label-md text-label-md shrink-0">
+                  ER
+                </div>
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-semibold text-on-surface truncate">Elena Rostova</span>
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm text-on-secondary-container bg-surface-container">
+                    Reader
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant font-body-sm text-body-sm">
+              elena.rostova@example.com
+            </td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center font-label-md text-label-md text-on-surface bg-surface-container-high px-space-sm py-1 rounded">
+                Pro Annual
+              </span>
+</td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-fixed text-on-tertiary-fixed-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Active
+              </span>
+</td>
+<td class="py-space-md px-space-xl text-right">
+<div class="flex flex-col items-end">
+<span class="font-label-md text-label-md text-on-surface">Nov 18, 2025</span>
+<span class="text-body-sm font-body-sm text-outline">In 11 months</span>
+</div>
+</td>
+</tr>
+<!-- Row 2: Marcus Thorne -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-label-md text-label-md shrink-0">
+                  MT
+                </div>
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-semibold text-on-surface truncate">Marcus Thorne</span>
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm text-on-secondary-container bg-surface-container">
+                    Reader
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant font-body-sm text-body-sm">
+              marcus.thorne@example.com
+            </td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center font-label-md text-label-md text-on-surface bg-surface-container-high px-space-sm py-1 rounded">
+                Standard Monthly
+              </span>
+</td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-fixed text-on-tertiary-fixed-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Active
+              </span>
+</td>
+<td class="py-space-md px-space-xl text-right">
+<div class="flex flex-col items-end">
+<span class="font-label-md text-label-md text-on-surface">Dec 04, 2025</span>
+<span class="text-body-sm font-body-sm text-outline">In 26 days</span>
+</div>
+</td>
+</tr>
+<!-- Row 3: Claire Delacroix -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant flex items-center justify-center font-label-md text-label-md shrink-0">
+                  CD
+                </div>
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-semibold text-on-surface truncate">Claire Delacroix</span>
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm text-on-secondary-container bg-surface-container">
+                    Reader
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant font-body-sm text-body-sm">
+              c.delacroix@example.com
+            </td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center font-label-md text-label-md text-on-surface bg-surface-container-high px-space-sm py-1 rounded">
+                Pro Annual
+              </span>
+</td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-container text-on-secondary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Pending Renewal
+              </span>
+</td>
+<td class="py-space-md px-space-xl text-right">
+<div class="flex flex-col items-end">
+<span class="font-label-md text-label-md text-on-surface">Oct 28, 2025</span>
+<span class="text-body-sm font-body-sm text-secondary font-medium">In 3 days</span>
+</div>
+</td>
+</tr>
+<!-- Row 4: Julian Vance -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded-full bg-error-container text-on-error-container flex items-center justify-center font-label-md text-label-md shrink-0">
+                  JV
+                </div>
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-semibold text-on-surface truncate">Julian Vance</span>
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm text-on-secondary-container bg-surface-container">
+                    Reader
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant font-body-sm text-body-sm">
+              julian.vance@example.com
+            </td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center font-label-md text-label-md text-on-surface bg-surface-container-high px-space-sm py-1 rounded">
+                Standard Monthly
+              </span>
+</td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-error-container text-on-error-container">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                Canceled
+              </span>
+</td>
+<td class="py-space-md px-space-xl text-right">
+<div class="flex flex-col items-end">
+<span class="font-label-md text-label-md text-outline">Nov 12, 2025</span>
+<span class="text-body-sm font-body-sm text-outline">Access ends</span>
+</div>
+</td>
+</tr>
+<!-- Row 5: Maya Patel -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-label-md text-label-md shrink-0">
+                  MP
+                </div>
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-semibold text-on-surface truncate">Maya Patel</span>
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm text-on-secondary-container bg-surface-container">
+                    Reader
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant font-body-sm text-body-sm">
+              maya.patel@example.com
+            </td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center font-label-md text-label-md text-on-surface bg-surface-container-high px-space-sm py-1 rounded">
+                Student Plan
+              </span>
+</td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-fixed text-on-tertiary-fixed-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Active
+              </span>
+</td>
+<td class="py-space-md px-space-xl text-right">
+<div class="flex flex-col items-end">
+<span class="font-label-md text-label-md text-on-surface">Jan 15, 2026</span>
+<span class="text-body-sm font-body-sm text-outline">In 68 days</span>
+</div>
+</td>
+</tr>
+<!-- Row 6: Lucas Meyer -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded-full bg-surface-container text-outline flex items-center justify-center font-label-md text-label-md shrink-0">
+                  LM
+                </div>
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-semibold text-on-surface truncate">Lucas Meyer</span>
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm text-on-secondary-container bg-surface-container">
+                    Reader
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-lg text-on-surface-variant font-body-sm text-body-sm">
+              lucas.m@example.com
+            </td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center font-label-md text-label-md text-outline bg-surface-container px-space-sm py-1 rounded">
+                Standard Monthly
+              </span>
+</td>
+<td class="py-space-md px-space-lg">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container text-outline">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                Expired
+              </span>
+</td>
+<td class="py-space-md px-space-xl text-right">
+<div class="flex flex-col items-end">
+<span class="font-label-md text-label-md text-outline">Oct 01, 2025</span>
+<span class="text-body-sm font-body-sm text-outline">Expired 27d ago</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="px-space-xl py-space-md bg-surface-container-lowest flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<span class="text-body-sm font-body-sm text-on-surface-variant">
+        Showing <span class="font-semibold text-on-surface">1</span> to <span class="font-semibold text-on-surface">6</span> of <span class="font-semibold text-on-surface">128</span> subscriptions
+      </span>
+<div class="flex items-center gap-space-xs">
+<button class="h-8 px-space-sm flex items-center gap-space-2xs rounded-lg text-label-sm font-label-sm text-outline-variant bg-surface-container-low cursor-not-allowed opacity-60" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+<span>Previous</span>
+</button>
+<div class="flex items-center gap-space-2xs">
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm flex items-center justify-center" type="button">
+            1
+          </button>
+<button class="w-8 h-8 rounded-lg text-on-surface hover:bg-surface-container-low font-label-sm text-label-sm flex items-center justify-center transition-colors" type="button">
+            2
+          </button>
+<button class="w-8 h-8 rounded-lg text-on-surface hover:bg-surface-container-low font-label-sm text-label-sm flex items-center justify-center transition-colors" type="button">
+            3
+          </button>
+<span class="px-1 text-outline font-label-sm">...</span>
+<button class="w-8 h-8 rounded-lg text-on-surface hover:bg-surface-container-low font-label-sm text-label-sm flex items-center justify-center transition-colors" type="button">
+            22
+          </button>
+</div>
+<button class="h-8 px-space-sm flex items-center gap-space-2xs rounded-lg text-label-sm font-label-sm text-on-surface bg-surface-container-lowest hover:bg-surface-container-low shadow-sm transition-colors" type="button">
+<span>Next</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div></main></div>
+</body></html>

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumen CMS - Quiz Builder Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Newsreader', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            surface: {
+              DEFAULT: '#f8f9ff',
+              container: '#eff4ff',
+              lowest: '#ffffff',
+              border: '#e2e8f0',
+              muted: '#64748b'
+            },
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              navy: '#0f172a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #f8f9fc;
+      color: #0f172a;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+  </style>
+
+    <!-- Lumen Favicons -->
+    <link rel="icon" type="image/png" href="../assets/lumen-favicon.png">
+    <link rel="shortcut icon" href="../assets/lumen-favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
+
+</head>
+<body class="font-sans min-h-screen flex flex-col antialiased bg-[#f8fafc]">
+
+  <!-- Top Navigation (Author & Admin Workspace Shell) -->
+  <header class="bg-white border-b border-[#e2e8f0] sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-8">
+        <a href="#" class="flex items-center focus:outline-none"><img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-9 w-auto object-contain" /></a>
+        <nav class="hidden md:flex space-x-1">
+          <a href="#" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 rounded-md">Articles</a>
+          <a href="#" class="px-3 py-2 text-sm font-semibold text-brand-600 bg-blue-50/70 rounded-md flex items-center">
+            <span>Quiz Builder</span>
+            <span class="ml-2 w-2 h-2 rounded-full bg-brand-600"></span>
+          </a>
+          <a href="#" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 rounded-md">Discussions</a>
+          <a href="#" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 rounded-md">Author Studio</a>
+        </nav>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <div class="hidden sm:flex items-center space-x-2 text-xs text-slate-500 bg-slate-100/80 px-2.5 py-1.5 rounded-md border border-slate-200">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Workspace: Author & Admin</span>
+        </div>
+        <div class="flex items-center pl-3 border-l border-slate-200 space-x-3">
+          <div class="text-right hidden sm:block">
+            <div class="text-xs font-semibold text-slate-900 flex items-center justify-end space-x-1.5">
+              <span>Dr. Jonathan Vance</span>
+              <span class="px-1.5 py-0.2 text-[10px] font-bold uppercase rounded bg-indigo-100 text-indigo-700 tracking-wide">Author</span>
+            </div>
+            <div class="text-[11px] text-slate-500 font-mono">vance@lumen.research</div>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-xs ring-2 ring-blue-100">
+            JV
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sub-header / Context breadcrumb -->
+  <div class="bg-white border-b border-slate-200 py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <span class="text-xs font-medium text-slate-500">Author Studio</span>
+        <svg class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <span class="text-xs font-semibold text-slate-800">Quiz Builder Studio</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 font-medium border border-blue-200">Knowledge Checkpoint Engine</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-xs text-slate-500">Authenticated Role:</span>
+        <span class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 text-slate-700 border border-slate-200">Author</span>
+        <span class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 text-slate-700 border border-slate-200">Admin</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Body Content: Two Primary Layout Sections (Quiz Management & Active Question Builder) -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-8">
+    
+    <!-- Top Action & Overview Title -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2">
+      <div>
+        <h1 class="text-2xl font-bold tracking-tight text-slate-900 flex items-center space-x-2">
+          <span>Quiz Builder</span>
+          <span class="text-xs font-medium text-slate-500 bg-slate-100 px-2 py-1 rounded border border-slate-200">v2.4 Editorial Core</span>
+        </h1>
+        <p class="text-sm text-slate-500 mt-1">Design, configure multiple-choice assessments, and attach interactive knowledge checkpoints directly to Lumen research papers.</p>
+      </div>
+      <div class="flex items-center space-x-3">
+        <button id="openPreviewBtn" onclick="toggleModal(true)" class="inline-flex items-center px-4 py-2 border border-slate-300 text-sm font-medium rounded-lg text-slate-700 bg-white hover:bg-slate-50 shadow-sm transition">
+          <svg class="w-4 h-4 mr-2 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          Preview Reader View
+        </button>
+        <button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-semibold rounded-lg text-white bg-brand-600 hover:bg-brand-700 shadow-sm transition">
+          <svg class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+          </svg>
+          Create New Quiz
+        </button>
+      </div>
+    </div>
+
+    <!-- SECTION 1: Quiz Inventory & Status Directory -->
+    <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+      <div class="p-4 sm:p-5 border-b border-slate-200 bg-slate-50/60 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <!-- Search & Status Filter -->
+        <div class="flex flex-1 flex-col sm:flex-row sm:items-center gap-3 max-w-2xl">
+          <div class="relative flex-1">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input type="text" placeholder="Search quizzes by title or article..." value="Kafka" class="block w-full pl-9 pr-3 py-2 text-sm border border-slate-200 rounded-lg bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
+          </div>
+          
+          <div class="flex items-center space-x-1.5">
+            <span class="text-xs font-medium text-slate-500 uppercase tracking-wider pl-1">Status:</span>
+            <div class="inline-flex rounded-lg border border-slate-200 p-0.5 bg-white text-xs">
+              <button class="px-2.5 py-1 font-medium rounded-md text-slate-600 hover:text-slate-900">All</button>
+              <button class="px-2.5 py-1 font-medium rounded-md text-slate-600 hover:text-slate-900">Draft</button>
+              <button class="px-2.5 py-1 font-medium rounded-md text-slate-600 hover:text-slate-900">Submitted</button>
+              <button class="px-2.5 py-1 font-semibold rounded-md bg-brand-50 text-brand-700 border border-brand-200 shadow-xs">Approved</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-xs text-slate-500 flex items-center space-x-2">
+          <span>Showing <strong>3</strong> peer-reviewed quizzes</span>
+        </div>
+      </div>
+
+      <!-- Quiz Table -->
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-slate-200 text-left text-sm">
+          <thead class="bg-slate-50 text-slate-600 text-xs font-semibold uppercase tracking-wider">
+            <tr>
+              <th scope="col" class="py-3.5 pl-6 pr-3">Quiz Title & Associated Dispatch</th>
+              <th scope="col" class="px-4 py-3.5">Questions</th>
+              <th scope="col" class="px-4 py-3.5">Status</th>
+              <th scope="col" class="px-4 py-3.5">Target Audience</th>
+              <th scope="col" class="py-3.5 pl-3 pr-6 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 bg-white">
+            <!-- Row 1: Selected / Editing -->
+            <tr class="bg-blue-50/40 border-l-4 border-l-brand-600">
+              <td class="py-4 pl-5 pr-3">
+                <div class="flex items-start space-x-3">
+                  <div class="p-2 rounded bg-blue-100 text-brand-700 mt-0.5">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-slate-900 flex items-center space-x-2">
+                      <span>Kafka Architecture & Durability Checkpoint</span>
+                      <span class="px-1.5 py-0.5 text-[10px] uppercase font-bold rounded bg-blue-100 text-brand-700 tracking-wide">Currently Editing</span>
+                    </div>
+                    <div class="text-xs text-slate-500 mt-0.5">Attached to: <span class="font-medium text-slate-700 italic">"Architecting Resilient Event Streams with Distributed Kafka Clusters"</span></div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-4 py-4 whitespace-nowrap">
+                <div class="text-xs font-medium text-slate-900 flex items-center">
+                  <span class="font-mono bg-slate-100 px-2 py-0.5 rounded text-slate-700 font-semibold mr-1.5">3</span>
+                  <span class="text-slate-500">Multiple-Choice</span>
+                </div>
+              </td>
+              <td class="px-4 py-4 whitespace-nowrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 border border-emerald-200">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5"></span>
+                  Approved
+                </span>
+              </td>
+              <td class="px-4 py-4 whitespace-nowrap text-xs text-slate-600">
+                <span class="font-medium text-slate-800">Reader</span> & Systems Engineers
+              </td>
+              <td class="py-4 pl-3 pr-6 text-right whitespace-nowrap text-xs font-medium space-x-2">
+                <button class="text-brand-600 hover:text-brand-800 font-semibold px-2 py-1 bg-white rounded border border-blue-200 shadow-2xs">Edit</button>
+                <button onclick="toggleModal(true)" class="text-slate-600 hover:text-slate-900 px-2 py-1 bg-white rounded border border-slate-200">View</button>
+                <button class="text-rose-600 hover:text-rose-800 px-2 py-1 bg-white rounded border border-slate-200">Delete</button>
+              </td>
+            </tr>
+
+            <!-- Row 2 -->
+            <tr class="hover:bg-slate-50/80 transition">
+              <td class="py-4 pl-6 pr-3">
+                <div class="flex items-start space-x-3">
+                  <div class="p-2 rounded bg-slate-100 text-slate-600 mt-0.5">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-slate-900">Zero-Knowledge Rollups Verification Exam</div>
+                    <div class="text-xs text-slate-500 mt-0.5">Attached to: <span class="font-medium text-slate-700 italic">"Zero-Knowledge Rollups and Cryptographic Validity Guarantees"</span></div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-4 py-4 whitespace-nowrap">
+                <div class="text-xs font-medium text-slate-900 flex items-center">
+                  <span class="font-mono bg-slate-100 px-2 py-0.5 rounded text-slate-700 font-semibold mr-1.5">5</span>
+                  <span class="text-slate-500">Multiple-Choice</span>
+                </div>
+              </td>
+              <td class="px-4 py-4 whitespace-nowrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800 border border-amber-200">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-500 mr-1.5"></span>
+                  Submitted
+                </span>
+              </td>
+              <td class="px-4 py-4 whitespace-nowrap text-xs text-slate-600">
+                <span class="font-medium text-slate-800">Reader</span> & Cryptographers
+              </td>
+              <td class="py-4 pl-3 pr-6 text-right whitespace-nowrap text-xs font-medium space-x-2">
+                <button class="text-slate-600 hover:text-brand-600 px-2 py-1 bg-white rounded border border-slate-200">Edit</button>
+                <button onclick="toggleModal(true)" class="text-slate-600 hover:text-slate-900 px-2 py-1 bg-white rounded border border-slate-200">View</button>
+                <button class="text-rose-600 hover:text-rose-800 px-2 py-1 bg-white rounded border border-slate-200">Delete</button>
+              </td>
+            </tr>
+
+            <!-- Row 3 -->
+            <tr class="hover:bg-slate-50/80 transition">
+              <td class="py-4 pl-6 pr-3">
+                <div class="flex items-start space-x-3">
+                  <div class="p-2 rounded bg-slate-100 text-slate-600 mt-0.5">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-slate-900">PostgreSQL Vacuum & Index Bloat Diagnostic</div>
+                    <div class="text-xs text-slate-500 mt-0.5">Attached to: <span class="font-medium text-slate-700 italic">"Optimizing PostgreSQL Query Plans and Vacuum Diagnostics"</span></div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-4 py-4 whitespace-nowrap">
+                <div class="text-xs font-medium text-slate-900 flex items-center">
+                  <span class="font-mono bg-slate-100 px-2 py-0.5 rounded text-slate-700 font-semibold mr-1.5">4</span>
+                  <span class="text-slate-500">Multiple-Choice</span>
+                </div>
+              </td>
+              <td class="px-4 py-4 whitespace-nowrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-800 border border-slate-200">
+                  <span class="w-1.5 h-1.5 rounded-full bg-slate-400 mr-1.5"></span>
+                  Draft
+                </span>
+              </td>
+              <td class="px-4 py-4 whitespace-nowrap text-xs text-slate-600">
+                <span class="font-medium text-slate-800">Reader</span> & DBAs
+              </td>
+              <td class="py-4 pl-3 pr-6 text-right whitespace-nowrap text-xs font-medium space-x-2">
+                <button class="text-slate-600 hover:text-brand-600 px-2 py-1 bg-white rounded border border-slate-200">Edit</button>
+                <button onclick="toggleModal(true)" class="text-slate-600 hover:text-slate-900 px-2 py-1 bg-white rounded border border-slate-200">View</button>
+                <button class="text-rose-600 hover:text-rose-800 px-2 py-1 bg-white rounded border border-slate-200">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SECTION 2: Active Question Builder Studio Form -->
+    <div class="bg-white border border-slate-200 rounded-xl shadow-sm p-6 sm:p-8">
+      
+      <!-- Studio Header with Status Badge & Save controls -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-200 gap-4">
+        <div>
+          <div class="flex items-center space-x-3">
+            <h2 class="text-lg font-bold text-slate-900">Editing Quiz: Kafka Architecture & Durability Checkpoint</h2>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 border border-emerald-200">
+              Approved
+            </span>
+          </div>
+          <p class="text-xs text-slate-500 mt-1">Configure quiz metadata, dynamic question sets, multiple-choice alternatives, and explanatory rationales.</p>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <button onclick="toggleModal(true)" class="px-3.5 py-2 text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition flex items-center">
+            <svg class="w-3.5 h-3.5 mr-1.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            Preview In Modal
+          </button>
+          <button class="px-4 py-2 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-lg shadow-sm transition">
+            Save Quiz Changes
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz Metadata Section -->
+      <div class="grid grid-cols-1 gap-6 py-6 border-b border-slate-200">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Quiz Title</label>
+          <input type="text" value="Kafka Architecture & Durability Checkpoint" class="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-200 bg-white font-medium text-slate-900 focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Quiz Description</label>
+          <textarea rows="2" class="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-200 bg-white text-slate-700 focus:ring-2 focus:ring-brand-500 focus:border-brand-500">Verify your technical comprehension on partitioned event broker topologies, replication factors, and consumer group rebalance invariants.</textarea>
+        </div>
+      </div>
+
+      <!-- Dynamic Questions Header & List -->
+      <div class="py-6 space-y-6">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-800">Questions (3 Configured)</h3>
+            <span class="text-xs text-slate-400">All questions require exactly 4 choices with one designated correct answer</span>
+          </div>
+
+          <!-- Add Question Button -->
+          <button class="inline-flex items-center px-3 py-1.5 text-xs font-semibold text-brand-700 bg-blue-50 border border-blue-200 hover:bg-blue-100 rounded-lg transition">
+            <svg class="w-3.5 h-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+            Add Question
+          </button>
+        </div>
+
+        <!-- Question Card 1 (Active / Expanded Question) -->
+        <div class="border-2 border-brand-500/80 rounded-xl p-5 sm:p-6 bg-slate-50/40 relative space-y-5 shadow-xs">
+          <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+            <div class="flex items-center space-x-2.5">
+              <span class="w-7 h-7 rounded-full bg-brand-600 text-white font-bold text-xs flex items-center justify-center">1</span>
+              <span class="text-sm font-bold text-slate-900">Question 1 of 3</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-100 text-brand-700 border border-blue-200">Single Correct Choice</span>
+            </div>
+            
+            <button class="text-xs text-rose-600 hover:text-rose-800 font-medium inline-flex items-center px-2 py-1 rounded hover:bg-rose-50 transition">
+              <svg class="w-3.5 h-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+              Delete Question
+            </button>
+          </div>
+
+          <!-- Question Prompt Input -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Question Prompt</label>
+            <input type="text" value="Which delivery guarantee does standard Kafka broker partitioning provide without supplementary clustering configuration?" class="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-200 bg-white font-medium text-slate-900 focus:ring-2 focus:ring-brand-500">
+          </div>
+
+          <!-- Four Multiple-Choice Options with Radio to select correct answer -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-700">Answer Options (Select the radio button for the correct answer)</span>
+              <span class="text-[11px] text-emerald-700 font-medium flex items-center">
+                <svg class="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Option B marked as correct
+              </span>
+            </div>
+
+            <!-- Option A -->
+            <div class="flex items-center space-x-3 bg-white p-3 rounded-lg border border-slate-200 hover:border-slate-300">
+              <input type="radio" name="q1_correct" id="q1_optA" class="w-4 h-4 text-brand-600 focus:ring-brand-500 border-slate-300">
+              <label for="q1_optA" class="w-7 text-xs font-bold text-slate-500 font-mono">A.</label>
+              <input type="text" value="Global strict total ordering across all consumer topics and decoupled partition offsets." class="flex-1 text-xs text-slate-800 bg-transparent border-0 focus:ring-0 p-0">
+            </div>
+
+            <!-- Option B (Correct Answer - Highlighted) -->
+            <div class="flex items-center space-x-3 bg-emerald-50/80 p-3 rounded-lg border-2 border-emerald-500 shadow-xs">
+              <input type="radio" name="q1_correct" id="q1_optB" checked class="w-4 h-4 text-emerald-600 focus:ring-emerald-500 border-emerald-400">
+              <label for="q1_optB" class="w-7 text-xs font-bold text-emerald-700 font-mono">B.</label>
+              <input type="text" value="Strict FIFO ordering guaranteed strictly within a specific, single partition key stream." class="flex-1 text-xs font-semibold text-emerald-900 bg-transparent border-0 focus:ring-0 p-0">
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-600 text-white">Correct Answer</span>
+            </div>
+
+            <!-- Option C -->
+            <div class="flex items-center space-x-3 bg-white p-3 rounded-lg border border-slate-200 hover:border-slate-300">
+              <input type="radio" name="q1_correct" id="q1_optC" class="w-4 h-4 text-brand-600 focus:ring-brand-500 border-slate-300">
+              <label for="q1_optC" class="w-7 text-xs font-bold text-slate-500 font-mono">C.</label>
+              <input type="text" value="Idempotent exactly-once delivery across multi-broker clusters without transaction coordination." class="flex-1 text-xs text-slate-800 bg-transparent border-0 focus:ring-0 p-0">
+            </div>
+
+            <!-- Option D -->
+            <div class="flex items-center space-x-3 bg-white p-3 rounded-lg border border-slate-200 hover:border-slate-300">
+              <input type="radio" name="q1_correct" id="q1_optD" class="w-4 h-4 text-brand-600 focus:ring-brand-500 border-slate-300">
+              <label for="q1_optD" class="w-7 text-xs font-bold text-slate-500 font-mono">D.</label>
+              <input type="text" value="Synchronous page-cache persistence to disk on every individual producer batch." class="flex-1 text-xs text-slate-800 bg-transparent border-0 focus:ring-0 p-0">
+            </div>
+          </div>
+
+          <!-- Explanation Text Area -->
+          <div class="bg-blue-50/50 p-4 rounded-lg border border-blue-100 space-y-1.5">
+            <label class="block text-xs font-bold uppercase tracking-wider text-brand-800">Explanation (Displayed to readers upon quiz completion)</label>
+            <textarea rows="2" class="w-full px-3 py-2 text-xs rounded border border-blue-200 bg-white text-slate-800 focus:ring-2 focus:ring-brand-500">Kafka guarantees strict FIFO message ordering exclusively within an isolated individual partition. Global ordering across distinct partitions requires external sequence coordination or dedicated single-partition topics.</textarea>
+          </div>
+        </div>
+
+        <!-- Question Card 2 (Collapsed/Accordion view for manageable navigation) -->
+        <div class="border border-slate-200 rounded-xl p-4 bg-white hover:border-slate-300 transition space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 font-bold text-xs flex items-center justify-center">2</span>
+              <div>
+                <span class="text-xs font-semibold text-slate-900">What does the <code class="bg-slate-100 px-1 py-0.5 rounded text-[11px] font-mono">min.insync.replicas=2</code> configuration enforce when <code class="bg-slate-100 px-1 py-0.5 rounded text-[11px] font-mono">acks=all</code>?</span>
+                <div class="text-[11px] text-slate-500 mt-0.5">Correct Answer: <span class="font-medium text-emerald-700">Option C (Requires at least 2 replicas to acknowledge)</span></div>
+              </div>
+            </div>
+            <div class="flex items-center space-x-2">
+              <button class="text-xs text-slate-600 hover:text-brand-600 font-medium px-2 py-1 rounded hover:bg-slate-50">Edit</button>
+              <button class="text-xs text-rose-600 hover:text-rose-800 px-2 py-1 rounded hover:bg-rose-50">Delete</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question Card 3 (Collapsed view) -->
+        <div class="border border-slate-200 rounded-xl p-4 bg-white hover:border-slate-300 transition space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 font-bold text-xs flex items-center justify-center">3</span>
+              <div>
+                <span class="text-xs font-semibold text-slate-900">Which rebalance protocol eliminates stop-the-world partition revocations in modern Kafka clients?</span>
+                <div class="text-[11px] text-slate-500 mt-0.5">Correct Answer: <span class="font-medium text-emerald-700">Option A (Cooperative Sticky Assignment)</span></div>
+              </div>
+            </div>
+            <div class="flex items-center space-x-2">
+              <button class="text-xs text-slate-600 hover:text-brand-600 font-medium px-2 py-1 rounded hover:bg-slate-50">Edit</button>
+              <button class="text-xs text-rose-600 hover:text-rose-800 px-2 py-1 rounded hover:bg-rose-50">Delete</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Action Bar for Question Builder -->
+        <div class="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-slate-200">
+          <button class="inline-flex items-center px-4 py-2 border border-dashed border-slate-300 text-xs font-semibold rounded-lg text-slate-700 bg-slate-50 hover:bg-slate-100 transition">
+            <svg class="w-4 h-4 mr-1.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+            Add Another Question (Max 10 per Quiz)
+          </button>
+
+          <div class="flex items-center space-x-3">
+            <button class="px-4 py-2 text-xs font-medium text-slate-600 hover:text-slate-900">Discard Changes</button>
+            <button class="px-5 py-2 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-lg shadow-sm transition">
+              Save & Update Quiz
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- MODAL / DIALOG: Quiz Reader Preview State (Displayed as an active inspectable overlay) -->
+  <div id="quizPreviewModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
+    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-2xl w-full overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Dialog Header -->
+      <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+        <div class="flex items-center space-x-2.5">
+          <span class="p-1.5 rounded-md bg-blue-100 text-brand-700">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </span>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900">Reader Experience Preview</h3>
+            <p class="text-xs text-slate-500">Live preview matching public reader styling</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="text-xs font-medium text-slate-500 bg-white px-2.5 py-1 rounded-md border border-slate-200">Question 1 of 3</span>
+          <button onclick="toggleModal(false)" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-200 transition">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Preview Body (Faithful to the public article reader knowledge checkpoint module) -->
+      <div class="p-6 sm:p-8 space-y-6">
+        
+        <!-- Attached Article Context Banner -->
+        <div class="flex items-center justify-between text-xs text-slate-500 pb-3 border-b border-slate-100">
+          <div>Attached to: <span class="font-medium text-slate-700">Architecting Resilient Event Streams with Distributed Kafka Clusters</span></div>
+          <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-medium">Peer-Reviewed Checkpoint</span>
+        </div>
+
+        <!-- Question Prompt -->
+        <div>
+          <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">Assessment Question 1</span>
+          <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-1 leading-snug">
+            Which delivery guarantee does standard Kafka broker partitioning provide without supplementary clustering configuration?
+          </h4>
+        </div>
+
+        <!-- Reader Options Mockup -->
+        <div class="space-y-3">
+          <!-- Option A (Unselected) -->
+          <label class="flex items-center p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
+            <input type="radio" name="preview_choice" class="w-4 h-4 text-brand-600 border-slate-300 focus:ring-brand-500">
+            <span class="ml-3 text-sm text-slate-700">A. Global strict total ordering across all consumer topics and decoupled partition offsets.</span>
+          </label>
+
+          <!-- Option B (Selected by Reader Preview) -->
+          <label class="flex items-center p-3.5 rounded-xl border-2 border-brand-600 bg-blue-50/50 cursor-pointer transition">
+            <input type="radio" name="preview_choice" checked class="w-4 h-4 text-brand-600 border-brand-600 focus:ring-brand-500">
+            <span class="ml-3 text-sm font-semibold text-brand-900">B. Strict FIFO ordering guaranteed strictly within a specific, single partition key stream.</span>
+          </label>
+
+          <!-- Option C (Unselected) -->
+          <label class="flex items-center p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
+            <input type="radio" name="preview_choice" class="w-4 h-4 text-brand-600 border-slate-300 focus:ring-brand-500">
+            <span class="ml-3 text-sm text-slate-700">C. Idempotent exactly-once delivery across multi-broker clusters without transaction coordination.</span>
+          </label>
+
+          <!-- Option D (Unselected) -->
+          <label class="flex items-center p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
+            <input type="radio" name="preview_choice" class="w-4 h-4 text-brand-600 border-slate-300 focus:ring-brand-500">
+            <span class="ml-3 text-sm text-slate-700">D. Synchronous page-cache persistence to disk on every individual producer batch.</span>
+          </label>
+        </div>
+
+        <!-- Verified Explanation Box Preview -->
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <div class="flex items-center space-x-1.5 text-xs font-bold text-slate-800 uppercase tracking-wider mb-1">
+            <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+            </svg>
+            <span>Author's Technical Explanation</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Kafka guarantees strict FIFO message ordering exclusively within an isolated individual partition. Global ordering across distinct partitions requires external sequence coordination or dedicated single-partition topics.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Preview Footer Controls -->
+      <div class="bg-slate-50 px-6 py-4 border-t border-slate-200 flex items-center justify-between">
+        <div class="text-xs text-slate-500">
+          Showing reader assessment simulation
+        </div>
+        <div class="flex items-center space-x-3">
+          <button onclick="toggleModal(false)" class="px-4 py-2 text-xs font-medium text-slate-700 bg-white hover:bg-slate-100 rounded-lg border border-slate-300 transition">
+            Close Preview
+          </button>
+          <button class="px-4 py-2 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-lg shadow-sm transition">
+            Validate Choice
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 text-xs text-slate-500 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-2">
+        <span class="font-bold text-slate-800">Lumen CMS</span>
+        <span>•</span>
+        <span>Quiz Builder Studio</span>
+        <span>•</span>
+        <span>Precision publishing & assessment engine</span>
+      </div>
+      <div class="flex items-center space-x-6">
+        <a href="#" class="hover:text-slate-900">Author Guidelines</a>
+        <a href="#" class="hover:text-slate-900">Documentation</a>
+        <a href="#" class="hover:text-slate-900">API Status</a>
+        <span>© 2025 Lumen CMS. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleModal(show) {
+      const modal = document.getElementById('quizPreviewModal');
+      if (show) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      } else {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumen CMS - Interactive Quiz Checkpoint</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Newsreader', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            surface: {
+              DEFAULT: '#f8f9ff',
+              container: '#eff4ff',
+              lowest: '#ffffff',
+              border: '#e2e8f0',
+              muted: '#64748b'
+            },
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              navy: '#0f172a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #f8f9fc;
+      color: #0f172a;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+  </style>
+<meta content="web_standard" name="shell-type"/>
+    <!-- Lumen Favicons -->
+    <link rel="icon" type="image/png" href="../assets/lumen-favicon.png">
+    <link rel="shortcut icon" href="../assets/lumen-favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
+
+</head>
+<body class="font-sans min-h-screen flex flex-col antialiased bg-[#f8fafc]">
+<!-- Top Navigation (Author & Admin Workspace Shell) -->
+<header class="bg-white border-b border-[#e2e8f0] sticky top-0 z-30">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<div class="flex items-center space-x-8">
+<a class="flex items-center focus:outline-none" href="#"><img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-9 w-auto object-contain" /></a>
+<nav class="hidden md:flex space-x-1">
+<a class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 rounded-md" href="#">Articles</a>
+<a class="px-3 py-2 text-sm font-semibold text-brand-600 bg-blue-50/70 rounded-md flex items-center" href="#">
+<span>Quiz Builder</span>
+<span class="ml-2 w-2 h-2 rounded-full bg-brand-600"></span>
+</a>
+<a class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 rounded-md" href="#">Discussions</a>
+<a class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 rounded-md" href="#">Author Studio</a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<div class="hidden sm:flex items-center space-x-2 text-xs text-slate-500 bg-slate-100/80 px-2.5 py-1.5 rounded-md border border-slate-200">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>Workspace: Author &amp; Admin</span>
+</div>
+<div class="flex items-center pl-3 border-l border-slate-200 space-x-3">
+<div class="text-right hidden sm:block">
+<div class="text-xs font-semibold text-slate-900 flex items-center justify-end space-x-1.5">
+<span>Dr. Jonathan Vance</span>
+<span class="px-1.5 py-0.2 text-[10px] font-bold uppercase rounded bg-indigo-100 text-indigo-700 tracking-wide">Author</span>
+</div>
+<div class="text-[11px] text-slate-500 font-mono">vance@lumen.research</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-xs ring-2 ring-blue-100">
+            JV
+          </div>
+</div>
+</div>
+</div>
+</header>
+<!-- Sub-header / Context breadcrumb -->
+<div class="bg-white border-b border-slate-200 py-3">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center space-x-3">
+<span class="text-xs font-medium text-slate-500">Author Studio</span>
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-xs font-semibold text-slate-800">Quiz Builder Studio</span>
+<span class="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 font-medium border border-blue-200">Knowledge Checkpoint Engine</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-xs text-slate-500">Authenticated Role:</span>
+<span class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 text-slate-700 border border-slate-200">Author</span>
+<span class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 text-slate-700 border border-slate-200">Admin</span>
+</div>
+</div>
+</div>
+<!-- Main Body Content: Two Primary Layout Sections (Quiz Management & Active Question Builder) -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-8"><div class="flex flex-col w-full">
+<!-- Interactive View State Controller Pill -->
+<div class="w-full max-w-4xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-3 bg-surface-container-low p-2 rounded-lg">
+<div class="flex items-center space-x-2 pl-2">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Preview Environment Control</span>
+<span class="font-body-sm text-body-sm text-secondary">Toggle between reader states:</span>
+</div>
+<div class="flex items-center space-x-2">
+<button class="px-3 py-1.5 rounded font-label-md text-label-md bg-surface-container-lowest text-primary shadow-sm transition" id="btnStateTaking" onclick="switchViewState('taking')">
+        1. In-Progress Screen
+      </button>
+<button class="px-3 py-1.5 rounded font-label-md text-label-md text-secondary hover:text-on-surface hover:bg-surface-container transition" id="btnStateResults" onclick="switchViewState('results')">
+        2. Completed Results Dialog
+      </button>
+</div>
+</div>
+<!-- Assessment View Container -->
+<div class="w-full max-w-4xl mx-auto flex flex-col space-y-6">
+<!-- Editorial Breadcrumb / Context Return -->
+<div class="flex items-center justify-between">
+<a class="inline-flex items-center space-x-2 text-secondary hover:text-primary transition font-label-md text-label-md group" href="#">
+<span class="material-symbols-outlined text-base group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+<span>Back to Article: <span class="font-medium text-on-surface">Architecting Resilient Event Streams with Distributed Kafka Clusters</span></span>
+</a>
+<div class="hidden sm:flex items-center space-x-2 text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">lock_clock</span>
+<span>Standard Reader Assessment</span>
+</div>
+</div>
+<!-- Quiz Meta Header & Context Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 sm:p-8 shadow-sm space-y-4">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center space-x-2.5">
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm tracking-wide uppercase">
+            Interactive Checkpoint
+          </span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-secondary">3 Questions Total</span>
+</div>
+<div class="flex items-center space-x-2 text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-base text-tertiary">verified_user</span>
+<span>Accompanying research paper by <span class="font-medium text-on-surface">Dr. Elena Lindqvist</span> (Admin)</span>
+</div>
+</div>
+<div class="space-y-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">
+          Kafka Architecture &amp; Durability Checkpoint
+        </h1>
+<p class="font-body-md text-body-md text-secondary max-w-3xl">
+          Assess your understanding of cluster replication semantics, strict ordering constraints within decoupled partitions, and cooperative sticky rebalance protocols.
+        </p>
+</div>
+<!-- Linear Progress Bar & Status Track -->
+<div class="pt-4 space-y-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-semibold flex items-center space-x-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span>Question 2 of 3</span>
+</span>
+<span class="text-primary font-bold">66% Completed</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary-container rounded-full transition-all duration-500 w-2/3"></div>
+</div>
+</div>
+</div>
+<!-- Active Question Card (Taking State) -->
+<section class="bg-surface-container-lowest rounded-xl p-6 sm:p-8 shadow-sm space-y-6">
+<!-- Category & Subtitle -->
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary tracking-wider uppercase font-semibold">
+          Question 2 • Event Streaming Fault Tolerance
+        </span>
+<span class="font-body-sm text-body-sm text-secondary bg-surface-container-low px-2 py-0.5 rounded">
+          Single Choice
+        </span>
+</div>
+<!-- High-Contrast Question Prompt -->
+<h2 class="font-headline-md text-headline-md text-on-surface leading-snug">
+        What does the <code class="font-mono text-sm bg-surface-container-high px-1.5 py-0.5 rounded text-on-surface font-medium">min.insync.replicas=2</code> configuration enforce when a producer sends records with <code class="font-mono text-sm bg-surface-container-high px-1.5 py-0.5 rounded text-on-surface font-medium">acks=all</code>?
+      </h2>
+<!-- Multiple-Choice Options List -->
+<fieldset class="space-y-3 pt-2">
+<legend class="sr-only">Multiple-choice answers for Question 2</legend>
+<!-- Option A (Unselected) -->
+<label class="group flex items-start p-4 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition">
+<input class="sr-only" name="assessment_q2" type="radio" value="A"/>
+<div class="flex items-center justify-center w-7 h-7 rounded-lg bg-surface-container-lowest text-secondary font-label-md text-label-md font-semibold shrink-0 transition group-hover:text-on-surface">
+            A
+          </div>
+<div class="ml-4 flex-1">
+<span class="font-body-md text-body-md text-secondary group-hover:text-on-surface leading-relaxed transition">
+              The broker permits writes if at least one replica is active in a remote availability zone.
+            </span>
+</div>
+<div class="w-5 h-5 rounded-full bg-surface-container-lowest ml-3 flex items-center justify-center shrink-0">
+<span class="w-2 h-2 rounded-full bg-transparent"></span>
+</div>
+</label>
+<!-- Option B (Selected State) -->
+<label class="flex items-start p-4 rounded-xl bg-primary-fixed/20 shadow-sm cursor-pointer transition">
+<input checked="" class="sr-only" name="assessment_q2" type="radio" value="B"/>
+<div class="flex items-center justify-center w-7 h-7 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-bold shrink-0 shadow-sm">
+            B
+          </div>
+<div class="ml-4 flex-1">
+<span class="font-body-md text-body-md text-on-surface font-medium leading-relaxed">
+              At least 2 replicas (including leader) must acknowledge the write before committing, preventing silent data loss upon leader crash.
+            </span>
+</div>
+<div class="w-5 h-5 rounded-full bg-primary-container ml-3 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm text-on-primary font-bold">check</span>
+</div>
+</label>
+<!-- Option C (Unselected) -->
+<label class="group flex items-start p-4 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition">
+<input class="sr-only" name="assessment_q2" type="radio" value="C"/>
+<div class="flex items-center justify-center w-7 h-7 rounded-lg bg-surface-container-lowest text-secondary font-label-md text-label-md font-semibold shrink-0 transition group-hover:text-on-surface">
+            C
+          </div>
+<div class="ml-4 flex-1">
+<span class="font-body-md text-body-md text-secondary group-hover:text-on-surface leading-relaxed transition">
+              Every topic partition automatically creates two shadow consumers for read-traffic load balancing.
+            </span>
+</div>
+<div class="w-5 h-5 rounded-full bg-surface-container-lowest ml-3 flex items-center justify-center shrink-0">
+<span class="w-2 h-2 rounded-full bg-transparent"></span>
+</div>
+</label>
+<!-- Option D (Unselected) -->
+<label class="group flex items-start p-4 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition">
+<input class="sr-only" name="assessment_q2" type="radio" value="D"/>
+<div class="flex items-center justify-center w-7 h-7 rounded-lg bg-surface-container-lowest text-secondary font-label-md text-label-md font-semibold shrink-0 transition group-hover:text-on-surface">
+            D
+          </div>
+<div class="ml-4 flex-1">
+<span class="font-body-md text-body-md text-secondary group-hover:text-on-surface leading-relaxed transition">
+              Producers will automatically buffer unacknowledged messages locally in disk swap for 24 hours.
+            </span>
+</div>
+<div class="w-5 h-5 rounded-full bg-surface-container-lowest ml-3 flex items-center justify-center shrink-0">
+<span class="w-2 h-2 rounded-full bg-transparent"></span>
+</div>
+</label>
+</fieldset>
+<!-- Active Question Footer / Navigation Controls -->
+<div class="pt-6 flex flex-wrap items-center justify-between gap-4">
+<button class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-base">arrow_back</span>
+<span>Previous</span>
+</button>
+<div class="flex items-center space-x-3">
+<button class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition font-label-md text-label-md" type="button">
+<span>Next Question</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+<button class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary transition font-label-md text-label-md shadow-sm" onclick="switchViewState('results')" type="button">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span>Submit Quiz</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Reader Security / Rigor Note -->
+<div class="flex items-center justify-between px-2 text-secondary font-body-sm text-body-sm">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-sm">shield_spark</span>
+<span>Peer-reviewed knowledge assessment engine. Responses validate against official protocol specifications.</span>
+</div>
+<span class="font-mono text-xs">ID: CHK-KAFKA-9042</span>
+</div>
+</div>
+<!-- RESULTS MODAL / ACTIVE INSPECTABLE DIALOG OVERLAY -->
+<div aria-labelledby="resultsTitle" aria-modal="true" class="hidden fixed inset-0 z-50 p-4 bg-on-background/40 backdrop-blur-sm flex items-center justify-center overflow-y-auto" id="resultsModalOverlay" role="dialog">
+<div class="bg-surface-container-lowest max-w-2xl w-full rounded-xl shadow-xl overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200">
+<!-- Modal Header -->
+<div class="bg-surface-container-low px-6 py-4 flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-lg bg-tertiary-container text-on-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface" id="resultsTitle">
+              Assessment Results
+            </h3>
+<p class="font-body-sm text-body-sm text-secondary">
+              Kafka Architecture &amp; Durability Checkpoint
+            </p>
+</div>
+</div>
+<button aria-label="Close Results Modal" class="text-secondary hover:text-on-surface p-1.5 rounded-lg hover:bg-surface-container transition" onclick="switchViewState('taking')">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- Scrollable Modal Body -->
+<div class="p-6 sm:p-8 space-y-6 max-h-[75vh] overflow-y-auto custom-scrollbar">
+<!-- Score Summary Banner & Progress Ring -->
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col sm:flex-row items-center gap-6">
+<!-- SVG Radial Score Meter -->
+<div class="relative w-24 h-24 shrink-0 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<!-- Background Ring Track -->
+<circle class="stroke-surface-container" cx="18" cy="18" fill="none" r="15.5" stroke-width="3"></circle>
+<!-- Foreground Progress Indicator (100%) -->
+<circle class="stroke-tertiary" cx="18" cy="18" fill="none" r="15.5" stroke-dasharray="97.4" stroke-dashoffset="0" stroke-linecap="round" stroke-width="3"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">100%</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase">3 / 3</span>
+</div>
+</div>
+<!-- Summary Badges & Verbatim Review -->
+<div class="space-y-2 text-center sm:text-left flex-1">
+<div class="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full bg-on-tertiary-container text-on-tertiary-fixed-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Passed • Certified Understanding</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">
+              Outstanding Performance!
+            </h4>
+<p class="font-body-sm text-body-sm text-secondary leading-relaxed">
+              You have demonstrated comprehensive understanding of Kafka partitioning, durability invariants, and quorum rebalance protocols.
+            </p>
+</div>
+</div>
+<!-- Question-by-Question Detailed Review -->
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider font-semibold">
+              Detailed Question Analysis
+            </span>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">
+              All 3 Correct
+            </span>
+</div>
+<!-- Review Item 1 -->
+<div class="bg-surface-container-low rounded-xl p-5 space-y-3">
+<div class="flex items-start justify-between gap-4">
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Question 1</span>
+<p class="font-label-lg text-label-lg text-on-surface font-medium">
+                  Which delivery guarantee does standard Kafka broker partitioning provide without supplementary clustering configuration?
+                </p>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-on-tertiary-container text-on-tertiary-fixed-variant font-label-sm text-label-sm shrink-0">
+<span class="material-symbols-outlined text-sm mr-1">check_circle</span>
+                Correct
+              </span>
+</div>
+<div class="p-3 bg-surface-container-lowest rounded-lg space-y-1">
+<div class="font-body-sm text-body-sm text-secondary">Your Selection:</div>
+<div class="font-label-md text-label-md text-on-surface font-medium">
+                Option B: Strict FIFO ordering guaranteed strictly within a specific, single partition key stream.
+              </div>
+</div>
+<!-- Author Explanation Box -->
+<div class="p-3.5 bg-surface-container rounded-lg space-y-1 text-on-surface-variant font-body-sm text-body-sm">
+<div class="font-label-sm text-label-sm text-on-surface font-semibold flex items-center space-x-1">
+<span class="material-symbols-outlined text-sm text-primary">psychology</span>
+<span>Author's Explanation:</span>
+</div>
+<p class="leading-relaxed">
+                Kafka guarantees strict FIFO message ordering exclusively within an isolated individual partition. Global ordering across distinct partitions requires external sequence coordination or dedicated single-partition topics.
+              </p>
+</div>
+</div>
+<!-- Review Item 2 -->
+<div class="bg-surface-container-low rounded-xl p-5 space-y-3">
+<div class="flex items-start justify-between gap-4">
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Question 2</span>
+<p class="font-label-lg text-label-lg text-on-surface font-medium">
+                  What does the min.insync.replicas=2 configuration enforce when acks=all?
+                </p>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-on-tertiary-container text-on-tertiary-fixed-variant font-label-sm text-label-sm shrink-0">
+<span class="material-symbols-outlined text-sm mr-1">check_circle</span>
+                Correct
+              </span>
+</div>
+<div class="p-3 bg-surface-container-lowest rounded-lg space-y-1">
+<div class="font-body-sm text-body-sm text-secondary">Your Selection:</div>
+<div class="font-label-md text-label-md text-on-surface font-medium">
+                Option B: At least 2 replicas (including leader) must acknowledge the write before committing, preventing silent data loss upon leader crash.
+              </div>
+</div>
+<div class="p-3.5 bg-surface-container rounded-lg space-y-1 text-on-surface-variant font-body-sm text-body-sm">
+<div class="font-label-sm text-label-sm text-on-surface font-semibold flex items-center space-x-1">
+<span class="material-symbols-outlined text-sm text-primary">psychology</span>
+<span>Author's Explanation:</span>
+</div>
+<p class="leading-relaxed">
+                When min.insync.replicas=2 and acks=all, writes fail with NotEnoughReplicasException if fewer than two ISR nodes are online, eliminating data loss during leader transition.
+              </p>
+</div>
+</div>
+<!-- Review Item 3 -->
+<div class="bg-surface-container-low rounded-xl p-5 space-y-3">
+<div class="flex items-start justify-between gap-4">
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Question 3</span>
+<p class="font-label-lg text-label-lg text-on-surface font-medium">
+                  Which rebalance protocol eliminates stop-the-world partition revocations in modern Kafka clients?
+                </p>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-on-tertiary-container text-on-tertiary-fixed-variant font-label-sm text-label-sm shrink-0">
+<span class="material-symbols-outlined text-sm mr-1">check_circle</span>
+                Correct
+              </span>
+</div>
+<div class="p-3 bg-surface-container-lowest rounded-lg space-y-1">
+<div class="font-body-sm text-body-sm text-secondary">Your Selection:</div>
+<div class="font-label-md text-label-md text-on-surface font-medium">
+                Option A: Cooperative Sticky Assignment.
+              </div>
+</div>
+<div class="p-3.5 bg-surface-container rounded-lg space-y-1 text-on-surface-variant font-body-sm text-body-sm">
+<div class="font-label-sm text-label-sm text-on-surface font-semibold flex items-center space-x-1">
+<span class="material-symbols-outlined text-sm text-primary">psychology</span>
+<span>Author's Explanation:</span>
+</div>
+<p class="leading-relaxed">
+                CooperativeStickyAssignor reallocates only reassigned partitions in successive rounds, leaving unaffected consumer partitions continuously processing.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Actions Footer -->
+<div class="bg-surface-container-low px-6 py-4 flex flex-wrap items-center justify-between gap-3">
+<button class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition font-label-md text-label-md shadow-sm" onclick="switchViewState('taking')" type="button">
+<span class="material-symbols-outlined text-base">replay</span>
+<span>Retake Quiz</span>
+</button>
+<a class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary transition font-label-md text-label-md shadow-sm" href="#">
+<span>Return to Article</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function switchViewState(mode) {
+    const modal = document.getElementById('resultsModalOverlay');
+    const btnTaking = document.getElementById('btnStateTaking');
+    const btnResults = document.getElementById('btnStateResults');
+
+    if (mode === 'results') {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      
+      btnResults.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+      btnResults.classList.remove('text-secondary');
+      
+      btnTaking.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+      btnTaking.classList.add('text-secondary');
+    } else {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      
+      btnTaking.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+      btnTaking.classList.remove('text-secondary');
+      
+      btnResults.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+      btnResults.classList.add('text-secondary');
+    }
+  }
+</script></main>
+<!-- MODAL / DIALOG: Quiz Reader Preview State (Displayed as an active inspectable overlay) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs" id="quizPreviewModal">
+<div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-2xl w-full overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+<!-- Dialog Header -->
+<div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<span class="p-1.5 rounded-md bg-blue-100 text-brand-700">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+<div>
+<h3 class="text-sm font-bold text-slate-900">Reader Experience Preview</h3>
+<p class="text-xs text-slate-500">Live preview matching public reader styling</p>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-xs font-medium text-slate-500 bg-white px-2.5 py-1 rounded-md border border-slate-200">Question 1 of 3</span>
+<button class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-200 transition" onclick="toggleModal(false)">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Preview Body (Faithful to the public article reader knowledge checkpoint module) -->
+<div class="p-6 sm:p-8 space-y-6">
+<!-- Attached Article Context Banner -->
+<div class="flex items-center justify-between text-xs text-slate-500 pb-3 border-b border-slate-100">
+<div>Attached to: <span class="font-medium text-slate-700">Architecting Resilient Event Streams with Distributed Kafka Clusters</span></div>
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-medium">Peer-Reviewed Checkpoint</span>
+</div>
+<!-- Question Prompt -->
+<div>
+<span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">Assessment Question 1</span>
+<h4 class="text-base sm:text-lg font-bold text-slate-900 mt-1 leading-snug">
+            Which delivery guarantee does standard Kafka broker partitioning provide without supplementary clustering configuration?
+          </h4>
+</div>
+<!-- Reader Options Mockup -->
+<div class="space-y-3">
+<!-- Option A (Unselected) -->
+<label class="flex items-center p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
+<input class="w-4 h-4 text-brand-600 border-slate-300 focus:ring-brand-500" name="preview_choice" type="radio"/>
+<span class="ml-3 text-sm text-slate-700">A. Global strict total ordering across all consumer topics and decoupled partition offsets.</span>
+</label>
+<!-- Option B (Selected by Reader Preview) -->
+<label class="flex items-center p-3.5 rounded-xl border-2 border-brand-600 bg-blue-50/50 cursor-pointer transition">
+<input checked="" class="w-4 h-4 text-brand-600 border-brand-600 focus:ring-brand-500" name="preview_choice" type="radio"/>
+<span class="ml-3 text-sm font-semibold text-brand-900">B. Strict FIFO ordering guaranteed strictly within a specific, single partition key stream.</span>
+</label>
+<!-- Option C (Unselected) -->
+<label class="flex items-center p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
+<input class="w-4 h-4 text-brand-600 border-slate-300 focus:ring-brand-500" name="preview_choice" type="radio"/>
+<span class="ml-3 text-sm text-slate-700">C. Idempotent exactly-once delivery across multi-broker clusters without transaction coordination.</span>
+</label>
+<!-- Option D (Unselected) -->
+<label class="flex items-center p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
+<input class="w-4 h-4 text-brand-600 border-slate-300 focus:ring-brand-500" name="preview_choice" type="radio"/>
+<span class="ml-3 text-sm text-slate-700">D. Synchronous page-cache persistence to disk on every individual producer batch.</span>
+</label>
+</div>
+<!-- Verified Explanation Box Preview -->
+<div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+<div class="flex items-center space-x-1.5 text-xs font-bold text-slate-800 uppercase tracking-wider mb-1">
+<svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" fill-rule="evenodd"></path>
+</svg>
+<span>Author's Technical Explanation</span>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed">
+            Kafka guarantees strict FIFO message ordering exclusively within an isolated individual partition. Global ordering across distinct partitions requires external sequence coordination or dedicated single-partition topics.
+          </p>
+</div>
+</div>
+<!-- Preview Footer Controls -->
+<div class="bg-slate-50 px-6 py-4 border-t border-slate-200 flex items-center justify-between">
+<div class="text-xs text-slate-500">
+          Showing reader assessment simulation
+        </div>
+<div class="flex items-center space-x-3">
+<button class="px-4 py-2 text-xs font-medium text-slate-700 bg-white hover:bg-slate-100 rounded-lg border border-slate-300 transition" onclick="toggleModal(false)">
+            Close Preview
+          </button>
+<button class="px-4 py-2 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-lg shadow-sm transition">
+            Validate Choice
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-white border-t border-slate-200 py-6 text-xs text-slate-500 mt-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center space-x-2">
+<span class="font-bold text-slate-800">Lumen CMS</span>
+<span>•</span>
+<span>Quiz Builder Studio</span>
+<span>•</span>
+<span>Precision publishing &amp; assessment engine</span>
+</div>
+<div class="flex items-center space-x-6">
+<a class="hover:text-slate-900" href="#">Author Guidelines</a>
+<a class="hover:text-slate-900" href="#">Documentation</a>
+<a class="hover:text-slate-900" href="#">API Status</a>
+<span>© 2025 Lumen CMS. All rights reserved.</span>
+</div>
+</div>
+</footer>
+<script>
+    function toggleModal(show) {
+      const modal = document.getElementById('quizPreviewModal');
+      if (show) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      } else {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+  </script>
+</body></html>

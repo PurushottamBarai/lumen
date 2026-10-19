@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Lumen CMS - Editorial Knowledge Platform</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"error":"#ba1a1a","tertiary-fixed":"#6ffbbe","on-secondary":"#ffffff","surface":"#f8f9ff","on-secondary-fixed-variant":"#3f465c","primary-container":"#2563eb","tertiary-container":"#007d55","on-surface":"#0b1c30","on-background":"#0b1c30","on-primary-container":"#eeefff","on-secondary-container":"#5c647a","surface-container-high":"#dce9ff","on-surface-variant":"#434655","surface-bright":"#f8f9ff","on-secondary-fixed":"#131b2e","secondary-fixed":"#dae2fd","inverse-on-surface":"#eaf1ff","surface-variant":"#d3e4fe","on-tertiary":"#ffffff","surface-container-low":"#eff4ff","on-primary-fixed-variant":"#003ea8","error-container":"#ffdad6","primary":"#004ac6","secondary-fixed-dim":"#bec6e0","on-tertiary-container":"#bdffdb","surface-container":"#e5eeff","primary-fixed":"#dbe1ff","surface-dim":"#cbdbf5","tertiary":"#006242","on-primary-fixed":"#00174b","on-primary":"#ffffff","outline":"#737686","primary-fixed-dim":"#b4c5ff","inverse-primary":"#b4c5ff","on-error":"#ffffff","tertiary-fixed-dim":"#4edea3","on-tertiary-fixed":"#002113","outline-variant":"#c3c6d7","on-error-container":"#93000a","background":"#f8f9ff","surface-tint":"#0053db","surface-container-highest":"#d3e4fe","secondary":"#565e74","secondary-container":"#dae2fd","on-tertiary-fixed-variant":"#005236","surface-container-lowest":"#ffffff","inverse-surface":"#213145"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"margin":"2rem","gutter-sm":"1rem","space-xs":"0.25rem","space-2xs":"0.125rem","gutter":"1.5rem","space-lg":"1rem","space-md":"0.75rem","space-xl":"1.5rem","margin-sm":"1rem","space-sm":"0.5rem","space-2xl":"2rem"},fontFamily:{"metric-display":["Inter"],"headline-md":["Inter"],"headline-lg":["Inter"],"headline-xl":["Inter"],"label-md":["Inter"],"headline-sm":["Inter"],"body-lg":["Inter"],"body-sm":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"label-lg":["Inter"]},fontSize:{"metric-display":["1.75rem",{"lineHeight":"2rem","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["1.25rem",{"lineHeight":"1.75rem","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-xl":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.025em","fontWeight":"700"}],"label-md":["0.8125rem",{"lineHeight":"1.125rem","fontWeight":"500"}],"headline-sm":["1.125rem",{"lineHeight":"1.5rem","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["1rem",{"lineHeight":"1.5rem","fontWeight":"400"}],"body-sm":["0.75rem",{"lineHeight":"1rem","fontWeight":"400"}],"label-sm":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.025em","fontWeight":"600"}],"body-md":["0.875rem",{"lineHeight":"1.25rem","fontWeight":"400"}],"label-lg":["0.875rem",{"lineHeight":"1.25rem","fontWeight":"500"}]}}}};</script>
+    <!-- Lumen Favicons -->
+    <link rel="icon" type="image/png" href="../assets/lumen-favicon.png">
+    <link rel="shortcut icon" href="../assets/lumen-favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
+
+</head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-2xl"><a class="flex items-center gap-space-xs text-primary font-headline-md text-headline-md tracking-tight focus:outline-none" data-path="explore" href="#"><img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-9 w-auto object-contain" /></a><nav class="hidden md:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-label-md"><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="articles" href="#">Articles</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="quizzes" href="#">Quizzes</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="discussions" href="#">Discussions</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="topics" href="#">Topics</a></nav></div><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="sign-in" href="#">Sign In</a><a class="inline-flex items-center justify-center px-space-lg py-space-xs rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md hover:bg-primary transition-colors shadow-sm" data-path="sign-up" href="#">Get Started</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 bg-surface min-h-[calc(100vh-14rem)]"><div class="flex flex-col w-full">
+<!-- Pinned Top Reading Progress Bar (Fixed below 56px shell header) -->
+<div class="fixed top-14 left-0 right-0 z-40 h-[3px] bg-surface-container-high/60 pointer-events-none">
+<div class="h-full bg-primary-container transition-all duration-150" id="readingProgress" style="width: 44.6%;"></div>
+</div>
+<!-- Breadcrumb & Top Utility Rail -->
+<div class="w-full bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 py-space-sm flex items-center justify-between">
+<a class="inline-flex items-center gap-space-xs text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+<span>Back to Articles</span>
+</a>
+<div class="flex items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm">
+<span class="inline-flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-full text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+          Peer Reviewed
+        </span>
+<span class="hidden sm:inline">DOI: 10.1042/lumen.2025.0924</span>
+</div>
+</div>
+</div>
+<!-- Main Viewport Reading Container -->
+<div class="max-w-7xl mx-auto px-6 lg:px-12 py-space-xl w-full">
+<!-- Article Header -->
+<header class="max-w-4xl mb-space-2xl">
+<div class="flex flex-wrap items-center gap-space-xs mb-space-md">
+<span class="px-space-md py-space-2xs rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">Distributed Systems</span>
+<span class="px-space-md py-space-2xs rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Systems Architecture</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl md:text-[2.5rem] md:leading-[3rem] font-bold text-on-surface tracking-tight mb-space-md font-['Newsreader','Playfair_Display','Merriweather',serif]">
+        Architecting Resilient Event Streams with Distributed Kafka Clusters
+      </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-space-xl">
+        An exhaustive architectural blueprint on multi-region partition rebalancing, quorum durability, and backpressure governance for mission-critical asynchronous workloads.
+      </p>
+<!-- Article Metadata Strip -->
+<div class="flex flex-wrap items-center justify-between gap-space-lg py-space-md bg-surface-container-low rounded-xl px-space-lg">
+<!-- Author info -->
+<div class="flex items-center gap-space-md">
+<div class="relative w-11 h-11 rounded-full bg-surface-container-highest overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait photograph of Dr. Elena Lindqvist, a focused female systems software engineer wearing understated glasses against a warm studio architectural background, professional lighting and sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtyW_CXn8gJISFY1IX1DLf7BasPVgH5cszuxEg1tBfoRNvdSGaslqfle21QAdVK_8Qg0oTt9vKDeaIybt3Fm4-uDVGDMoyKVSf9nI_J7HcnDVNwT2HV50U0lCCIxM35K1YbmTMoGwxozwMXpP510AR5cHhLJSICiY_0cuYRm176OiZgvzMKxHjl14vdIy7BPOtUAluaLfAsG5efNwGztudJ3CHGMH64Mr-lu2h-Y2gLZMI6H42ib4KHQ"/>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Dr. Elena Lindqvist</span>
+<span class="px-space-xs py-[1px] rounded bg-primary text-on-primary font-label-sm text-[10px] tracking-wider uppercase font-bold">ADMIN</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-tertiary mt-0.5">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>98.4% Trust Score • Tier 1 Verified Contributor</span>
+</div>
+</div>
+</div>
+<!-- Meta metrics & Quick Actions -->
+<div class="flex flex-wrap items-center gap-space-lg">
+<div class="flex items-center gap-space-md font-body-sm text-body-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+              12 min read
+            </span>
+<span>•</span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+              Oct 24, 2025
+            </span>
+<span>•</span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+              4.2k views
+            </span>
+</div>
+<!-- Action buttons -->
+<div class="flex items-center gap-space-xs">
+<button class="h-8 px-space-md rounded-lg bg-primary-container text-on-primary font-label-md text-label-md inline-flex items-center gap-1 hover:bg-primary transition-colors shadow-sm" id="subscribeBtn" onclick="toggleSubscribe()">
+<span class="material-symbols-outlined text-[16px]" id="subscribeIcon">notifications</span>
+<span id="subscribeText">Subscribe</span>
+</button>
+<button class="h-8 w-8 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors inline-flex items-center justify-center" id="bookmarkBtn" onclick="toggleBookmark()" title="Bookmark Article">
+<span class="material-symbols-outlined text-[18px]" id="bookmarkIcon">bookmark_border</span>
+</button>
+<button class="h-8 w-8 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors inline-flex items-center justify-center" onclick="copyShareLink()" title="Share Article">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button class="h-8 px-space-sm rounded-lg bg-surface-container-lowest text-error hover:bg-error-container hover:text-on-error-container font-label-sm text-label-sm transition-colors inline-flex items-center gap-1" onclick="openReportModal()">
+<span class="material-symbols-outlined text-[16px]">flag</span>
+<span class="hidden sm:inline">Report</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Two-Column Main Reading Workspace -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-start">
+<!-- Main Content Column (~68% width, max-w-3xl) -->
+<article class="lg:col-span-8 max-w-3xl space-y-space-xl">
+<!-- Featured Technical Media Player Mockup -->
+<div class="w-full bg-inverse-surface rounded-xl overflow-hidden shadow-md">
+<div class="relative w-full aspect-video bg-inverse-surface flex items-center justify-center group cursor-pointer overflow-hidden">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-75 transition-opacity" data-alt="Technical architectural diagram overlay showing distributed Apache Kafka partition topics, multi-datacenter broker clusters, quorum controllers, and high throughput event streaming pipeline schematic on a clean dark slate background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRKjG8e-BGh7COg5WXRpjKw_uMRBKgH86tN2_Ml11k8ZtIpy4NydCHWXzoEibpEVl-2VgT0QeCfRjXrNOMV8cFb2PZlSekqcCitKlA7kFHaVLdcCKr_UOAAb_UlrxF_e0vg-j8ujdL8vDbGbWOpvPvFYXmw83qnv5k05NoXyvWh4JeNlDGw2xqQvLzi3bMJ80oZyQapYM8ll4xiBLDfeKR2ubLAYsargcLwO6OTDmhcvSmjueNe55ITQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-transparent to-transparent"></div>
+<!-- Play Trigger Overlay -->
+<div class="absolute flex flex-col items-center gap-space-xs z-10">
+<div class="w-14 h-14 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[32px] ml-1">play_arrow</span>
+</div>
+<span class="font-label-md text-label-md text-inverse-on-surface bg-inverse-surface/80 px-space-md py-1 rounded-full backdrop-blur-sm">
+                Watch Architectural Walkthrough
+              </span>
+</div>
+<!-- Video Top bar meta -->
+<div class="absolute top-space-md left-space-md right-space-md flex items-center justify-between text-inverse-on-surface z-10">
+<span class="font-label-sm text-label-sm font-semibold tracking-wide bg-inverse-surface/90 px-space-sm py-1 rounded">DEEP DIVE RECORDING</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest/30 text-inverse-on-surface font-label-sm text-label-sm backdrop-blur-xs">1080p 60fps</span>
+</div>
+<!-- Video Player Scrubber & Duration -->
+<div class="absolute bottom-0 left-0 right-0 p-space-md z-10 flex flex-col gap-space-2xs bg-gradient-to-t from-inverse-surface to-transparent">
+<div class="flex items-center justify-between text-inverse-on-surface font-label-sm text-label-sm">
+<span class="font-medium">Kafka Cluster Partitioning &amp; Quorum Deep Dive</span>
+<span class="bg-inverse-surface/80 px-2 py-0.5 rounded font-mono text-[11px]">28:14</span>
+</div>
+<div class="w-full h-1.5 bg-inverse-on-surface/30 rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[35%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 1 -->
+<section class="space-y-space-md" id="section-1">
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight font-['Newsreader','Playfair_Display','Merriweather',serif]">
+            1. The Fundamental Geometry of Partition Rebalancing
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+            In hyper-scale distributed streaming architectures, partition allocation is not merely an administrative abstraction—it directly governs queue latency, socket saturation, and replica synchronization bounds. When relying on modern Kafka cluster topologies, the default <code class="px-1.5 py-0.5 rounded bg-surface-container font-mono text-body-sm text-primary font-medium">org.apache.kafka.clients.producer.KafkaProducer</code> leverages rendezvous routing unless explicit partition keys are supplied.
+          </p>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+            During heavy workload transitions or ungraceful broker evacuations, the conventional <code class="px-1.5 py-0.5 rounded bg-surface-container font-mono text-body-sm text-primary font-medium">EagerRebalanceProtocol</code> revokes all partition assignments indiscriminately. This forces client threads into synchronization latency cycles before renegotiating stateful metadata.
+          </p>
+<div class="bg-surface-container-low rounded-xl p-space-lg space-y-space-xs">
+<span class="font-label-md text-label-md font-semibold text-on-surface block">Rebalance Hazard Topology</span>
+<ul class="space-y-space-xs text-on-surface-variant font-body-md text-body-md list-none">
+<li class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>Eager Protocol Revocation:</strong> Revokes 100% of partition assignments simultaneously, resulting in a systemic processing freeze until partition reconciliation concludes.</span>
+</li>
+<li class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>Cooperative Sticky Assignment:</strong> Restricts assignment reassignment strictly to displaced partitions, permitting unaffected consumer threads to sustain real-time processing streams.</span>
+</li>
+<li class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>Heartbeat Starvation:</strong> Heavy GC pressure or compute-bound loops can artificially trip the session timeout, initiating continuous cascading cluster rebalance waves.</span>
+</li>
+</ul>
+</div>
+<!-- Architectural Callout Box -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div class="space-y-1">
+<span class="font-label-md text-label-md font-bold uppercase tracking-wider text-primary block">Key Architectural Invariant</span>
+<p class="font-body-md text-body-md text-on-surface font-medium leading-normal">
+                Never allow consumer group rebalances to trigger stop-the-world partition assignment during transient broker failovers. Enforce incremental cooperative rebalancing policies across all production consumers.
+              </p>
+</div>
+</div>
+</section>
+<!-- Section 2 -->
+<section class="space-y-space-md pt-space-md" id="section-2">
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight font-['Newsreader','Playfair_Display','Merriweather',serif]">
+            2. Quorum Durability and Min-In-Sync Replicas
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+            Message acknowledgment guarantees strictly depend on broker log segments having confirmed page-cache synchronization across the designated ISR (In-Sync Replicas) quorum. Setting <code class="px-1.5 py-0.5 rounded bg-surface-container font-mono text-body-sm text-primary font-medium">acks=all</code> without configuring an explicit <code class="px-1.5 py-0.5 rounded bg-surface-container font-mono text-body-sm text-primary font-medium">min.insync.replicas</code> constraint introduces a dangerous false sense of data durability.
+          </p>
+<!-- Table Container for Replica Configurations -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Recommended Production Durability Configurations</span>
+<span class="font-mono text-[11px] text-on-surface-variant">Lumen-Spec v4.2</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container text-on-surface-variant uppercase font-label-sm text-label-sm">
+<tr>
+<th class="py-space-sm px-space-lg font-semibold">Config Parameter</th>
+<th class="py-space-sm px-space-lg font-semibold">Production Value</th>
+<th class="py-space-sm px-space-lg font-semibold">Failure Tolerance</th>
+<th class="py-space-sm px-space-lg font-semibold">Latency Impact</th>
+</tr>
+</thead>
+<tbody class="text-on-surface divide-y divide-surface-container-low">
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-lg font-mono font-medium text-primary">acks</td>
+<td class="py-space-md px-space-lg"><span class="px-2 py-0.5 rounded bg-secondary-container font-mono text-on-secondary-fixed">all (-1)</span></td>
+<td class="py-space-md px-space-lg text-on-surface-variant">Zero uncommitted writes</td>
+<td class="py-space-md px-space-lg font-medium">+4.2ms avg RTT</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-lg font-mono font-medium text-primary">min.insync.replicas</td>
+<td class="py-space-md px-space-lg"><span class="px-2 py-0.5 rounded bg-secondary-container font-mono text-on-secondary-fixed">2 (in RF=3)</span></td>
+<td class="py-space-md px-space-lg text-on-surface-variant">Survives 1 simultaneous node loss</td>
+<td class="py-space-md px-space-lg font-medium">Deterministic</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-lg font-mono font-medium text-primary">unclean.leader.election.enable</td>
+<td class="py-space-md px-space-lg"><span class="px-2 py-0.5 rounded bg-error-container font-mono text-error font-semibold">false</span></td>
+<td class="py-space-md px-space-lg text-on-surface-variant">Prevents uncommitted data loss</td>
+<td class="py-space-md px-space-lg font-medium">Availability over safety</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-lg font-mono font-medium text-primary">replication.factor</td>
+<td class="py-space-md px-space-lg"><span class="px-2 py-0.5 rounded bg-secondary-container font-mono text-on-secondary-fixed">3 (across AZs)</span></td>
+<td class="py-space-md px-space-lg text-on-surface-variant">Zone failure resilience</td>
+<td class="py-space-md px-space-lg font-medium">Cross-AZ egress</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            If replication drops below <code class="px-1.5 py-0.5 rounded bg-surface-container font-mono text-body-sm text-primary">min.insync.replicas</code>, producers configured with <code class="px-1.5 py-0.5 rounded bg-surface-container font-mono text-body-sm text-primary">acks=all</code> will intentionally reject incoming write payloads with a <code class="px-1.5 py-0.5 rounded bg-surface-container font-mono text-body-sm text-primary">NotEnoughReplicasException</code>. This explicit rejection ensures consistency over temporary partition availability.
+          </p>
+</section>
+<!-- Section 3 -->
+<section class="space-y-space-md pt-space-md" id="section-3">
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight font-['Newsreader','Playfair_Display','Merriweather',serif]">
+            3. Handling Backpressure Under Extreme Spikes
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+            Streaming backpressure must never be mediated by unbounded in-memory buffers within client workers. When downstream consumers like Elasticsearch indexing engines or relational datastores lag behind event cadence, upstream consumers must proactively regulate client poll intervals.
+          </p>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+            By invoking <code class="px-1.5 py-0.5 rounded bg-surface-container font-mono text-body-sm text-primary font-medium">KafkaConsumer.pause(partitions)</code>, the consumer thread continues dispatching cluster heartbeats while temporarily stopping message ingestion. Once local queue metrics recede below the high-watermark threshold, the application executes <code class="px-1.5 py-0.5 rounded bg-surface-container font-mono text-body-sm text-primary font-medium">resume(partitions)</code>, ensuring zero partition rebalancing overhead.
+          </p>
+</section>
+<!-- Article Tags -->
+<div class="pt-space-lg flex flex-wrap items-center gap-space-xs">
+<a class="px-space-md py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" href="#">#Kafka</a>
+<a class="px-space-md py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" href="#">#DistributedSystems</a>
+<a class="px-space-md py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" href="#">#Microservices</a>
+<a class="px-space-md py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" href="#">#EventDriven</a>
+<a class="px-space-md py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" href="#">#HighAvailability</a>
+</div>
+</article>
+<!-- Contextual Reading Companion Sidebar (~32% width, sticky) -->
+<aside class="lg:col-span-4 space-y-space-xl lg:sticky lg:top-20">
+<!-- Author Profile Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-start gap-space-md mb-space-md">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait closeup of Dr. Elena Lindqvist, distinguished computer systems researcher with short dark hair, glasses, in an editorial academic office." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD-kmMNqspG2mdRg4qeCKDsKIFl6MPbFjRhxF9IRzyYtX4h31PI4gKeDcHlSPWbcW8eAK49dx3e0dbw6ASuB7wi00EkON2FOODF9sXqjYv9acbuTjuQb5ICLBgV-t_xnLTXt5u5BzN0DV_cnxU4HphBMUZKdEKD1hpdAg3yH-z_3pWzYavI1dIztAeQadiwSS7Fg0NqKfDnE98hy9ej-ugrXdcCEu_n303AxcSyVPSZ9lzHqrXPMXQbg"/>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Dr. Elena Lindqvist</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug mt-0.5">Principal Systems Architect &amp; Lumen Core Contributor</p>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">1,840 Subscribers</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+            Specializing in high-throughput consensus algorithms, distributed actor frameworks, and fault-tolerant log architectures.
+          </p>
+            <div class="pt-space-sm flex items-center gap-space-sm">
+              <button class="flex-1 py-2 px-space-md rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md font-semibold transition-colors shadow-sm flex items-center justify-center gap-1.5" onclick="toggleSubscribe()">
+                <span class="material-symbols-outlined text-[16px]">notifications</span>
+                <span>Follow Author</span>
+              </button>
+              <a href="author_profile.html" class="p-2 rounded-lg border border-outline-variant/60 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Full Bio">
+                <span class="material-symbols-outlined text-[18px]">account_box</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Sticky Table of Contents -->
+          <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm border border-outline-variant/30 space-y-space-md">
+            <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold block">Table of Contents</span>
+            <nav class="flex flex-col space-y-2 text-sm font-medium">
+              <a href="#section-1" class="text-primary hover:underline flex items-center gap-2 pl-2 border-l-2 border-primary">
+                <span>1. Geometry of Partition Rebalancing</span>
+              </a>
+              <a href="#section-2" class="text-secondary hover:text-on-surface flex items-center gap-2 pl-2 border-l-2 border-transparent hover:border-slate-300 transition-colors">
+                <span>2. Quorum Durability &amp; Min-ISR</span>
+              </a>
+              <a href="#section-3" class="text-secondary hover:text-on-surface flex items-center gap-2 pl-2 border-l-2 border-transparent hover:border-slate-300 transition-colors">
+                <span>3. Handling Backpressure</span>
+              </a>
+            </nav>
+          </div>
+
+          <!-- Attached Knowledge Checkpoint CTA Card (Doc Section 8.3) -->
+          <div class="bg-gradient-to-br from-blue-900 to-indigo-950 text-white rounded-xl p-space-lg shadow-md space-y-space-md">
+            <div class="flex items-center gap-2 text-blue-300 text-xs font-semibold uppercase tracking-wider">
+              <span class="material-symbols-outlined text-[18px]">psychology</span>
+              <span>Knowledge Checkpoint</span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white leading-snug">Test Your Comprehension</h3>
+              <p class="text-xs text-blue-200 mt-1 leading-relaxed">
+                Complete the 3-question peer assessment on Kafka ISR bounds &amp; failure tolerance to earn your verification badge.
+              </p>
+            </div>
+            <div class="flex items-center justify-between text-xs text-blue-300 font-mono pt-1">
+              <span>3 Questions</span>
+              <span>•</span>
+              <span>~4 min duration</span>
+            </div>
+            <a href="../quizzes/quiz_attempt.html" class="w-full py-2.5 px-4 rounded-lg bg-blue-500 hover:bg-blue-400 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-sm">
+              <span>Take Checkpoint Quiz</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+          </div>
+
+        </aside>
+      </div>
+
+      <!-- Comments Section (Doc Section 8.3 / CommentSection.jsx) -->
+      <section class="mt-space-2xl pt-space-xl border-t border-outline-variant/30 max-w-4xl space-y-space-xl">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-space-sm">
+            <h2 class="font-headline-md text-headline-md text-on-surface font-bold">Discussion &amp; Peer Notes</h2>
+            <span class="px-space-xs py-space-2xs rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">18 Comments</span>
+          </div>
+          <div class="flex items-center gap-space-xs text-label-sm text-secondary">
+            <span>Sort:</span>
+            <button class="font-semibold text-primary underline">Top Rated</button>
+            <span>•</span>
+            <button class="hover:text-on-surface">Newest</button>
+          </div>
+        </div>
+
+        <!-- Add Comment Form -->
+        <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm border border-outline-variant/30 space-y-space-sm">
+          <textarea class="w-full p-space-md rounded-lg bg-surface text-on-surface font-body-md text-body-md placeholder:text-outline border border-outline-variant/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none" placeholder="Share an insight, question an invariant, or contribute benchmarks..." rows="3"></textarea>
+          <div class="flex items-center justify-between pt-space-xs">
+            <span class="text-xs text-secondary font-mono">Peer-reviewed commentary standard</span>
+            <button class="px-space-lg py-space-xs rounded-lg bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md shadow-sm transition-colors">
+              Submit Note
+            </button>
+          </div>
+        </div>
+
+        <!-- Comments Tree -->
+        <div class="space-y-space-md">
+          <!-- Comment 1 -->
+          <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm border border-outline-variant/30 space-y-space-xs">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-space-sm">
+                <div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-on-primary-fixed text-xs">
+                  MT
+                </div>
+                <div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="font-label-md text-label-md font-bold text-on-surface">Marcus Thorne</span>
+                    <span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-primary/10 text-primary uppercase">Author</span>
+                  </div>
+                  <span class="text-[11px] text-secondary">Yesterday • Distributed Systems Lab</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-1 text-label-sm text-secondary">
+                <span class="material-symbols-outlined text-[16px] text-primary">thumb_up</span>
+                <span class="font-semibold text-primary">48</span>
+              </div>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface leading-relaxed pt-space-xs">
+              Excellent treatment of the min.insync.replicas trap. In production, we observed that setting min.insync.replicas=3 in an RF=3 cluster turns any single broker restart into a cluster-wide write halt. Keeping it at 2 ensures high durability without compromising cluster uptime.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Dispatches Grid (Doc Section 8.3) -->
+      <section class="mt-space-2xl pt-space-xl border-t border-outline-variant/30">
+        <h2 class="font-headline-md text-headline-md text-on-surface font-bold mb-space-lg">Related Dispatches</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+          <a href="article_reader.html" class="p-space-lg rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+            <div>
+              <span class="text-xs uppercase font-semibold text-primary tracking-wider">Cryptography</span>
+              <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors mt-1 mb-2">
+                Zero-Knowledge Rollups: Practical Proofs in High-Throughput Chains
+              </h3>
+              <p class="font-body-sm text-body-sm text-secondary line-clamp-2">
+                Analyzing polynomial commitments, KZG ceremonies, and verifiable computing overhead in enterprise environments.
+              </p>
+            </div>
+            <div class="flex items-center justify-between text-xs text-secondary pt-4 mt-2 border-t border-outline-variant/20">
+              <span>Dr. Jonathan Vance</span>
+              <span>10 min read</span>
+            </div>
+          </a>
+
+          <a href="article_reader.html" class="p-space-lg rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+            <div>
+              <span class="text-xs uppercase font-semibold text-primary tracking-wider">Databases</span>
+              <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors mt-1 mb-2">
+                LSM-Trees vs B-Trees: The Storage Engine Trade-Offs at Scale
+              </h3>
+              <p class="font-body-sm text-body-sm text-secondary line-clamp-2">
+                How modern engines like RocksDB and PostgreSQL manage write amplification and compaction stalls.
+              </p>
+            </div>
+            <div class="flex items-center justify-between text-xs text-secondary pt-4 mt-2 border-t border-outline-variant/20">
+              <span>Marcus Chen</span>
+              <span>14 min read</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 py-space-xl mt-auto">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-space-md">
+      <div class="flex items-center gap-space-sm">
+        <img alt="Lumen CMS" class="h-8 w-auto object-contain" src="../assets/lumen_logo.png" />
+        <span class="font-body-sm text-body-sm text-on-surface-variant">© 2026 Lumen Platform. Precision editorial infrastructure.</span>
+      </div>
+      <div class="flex items-center gap-space-lg text-body-sm text-on-surface-variant">
+        <a class="hover:text-primary transition-colors" href="browse_articles.html">Browse</a>
+        <a class="hover:text-primary transition-colors" href="../community/discussions.html">Discussions</a>
+        <a class="hover:text-primary transition-colors" href="../admin/admin_overview.html">Admin Console</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

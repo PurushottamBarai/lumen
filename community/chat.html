@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="web_standard" name="shell-type"/>
+  <title>Lumen CMS - Peer Discussions & Direct Messaging</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  
+  <!-- Lumen Favicons -->
+  <link rel="icon" type="image/png" href="../assets/lumen-favicon.png">
+  <link rel="shortcut icon" href="../assets/lumen-favicon.ico">
+  <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#EFF6FF',
+              100: '#DBEAFE',
+              500: '#3B82F6',
+              600: '#2563EB',
+              700: '#1D4ED8',
+            },
+            surface: {
+              DEFAULT: '#F8FAFC',
+              card: '#FFFFFF',
+              subtle: '#F1F5F9',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-[#F8FAFC] font-sans text-slate-900 antialiased min-h-screen flex flex-col">
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="h-16 bg-white border-b border-slate-200 sticky top-0 z-40 px-4 sm:px-8 flex items-center justify-between">
+    <div class="flex items-center gap-8">
+      <a href="../articles/home.html" class="flex items-center gap-2">
+        <img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-8 w-auto object-contain" />
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="../articles/home.html" class="hover:text-blue-600 transition-colors">Explore</a>
+        <a href="../articles/browse_articles.html" class="hover:text-blue-600 transition-colors">Articles</a>
+        <a href="discussions.html" class="hover:text-blue-600 transition-colors">Discussions</a>
+        <a href="chat.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 py-5">Direct Messages</a>
+        <a href="../quizzes/quiz_attempt.html" class="hover:text-blue-600 transition-colors">Quizzes</a>
+      </nav>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <div class="hidden sm:flex items-center gap-2 px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-semibold rounded-full border border-emerald-200">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Real-time Socket Connected</span>
+      </div>
+      <div class="flex items-center gap-2 pl-3 border-l border-slate-200">
+        <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs ring-2 ring-blue-100">
+          JV
+        </div>
+        <span class="text-xs font-semibold text-slate-800 hidden sm:inline">Dr. Jonathan Vance</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Chat Workspace (Split-View) -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col">
+    <div class="bg-white border border-slate-200 rounded-2xl shadow-xs overflow-hidden flex-1 flex flex-col md:flex-row h-[calc(100vh-140px)] min-h-[580px]">
+      
+      <!-- Left: User Directory / Conversation List (w-80 / 320px) -->
+      <aside class="w-full md:w-80 border-r border-slate-200 flex flex-col bg-slate-50/50 shrink-0">
+        <!-- Sidebar Search Header -->
+        <div class="p-4 border-b border-slate-200 bg-white">
+          <div class="flex items-center justify-between mb-3">
+            <h1 class="text-base font-bold text-slate-900 tracking-tight">Direct Messages</h1>
+            <span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 font-semibold text-[11px]">3 Active</span>
+          </div>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+            <input type="text" id="user-search-input" placeholder="Search authors & editors..." class="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all"/>
+          </div>
+        </div>
+
+        <!-- Scrollable Conversation Contact List -->
+        <div class="flex-1 overflow-y-auto divide-y divide-slate-100 p-2 space-y-1">
+          <!-- Contact 1 (Active) -->
+          <div class="p-3 rounded-xl bg-blue-50/80 border border-blue-200/80 cursor-pointer transition-all flex items-start gap-3">
+            <div class="relative shrink-0">
+              <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shadow-xs">
+                EL
+              </div>
+              <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-white"></span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between gap-1 mb-0.5">
+                <span class="text-xs font-bold text-slate-900 truncate">Dr. Elena Lindqvist</span>
+                <span class="text-[10px] text-slate-400 font-mono">14:24</span>
+              </div>
+              <div class="flex items-center gap-1.5 mb-1">
+                <span class="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-blue-100 text-blue-700 uppercase">Author</span>
+                <span class="text-[11px] text-slate-400 truncate">Core Research</span>
+              </div>
+              <p class="text-xs text-slate-600 truncate font-medium">The consensus proofs look solid for RFC-41.</p>
+            </div>
+          </div>
+
+          <!-- Contact 2 -->
+          <div class="p-3 rounded-xl hover:bg-slate-100/70 cursor-pointer transition-all flex items-start gap-3">
+            <div class="relative shrink-0">
+              <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-xs shadow-xs">
+                SJ
+              </div>
+              <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-white"></span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between gap-1 mb-0.5">
+                <span class="text-xs font-semibold text-slate-800 truncate">Sarah Jenkins</span>
+                <span class="text-[10px] text-slate-400 font-mono">11:15</span>
+              </div>
+              <div class="flex items-center gap-1.5 mb-1">
+                <span class="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-purple-100 text-purple-700 uppercase">Editor</span>
+              </div>
+              <p class="text-xs text-slate-500 truncate">Editorial review scheduled for Thursday.</p>
+            </div>
+          </div>
+
+          <!-- Contact 3 -->
+          <div class="p-3 rounded-xl hover:bg-slate-100/70 cursor-pointer transition-all flex items-start gap-3">
+            <div class="relative shrink-0">
+              <div class="w-10 h-10 rounded-full bg-slate-600 text-white flex items-center justify-center font-bold text-xs shadow-xs">
+                MC
+              </div>
+              <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-slate-400 ring-2 ring-white"></span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between gap-1 mb-0.5">
+                <span class="text-xs font-semibold text-slate-800 truncate">Marcus Chen</span>
+                <span class="text-[10px] text-slate-400 font-mono">Yesterday</span>
+              </div>
+              <div class="flex items-center gap-1.5 mb-1">
+                <span class="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-slate-100 text-slate-700 uppercase">Reader</span>
+              </div>
+              <p class="text-xs text-slate-500 truncate">Thanks for explaining the Paxos quorum nuances!</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right: Active Chat Conversation Thread Canvas -->
+      <section class="flex-1 flex flex-col bg-white overflow-hidden">
+        
+        <!-- Chat Header -->
+        <div class="h-16 px-6 border-b border-slate-200 flex items-center justify-between bg-white z-10 shrink-0">
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shadow-xs">
+                EL
+              </div>
+              <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-white"></span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-sm font-bold text-slate-900 leading-tight">Dr. Elena Lindqvist</h2>
+                <span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-700 uppercase tracking-wide">Author</span>
+                <span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">Verified Contributor</span>
+              </div>
+              <p class="text-[11px] text-slate-500 font-mono">elena.lindqvist@lumen.research • Online</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <a href="../articles/author_profile.html" class="px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px]">person</span>
+              <span>View Profile</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Chat Stream (Auto-scrolling message container) -->
+        <div class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 bg-slate-50/30" id="chat-messages-container">
+          
+          <!-- Timestamp Divider -->
+          <div class="flex items-center justify-center my-2">
+            <span class="px-3 py-1 rounded-full bg-slate-100 text-[11px] font-medium text-slate-500">Today, May 24, 2025</span>
+          </div>
+
+          <!-- Peer Message 1 -->
+          <div class="flex items-start gap-3 max-w-xl">
+            <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+              EL
+            </div>
+            <div class="space-y-1">
+              <div class="bg-slate-100 text-slate-900 px-4 py-2.5 rounded-2xl rounded-tl-sm text-sm leading-relaxed shadow-xs">
+                Hi Jonathan! I just reviewed your latest draft on Kafka transactional outbox patterns. The section on WAL-level logical decoding is exceptionally thorough.
+              </div>
+              <span class="text-[10px] text-slate-400 font-mono pl-1">14:18</span>
+            </div>
+          </div>
+
+          <!-- Peer Message 2 -->
+          <div class="flex items-start gap-3 max-w-xl">
+            <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 opacity-0">
+              EL
+            </div>
+            <div class="space-y-1">
+              <div class="bg-slate-100 text-slate-900 px-4 py-2.5 rounded-2xl rounded-tl-sm text-sm leading-relaxed shadow-xs">
+                One question: have you benchmarked the consumer lag recovery rate under extreme broker restarts with min.insync.replicas=2?
+              </div>
+              <span class="text-[10px] text-slate-400 font-mono pl-1">14:20</span>
+            </div>
+          </div>
+
+          <!-- User Message 1 (Current User - Right aligned, #2563EB) -->
+          <div class="flex items-start justify-end gap-3 max-w-xl ml-auto">
+            <div class="space-y-1 text-right">
+              <div class="bg-blue-600 text-white px-4 py-2.5 rounded-2xl rounded-tr-sm text-sm leading-relaxed shadow-xs text-left">
+                Thanks Elena! Yes, we ran tests simulating a 3-broker AZ failure. With min.insync.replicas set to 2, recovery rebalancing completed within 420ms without tripping the consumer group timeout.
+              </div>
+              <div class="flex items-center justify-end gap-1 pr-1 text-[10px] text-slate-400 font-mono">
+                <span>14:22</span>
+                <span class="material-symbols-outlined text-[13px] text-blue-600">done_all</span>
+              </div>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+              JV
+            </div>
+          </div>
+
+          <!-- Peer Message 3 -->
+          <div class="flex items-start gap-3 max-w-xl">
+            <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+              EL
+            </div>
+            <div class="space-y-1">
+              <div class="bg-slate-100 text-slate-900 px-4 py-2.5 rounded-2xl rounded-tl-sm text-sm leading-relaxed shadow-xs">
+                The consensus proofs look solid for RFC-41. I'll add my sign-off to the review queue this afternoon!
+              </div>
+              <span class="text-[10px] text-slate-400 font-mono pl-1">14:24</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Chat Message Composer (Sticky bottom) -->
+        <div class="p-4 border-t border-slate-200 bg-white">
+          <form onsubmit="event.preventDefault(); sendMessage();" class="flex items-end gap-2">
+            <div class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus-within:bg-white focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-600/10 transition-all flex items-center gap-2">
+              <textarea id="chat-textarea" rows="1" placeholder="Write a message to Dr. Elena Lindqvist... (Press Enter to send)" class="flex-1 bg-transparent text-sm text-slate-900 placeholder-slate-400 focus:outline-none resize-none max-h-32 leading-relaxed"></textarea>
+              <button type="button" class="text-slate-400 hover:text-slate-600 p-1 rounded-md transition-colors" title="Attach file or graphic">
+                <span class="material-symbols-outlined text-[20px]">attach_file</span>
+              </button>
+            </div>
+            <button type="submit" class="h-10 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm transition-colors shrink-0">
+              <span>Send</span>
+              <span class="material-symbols-outlined text-[16px]">send</span>
+            </button>
+          </form>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    function sendMessage() {
+      const textarea = document.getElementById('chat-textarea');
+      const text = textarea.value.trim();
+      if (!text) return;
+
+      const container = document.getElementById('chat-messages-container');
+      const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+
+      const msgHtml = `
+        <div class="flex items-start justify-end gap-3 max-w-xl ml-auto animate-fade-in">
+          <div class="space-y-1 text-right">
+            <div class="bg-blue-600 text-white px-4 py-2.5 rounded-2xl rounded-tr-sm text-sm leading-relaxed shadow-xs text-left">
+              ${text.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
+            </div>
+            <div class="flex items-center justify-end gap-1 pr-1 text-[10px] text-slate-400 font-mono">
+              <span>${time}</span>
+              <span class="material-symbols-outlined text-[13px] text-blue-600">done</span>
+            </div>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+            JV
+          </div>
+        </div>
+      `;
+      container.insertAdjacentHTML('beforeend', msgHtml);
+      textarea.value = '';
+      container.scrollTop = container.scrollHeight;
+    }
+
+    document.getElementById('chat-textarea').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+  </script>
+
+</body>
+</html>

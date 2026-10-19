@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="web_standard" name="shell-type"/>
+  <title>Lumen CMS - Editorial Knowledge Platform</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+  <!-- Lumen Favicons -->
+  <link rel="icon" type="image/png" href="../assets/lumen-favicon.png">
+  <link rel="shortcut icon" href="../assets/lumen-favicon.ico">
+  <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2563EB",
+            "primary-dark": "#1D4ED8",
+            brand: {
+              50: "#EFF6FF",
+              100: "#DBEAFE",
+              600: "#2563EB",
+              700: "#1D4ED8",
+              900: "#0F172A"
+            }
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            "serif-editorial": ["Newsreader", "Georgia", "serif"],
+            mono: ["JetBrains Mono", "monospace"],
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-[#F8FAFC] text-slate-900 antialiased min-h-screen flex flex-col font-sans">
+
+  <!-- Header -->
+  <header class="sticky top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
+    <div class="h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-6">
+      <div class="flex items-center gap-8">
+        <a class="flex items-center focus:outline-none hover:opacity-90 transition-opacity" href="home.html">
+          <img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-9 w-auto object-contain" />
+        </a>
+
+        <!-- Navigation Links -->
+        <nav class="hidden md:flex items-center gap-6">
+          <a class="text-sm font-semibold text-blue-600 border-b-2 border-blue-600 py-5" href="home.html">Explore</a>
+          <a class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors py-5" href="browse_articles.html">Articles</a>
+          <a class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors py-5" href="../community/discussions.html">Discussions</a>
+          <a class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors py-5" href="../community/chat.html">Direct Messages</a>
+          <a class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors py-5" href="../quizzes/quiz_attempt.html">Quizzes</a>
+        </nav>
+      </div>
+
+      <!-- Action Tools -->
+      <div class="flex items-center gap-4">
+        <div class="relative hidden sm:flex items-center">
+          <span class="material-symbols-outlined absolute left-2.5 text-slate-400 text-sm">search</span>
+          <input type="text" placeholder="Search publication..." class="h-9 pl-8 pr-10 rounded-lg bg-slate-50 border border-slate-200 text-xs w-56 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600" />
+          <kbd class="absolute right-2 px-1.5 py-0.5 rounded bg-slate-200/60 text-[10px] text-slate-500 font-mono">⌘K</kbd>
+        </div>
+        <a href="../auth/login.html" class="text-xs font-semibold text-slate-700 hover:text-blue-600 px-2 py-1.5">Sign In</a>
+        <a href="../auth/register.html" class="inline-flex items-center justify-center h-9 px-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold transition-colors shadow-xs">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full flex-1">
+    
+    <!-- Editorial Desks Strip -->
+    <section class="w-full bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Curated Topics" class="flex items-center justify-between gap-6 overflow-x-auto py-2.5">
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold">Desks</span>
+            <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+          </div>
+          <div class="flex items-center gap-6 shrink-0 text-slate-600 text-xs font-medium">
+            <a class="hover:text-blue-600 py-1" href="browse_articles.html?category=Architecture">Architecture</a>
+            <a class="hover:text-blue-600 py-1" href="browse_articles.html?category=Cryptography">Cryptography</a>
+            <a class="hover:text-blue-600 py-1" href="browse_articles.html?category=Distributed%20Systems">Distributed Systems</a>
+            <a class="hover:text-blue-600 py-1" href="browse_articles.html?category=Frontend%20Engineering">Frontend Engineering</a>
+            <a class="hover:text-blue-600 py-1" href="browse_articles.html?category=Machine%20Learning">Machine Learning</a>
+            <a class="hover:text-blue-600 py-1" href="browse_articles.html?category=Databases">Databases</a>
+          </div>
+          <div class="shrink-0 pl-4 border-l border-slate-200">
+            <a class="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:underline" href="browse_articles.html">
+              <span>View All</span>
+              <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <!-- 1. Hero Header: 2-Column 60/40 (Doc Section 8.1) -->
+    <section class="w-full bg-white py-10 lg:py-14 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <!-- Left: Editorial Headline & Actions (60%) -->
+          <div class="lg:col-span-7 flex flex-col justify-center space-y-5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200/80 text-xs font-semibold uppercase tracking-wider w-max">
+              <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+              Editorial Knowledge Platform
+            </div>
+
+            <h1 class="font-serif-editorial text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-slate-900 leading-[1.15]">
+              Precision engineering publications &amp; peer-reviewed research.
+            </h1>
+
+            <p class="text-base text-slate-600 leading-relaxed max-w-2xl font-sans">
+              Lumen combines rigorous systems architectural dispatches with interactive comprehension checkpoints and verified author reputation.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <a href="browse_articles.html" class="h-11 px-6 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-colors shadow-sm flex items-center gap-2">
+                <span>Explore Catalog</span>
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+              </a>
+              <a href="../quizzes/quiz_attempt.html" class="h-11 px-5 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold text-sm transition-colors flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px] text-blue-600">quiz</span>
+                <span>Take a Quiz</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Dynamic "Today's Featured Article" Preview Card (40%) -->
+          <div class="lg:col-span-5">
+            <article class="bg-slate-50 border border-slate-200/90 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all group">
+              <div class="relative aspect-[16/10] bg-slate-900 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Server infrastructure" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-80" />
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-xs text-blue-700 font-semibold text-[11px] uppercase tracking-wider">
+                  Today's Featured Dispatch
+                </span>
+                <span class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/60 backdrop-blur-xs text-white text-[11px] font-mono">
+                  12 min read
+                </span>
+              </div>
+              <div class="p-5 sm:p-6 space-y-3">
+                <div class="flex items-center gap-2 text-xs text-slate-500">
+                  <span class="font-semibold text-blue-600">Distributed Systems</span>
+                  <span>•</span>
+                  <span>May 24, 2025</span>
+                </div>
+                <h2 class="font-serif-editorial text-2xl font-normal text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+                  <a href="article_reader.html">
+                    Architecting Resilient Event Streams with Distributed Kafka Clusters
+                  </a>
+                </h2>
+                <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                  An architectural evaluation of partition rebalancing anomalies, leader election failover under consumer pressure, and buffer saturation strategies.
+                </p>
+                <div class="flex items-center justify-between pt-3 border-t border-slate-200">
+                  <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 rounded-full bg-blue-600 text-white text-[10px] font-bold flex items-center justify-center">
+                      EL
+                    </div>
+                    <span class="text-xs font-semibold text-slate-800">Dr. Elena Lindqvist</span>
+                  </div>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">Verified Fellow</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Trending Topics Grid: 4 Curated Cards (Doc Section 8.1) -->
+    <section class="w-full py-12 border-b border-slate-200 bg-slate-50/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Curated Research</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Trending Technical Topics</h2>
+          </div>
+          <a href="browse_articles.html" class="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">
+            <span>All Categories</span>
+            <span class="material-symbols-outlined text-sm">chevron_right</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <!-- Card 1 -->
+          <a href="browse_articles.html?category=Distributed%20Systems" class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+                <span class="material-symbols-outlined text-[22px]">hub</span>
+              </div>
+              <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition-colors text-base">Distributed Systems</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">Consensus protocols, Raft, Paxos, event streaming topologies, and partitioned storage.</p>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+              <span>42 Dispatches</span>
+              <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </div>
+          </a>
+
+          <!-- Card 2 -->
+          <a href="browse_articles.html?category=Cryptography" class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
+                <span class="material-symbols-outlined text-[22px]">key</span>
+              </div>
+              <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition-colors text-base">Cryptography</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">Zero-knowledge rollups, KZG polynomial commitments, and post-quantum encryption.</p>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+              <span>28 Dispatches</span>
+              <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </div>
+          </a>
+
+          <!-- Card 3 -->
+          <a href="browse_articles.html?category=Databases" class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                <span class="material-symbols-outlined text-[22px]">database</span>
+              </div>
+              <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition-colors text-base">Databases &amp; Storage</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">LSM-trees vs B-trees, WAL replication, buffer pools, and query optimization.</p>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+              <span>35 Dispatches</span>
+              <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </div>
+          </a>
+
+          <!-- Card 4 -->
+          <a href="browse_articles.html?category=Architecture" class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
+                <span class="material-symbols-outlined text-[22px]">layers</span>
+              </div>
+              <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition-colors text-base">Systems Architecture</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">Micro-frontends, event-driven pipelines, Kubernetes, and enterprise resiliency.</p>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+              <span>54 Dispatches</span>
+              <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Recent Articles Section with Bookmark Triggers (Doc Section 8.1) -->
+    <section class="w-full py-12 border-b border-slate-200 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Fresh Submissions</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Recent Peer-Verified Dispatches</h2>
+          </div>
+          <a href="browse_articles.html" class="text-xs font-semibold text-blue-600 hover:underline">View All 140+ Articles</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Article 1 -->
+          <article class="bg-white rounded-xl border border-slate-200 shadow-xs hover:shadow-md transition-all overflow-hidden flex flex-col justify-between group">
+            <div>
+              <div class="aspect-[16/9] bg-slate-100 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Code security" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-white/90 text-blue-700 text-[10px] font-bold uppercase">Cryptography</span>
+              </div>
+              <div class="p-5 space-y-2">
+                <div class="text-[11px] text-slate-400 font-mono">10 min read • Published yesterday</div>
+                <h3 class="font-serif-editorial text-xl font-normal text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+                  <a href="article_reader.html">Zero-Knowledge Rollups: Cryptographic Guarantees</a>
+                </h3>
+                <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                  Evaluating polynomial commitments and succinct argument of knowledge overhead across decentralized verification networks.
+                </p>
+              </div>
+            </div>
+            <div class="px-5 py-3 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-800">Dr. Jonathan Vance</span>
+              <button class="text-slate-400 hover:text-blue-600 transition-colors" title="Bookmark Article">
+                <span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="bg-white rounded-xl border border-slate-200 shadow-xs hover:shadow-md transition-all overflow-hidden flex flex-col justify-between group">
+            <div>
+              <div class="aspect-[16/9] bg-slate-100 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=600&q=80" alt="Database server" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-white/90 text-blue-700 text-[10px] font-bold uppercase">Databases</span>
+              </div>
+              <div class="p-5 space-y-2">
+                <div class="text-[11px] text-slate-400 font-mono">14 min read • 2 days ago</div>
+                <h3 class="font-serif-editorial text-xl font-normal text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+                  <a href="article_reader.html">LSM-Trees vs B-Trees: The Storage Engine Trade-Offs</a>
+                </h3>
+                <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                  Benchmarking write amplification, SSTable compactions, and random read latency in petabyte-scale storage engines.
+                </p>
+              </div>
+            </div>
+            <div class="px-5 py-3 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-800">Marcus Chen</span>
+              <button class="text-slate-400 hover:text-blue-600 transition-colors" title="Bookmark Article">
+                <span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="bg-white rounded-xl border border-slate-200 shadow-xs hover:shadow-md transition-all overflow-hidden flex flex-col justify-between group">
+            <div>
+              <div class="aspect-[16/9] bg-slate-100 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Code engineering" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-white/90 text-blue-700 text-[10px] font-bold uppercase">Frontend</span>
+              </div>
+              <div class="p-5 space-y-2">
+                <div class="text-[11px] text-slate-400 font-mono">8 min read • 3 days ago</div>
+                <h3 class="font-serif-editorial text-xl font-normal text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+                  <a href="article_reader.html">Server Components &amp; React Rendering Pipelines</a>
+                </h3>
+                <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                  Streaming hydration boundaries, partial prerendering, and zero-bundle-size server components.
+                </p>
+              </div>
+            </div>
+            <div class="px-5 py-3 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-800">Sarah Jenkins</span>
+              <button class="text-slate-400 hover:text-blue-600 transition-colors" title="Bookmark Article">
+                <span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Interactive Knowledge Checkpoint Banner (Doc Section 8.1) -->
+    <section class="w-full py-12 bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-8 bg-white/5 border border-white/10 rounded-2xl p-8 sm:p-10 backdrop-blur-xs">
+          <div class="space-y-3 max-w-xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-semibold">
+              <span class="material-symbols-outlined text-sm">psychology</span>
+              <span>Interactive Knowledge Checkpoint</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Test Your Systems Comprehension</h2>
+            <p class="text-sm text-blue-100/80 leading-relaxed">
+              Every major Lumen research dispatch includes peer-curated multiple-choice assessments. Earn verified badges and elevate your contributor trust level.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row items-center gap-3 shrink-0">
+            <a href="../quizzes/quiz_attempt.html" class="h-11 px-6 rounded-xl bg-blue-500 hover:bg-blue-400 text-white font-semibold text-sm transition-colors shadow-sm flex items-center gap-2">
+              <span>Start Kafka Checkpoint Quiz</span>
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+            <a href="../quizzes/quiz_builder.html" class="h-11 px-5 rounded-xl border border-white/20 hover:bg-white/10 text-white font-semibold text-sm transition-colors">
+              Author a Quiz
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-white border-t border-slate-200 py-10 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-8 w-auto object-contain" />
+        <span class="text-slate-300">|</span>
+        <span class="text-xs text-slate-500">Precision Content &amp; Knowledge Management</span>
+      </div>
+      <div class="flex items-center gap-6 text-xs text-slate-500">
+        <a href="browse_articles.html" class="hover:text-blue-600 transition-colors">Browse</a>
+        <a href="../community/discussions.html" class="hover:text-blue-600 transition-colors">Discussions</a>
+        <a href="../community/chat.html" class="hover:text-blue-600 transition-colors">Direct Messages</a>
+        <a href="../admin/admin_overview.html" class="hover:text-blue-600 transition-colors">Admin Console</a>
+        <span>&copy; 2026 Lumen Platform. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

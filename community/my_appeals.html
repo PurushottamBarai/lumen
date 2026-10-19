@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumen Platform</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-fixed": "#dae2fd",
+          "surface": "#f8f9ff",
+          "primary-fixed": "#dbe1ff",
+          "surface-container-highest": "#d3e4fe",
+          "on-primary-fixed-variant": "#003ea8",
+          "secondary": "#565e74",
+          "tertiary-container": "#007d55",
+          "surface-container-lowest": "#ffffff",
+          "surface-variant": "#d3e4fe",
+          "tertiary-fixed-dim": "#4edea3",
+          "on-secondary-fixed-variant": "#3f465c",
+          "on-tertiary-fixed": "#002113",
+          "background": "#f8f9ff",
+          "on-tertiary-container": "#bdffdb",
+          "error": "#ba1a1a",
+          "on-surface": "#0b1c30",
+          "error-container": "#ffdad6",
+          "on-secondary": "#ffffff",
+          "primary": "#004ac6",
+          "inverse-primary": "#b4c5ff",
+          "on-primary-container": "#eeefff",
+          "on-error": "#ffffff",
+          "inverse-surface": "#213145",
+          "on-secondary-container": "#5c647a",
+          "primary-fixed-dim": "#b4c5ff",
+          "on-tertiary-fixed-variant": "#005236",
+          "on-surface-variant": "#434655",
+          "on-error-container": "#93000a",
+          "tertiary-fixed": "#6ffbbe",
+          "secondary-container": "#dae2fd",
+          "surface-bright": "#f8f9ff",
+          "on-background": "#0b1c30",
+          "surface-container-low": "#eff4ff",
+          "surface-dim": "#cbdbf5",
+          "outline": "#737686",
+          "on-secondary-fixed": "#131b2e",
+          "on-primary-fixed": "#00174b",
+          "on-primary": "#ffffff",
+          "surface-container-high": "#dce9ff",
+          "inverse-on-surface": "#eaf1ff",
+          "tertiary": "#006242",
+          "secondary-fixed-dim": "#bec6e0",
+          "surface-tint": "#0053db",
+          "outline-variant": "#c3c6d7",
+          "surface-container": "#e5eeff",
+          "primary-container": "#2563eb",
+          "on-tertiary": "#ffffff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "margin": "2rem",
+          "gutter-sm": "1rem",
+          "space-lg": "1rem",
+          "gutter": "1.5rem",
+          "margin-sm": "1rem",
+          "space-2xl": "2rem",
+          "space-xs": "0.25rem",
+          "space-xl": "1.5rem",
+          "space-2xs": "0.125rem",
+          "space-md": "0.75rem",
+          "space-sm": "0.5rem"
+        },
+        "fontFamily": {
+          "metric-display": ["Inter"],
+          "label-md": ["Inter"],
+          "body-md": ["Inter"],
+          "headline-md": ["Inter"],
+          "headline-sm": ["Inter"],
+          "headline-lg": ["Inter"],
+          "body-sm": ["Inter"],
+          "body-lg": ["Inter"],
+          "label-sm": ["Inter"],
+          "label-lg": ["Inter"],
+          "headline-xl": ["Inter"]
+        },
+        "fontSize": {
+          "metric-display": ["1.75rem", { "lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+          "label-md": ["0.8125rem", { "lineHeight": "1.125rem", "fontWeight": "500" }],
+          "body-md": ["0.875rem", { "lineHeight": "1.25rem", "fontWeight": "400" }],
+          "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+          "headline-sm": ["1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "headline-lg": ["1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+          "body-sm": ["0.75rem", { "lineHeight": "1rem", "fontWeight": "400" }],
+          "body-lg": ["1rem", { "lineHeight": "1.5rem", "fontWeight": "400" }],
+          "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600" }],
+          "label-lg": ["0.875rem", { "lineHeight": "1.25rem", "fontWeight": "500" }],
+          "headline-xl": ["2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.025em", "fontWeight": "700" }]
+        }
+      }
+    }
+  };
+</script>
+<style>
+  @layer base {
+    body {
+      min-height: 100vh;
+      background-color: #f8f9ff;
+      color: #0b1c30;
+      font-family: 'Inter', sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+    }
+  }
+</style>
+<meta content="web_standard" name="shell-type"/>
+
+    <!-- Lumen Favicons -->
+    <link rel="icon" type="image/png" href="../assets/lumen-favicon.png">
+    <link rel="shortcut icon" href="../assets/lumen-favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
+
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- Header: 64px (h-16) -->
+<header class="fixed top-0 left-0 right-0 z-40 bg-surface-container-lowest shadow-sm border-b border-outline-variant/30">
+<div class="max-w-7xl mx-auto px-gutter-sm sm:px-gutter h-16 flex items-center justify-between">
+<div class="flex items-center space-x-space-xl">
+<a class="flex items-center focus:outline-none" data-path="articles" href="#"><img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-9 w-auto object-contain" /></a>
+<nav class="hidden md:flex items-center space-x-space-xs" data-active-classes="bg-surface-container text-primary font-semibold" data-inactive-classes="text-secondary hover:text-on-surface hover:bg-surface-container-low font-normal">
+<a class="px-space-md py-space-sm rounded-lg font-label-md text-label-md transition-colors text-secondary hover:text-on-surface hover:bg-surface-container-low" data-path="articles" href="#">Articles</a>
+<a class="px-space-md py-space-sm rounded-lg font-label-md text-label-md transition-colors text-secondary hover:text-on-surface hover:bg-surface-container-low" data-path="quiz-builder" href="#">Quiz Builder</a>
+<a class="px-space-md py-space-sm rounded-lg font-label-md text-label-md transition-colors text-secondary hover:text-on-surface hover:bg-surface-container-low" data-path="discussions" href="#">Discussions</a>
+<a class="px-space-md py-space-sm rounded-lg font-label-md text-label-md transition-colors text-secondary hover:text-on-surface hover:bg-surface-container-low" data-path="author-studio" href="#">Author Studio</a>
+</nav>
+</div>
+<div class="flex items-center space-x-space-md">
+<div class="relative group">
+<button aria-expanded="false" aria-haspopup="true" class="flex items-center space-x-space-sm p-space-2xs sm:px-space-sm sm:py-space-2xs rounded-full bg-surface-container-low hover:bg-surface-container border border-outline-variant/40 transition-colors focus:outline-none" id="user-menu-button" type="button">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-sm text-label-sm uppercase font-semibold">
+            JV
+          </div>
+<div class="text-left hidden sm:block pr-space-xs">
+<div class="font-label-md text-label-md text-on-surface font-semibold flex items-center space-x-space-2xs">
+<span>Dr. Jonathan Vance</span>
+<span class="px-space-xs py-0 text-[10px] rounded-full bg-secondary-container text-on-secondary-fixed font-semibold uppercase tracking-wider">Author</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-lg group-hover:text-on-surface transition-transform duration-150">expand_more</span>
+</button>
+<div class="absolute right-0 mt-space-xs w-60 rounded-xl bg-surface-container-lowest shadow-lg border border-outline-variant/30 py-space-xs z-50 hidden group-focus-within:block hover:block">
+<div class="px-space-md py-space-sm border-b border-outline-variant/20">
+<p class="font-label-md text-label-md font-semibold text-on-surface">Dr. Jonathan Vance</p>
+<p class="font-body-sm text-body-sm text-secondary font-mono truncate">vance@lumen.research</p>
+</div>
+<div class="py-space-xs">
+<a class="flex items-center px-space-md py-space-sm font-label-md text-label-md text-secondary hover:text-on-surface hover:bg-surface-container-low transition-colors" data-path="user-profile" href="#">
+              Profile &amp; Trust Hub
+            </a>
+<a class="flex items-center justify-between px-space-md py-space-sm font-label-md text-label-md text-secondary hover:text-on-surface hover:bg-surface-container-low transition-colors" data-path="appeals-center" href="#">
+<span>Appeals Center</span>
+<span class="px-space-xs py-0 rounded-full bg-surface-container-highest text-primary font-label-sm text-[11px] font-semibold">/my-appeals</span>
+</a>
+<a class="flex items-center px-space-md py-space-sm font-label-md text-label-md text-secondary hover:text-on-surface hover:bg-surface-container-low transition-colors" data-path="author-studio" href="#">
+              Author Studio
+            </a>
+</div>
+<div class="border-t border-outline-variant/20 pt-space-xs">
+<a class="flex items-center px-space-md py-space-sm font-label-md text-label-md text-error hover:bg-error-container/20 transition-colors" href="#">
+              Sign Out
+            </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Slot: pt-16 matches h-16 header exactly -->
+<main class="pt-16 min-h-[calc(100vh-80px)]">
+<div class="flex flex-col w-full">
+<div class="w-full max-w-7xl mx-auto px-gutter-sm sm:px-gutter py-space-xl">
+<!-- Breadcrumb Context -->
+<nav aria-label="Breadcrumb" class="flex items-center space-x-space-xs font-label-md text-label-md text-secondary mb-space-sm">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-sm text-outline-variant">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">User Account</a>
+<span class="material-symbols-outlined text-sm text-outline-variant">chevron_right</span>
+<span class="font-semibold text-on-surface">Appeals Center</span>
+</nav>
+<!-- Page Title & Header Block -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl">
+<div class="max-w-3xl">
+<div class="flex items-center space-x-space-sm mb-space-xs">
+<span class="material-symbols-outlined text-primary text-2xl">verified_user</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold text-primary">Lumen Review Board</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Appeals Center</h1>
+<p class="font-body-md text-body-md text-secondary mt-space-2xs">
+          Submit disputes regarding moderation actions or view resolution updates from the Lumen administrative review board.
+        </p>
+</div>
+<!-- Quick Action / Status Tracker pill -->
+<div class="flex items-center space-x-space-sm self-start md:self-auto bg-surface-container-low px-space-md py-space-sm rounded-lg border border-outline-variant/30">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Review Board Status: Online (48h SLA)</span>
+</div>
+</div>
+<!-- Info Policy Banner -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-space-md sm:p-space-lg mb-space-xl shadow-sm flex items-start space-x-space-md">
+<div class="p-space-xs rounded-lg bg-surface-container text-primary flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-xl">policy</span>
+</div>
+<div class="flex-1">
+<h2 class="font-label-lg text-label-lg font-semibold text-on-surface">Fair Resolution Policy</h2>
+<p class="font-body-md text-body-md text-secondary mt-space-2xs leading-relaxed">
+          All submitted appeals are reviewed within 48 hours by senior editorial and moderation admins. Decisions and official notes are logged transparently below. Approved resolutions immediately expunge corresponding penalty flags and recalculate platform standing.
+        </p>
+</div>
+</div>
+<!-- Secondary Nav / Tabs Header -->
+<div class="flex border-b border-outline-variant/30 mb-space-xl">
+<div aria-orientation="horizontal" class="flex space-x-space-md" role="tablist">
+<button aria-controls="tab-content-records" aria-selected="true" class="flex items-center space-x-space-xs pb-space-md px-space-xs border-b-2 border-primary text-primary font-label-lg text-label-lg font-semibold transition-all" id="tab-btn-records" onclick="switchTab('records')" role="tab">
+<span>My Appeals</span>
+<span class="px-space-xs py-0.5 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm">3</span>
+</button>
+<button aria-controls="tab-content-submit" aria-selected="false" class="flex items-center space-x-space-xs pb-space-md px-space-xs border-b-2 border-transparent text-secondary hover:text-on-surface font-label-lg text-label-lg font-medium transition-all" id="tab-btn-submit" onclick="switchTab('submit')" role="tab">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+<span>Submit Appeal</span>
+</button>
+</div>
+</div>
+<!-- Main Content Area: Tab Panels -->
+<div class="w-full">
+<!-- TAB 1: My Appeals (Active by default) -->
+<section class="space-y-space-lg block" id="tab-content-records" role="tabpanel">
+<!-- Controls Bar inside Tab -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-sm bg-surface-container-lowest p-space-sm rounded-lg border border-outline-variant/30">
+<div class="flex items-center space-x-space-sm">
+<div class="relative w-full sm:w-72">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-secondary text-base pointer-events-none">search</span>
+<input class="w-full pl-8 pr-space-sm py-1.5 bg-surface-container-low text-on-surface placeholder:text-outline text-body-sm font-body-sm rounded-md border border-outline-variant/30 focus:outline-none focus:border-primary transition-colors" placeholder="Filter by report ID, title, or status..." type="text"/>
+</div>
+<select class="bg-surface-container-low text-on-surface font-label-md text-label-md px-space-sm py-1.5 rounded-md border border-outline-variant/30 focus:outline-none focus:border-primary">
+<option value="all">All Statuses (3)</option>
+<option value="approved">Approved</option>
+<option value="pending">Pending</option>
+<option value="rejected">Rejected</option>
+</select>
+</div>
+<button class="inline-flex items-center justify-center space-x-space-xs px-space-md py-1.5 bg-primary text-on-primary rounded-md font-label-md text-label-md font-medium hover:bg-primary-container transition-colors shadow-sm" onclick="switchTab('submit')">
+<span class="material-symbols-outlined text-base">post_add</span>
+<span>New Dispute</span>
+</button>
+</div>
+<!-- Appeals Record List -->
+<div class="space-y-space-md">
+<!-- Record 1: Approved -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-space-lg shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-md">
+<div class="space-y-space-xs max-w-4xl min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-label-sm text-label-sm font-semibold flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Approved</span>
+</span>
+<span class="font-body-sm text-body-sm text-secondary">•</span>
+<span class="font-label-md text-label-md font-semibold text-primary">Report #REP-9042</span>
+<span class="font-body-sm text-body-sm text-secondary">•</span>
+<span class="font-body-sm text-body-sm text-secondary">Submitted: Oct 19, 2024 • 14:32 UTC</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold pt-space-2xs">
+                  Comment Flagged: Suspected Promotional Link
+                </h3>
+<p class="font-body-sm text-body-sm text-secondary">
+                  Target: <span class="text-on-surface font-medium italic">Article: Lock-Free Ring Buffers in Low-Latency C++</span>
+</p>
+<!-- User Appeal Summary -->
+<div class="mt-space-md p-space-md rounded-lg bg-surface-container-low border border-outline-variant/20">
+<div class="flex items-center space-x-space-xs text-secondary font-label-sm text-label-sm uppercase font-semibold mb-space-2xs">
+<span class="material-symbols-outlined text-sm">record_voice_over</span>
+<span>Author Appeal Justification: Misidentified Technical Reference</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-normal">
+                    "Misidentified Technical Reference — The linked domain is an open-source GitHub repository benchmark, not commercial spam."
+                  </p>
+</div>
+<!-- Admin Resolution Notes Box -->
+<div class="mt-space-sm p-space-md rounded-lg bg-surface border-l-4 border-l-emerald-600 border border-outline-variant/30">
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm mb-space-2xs">
+<div class="flex items-center space-x-space-xs">
+<span class="material-symbols-outlined text-sm text-emerald-700">gavel</span>
+<span class="font-semibold text-on-surface">Admin Resolution</span>
+<span class="text-secondary">• Resolved by Admin Marcus Chen</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Resolved: Oct 20, 2024 • 09:15 UTC</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+                    "Reviewed by Admin Marcus Chen: Confirmed technical veracity. Link points to verifiable open-source test suite. Penalty removed, account standing restored."
+                  </p>
+</div>
+</div>
+<!-- Metadata Column -->
+<div class="flex lg:flex-col items-center lg:items-end justify-between border-t lg:border-t-0 border-outline-variant/20 pt-space-sm lg:pt-0 gap-space-sm">
+<span class="px-space-xs py-0.5 rounded text-[11px] font-mono bg-surface-container text-secondary font-medium">REV_CYCLE: 18h 43m</span>
+<button class="inline-flex items-center space-x-space-2xs text-secondary hover:text-primary font-label-md text-label-md transition-colors" title="View historical audit logs">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+<span>View Case Log</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Record 2: Pending -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-space-lg shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-md">
+<div class="space-y-space-xs max-w-4xl min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 font-label-sm text-label-sm font-semibold flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600 animate-ping"></span>
+<span>Pending</span>
+</span>
+<span class="font-body-sm text-body-sm text-secondary">•</span>
+<span class="font-label-md text-label-md font-semibold text-primary">Report #REP-8814</span>
+<span class="font-body-sm text-body-sm text-secondary">•</span>
+<span class="font-body-sm text-body-sm text-secondary">Submitted: Sep 28, 2024 • 11:05 UTC</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold pt-space-2xs">
+                  Content Warning: Unverified Benchmark Claim
+                </h3>
+<p class="font-body-sm text-body-sm text-secondary">
+                  Target: <span class="text-on-surface font-medium italic">Draft #402: Microsecond Microbenchmarks</span>
+</p>
+<!-- User Appeal Summary -->
+<div class="mt-space-md p-space-md rounded-lg bg-surface-container-low border border-outline-variant/20">
+<div class="flex items-center space-x-space-xs text-secondary font-label-sm text-label-sm uppercase font-semibold mb-space-2xs">
+<span class="material-symbols-outlined text-sm">record_voice_over</span>
+<span>Author Appeal Justification: Factual / Technical Accuracy</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-normal">
+                    "Peer-reviewed methodology provided. Hardware profiling conducted on standardized AWS c6i.metal instances."
+                  </p>
+</div>
+<!-- Admin Status Notes Box -->
+<div class="mt-space-sm p-space-md rounded-lg bg-surface border-l-4 border-l-amber-500 border border-outline-variant/30">
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm mb-space-2xs">
+<div class="flex items-center space-x-space-xs">
+<span class="material-symbols-outlined text-sm text-amber-700">hourglass_top</span>
+<span class="font-semibold text-on-surface">Queue In-Progress</span>
+<span class="text-secondary">• Under review by Senior Technical Moderator</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary font-medium text-amber-700">Resolution Expected: within 24h</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+                    "Under review by Senior Technical Moderator. Awaiting validation from Systems Architecture reviewer panel."
+                  </p>
+</div>
+</div>
+<!-- Metadata Column -->
+<div class="flex lg:flex-col items-center lg:items-end justify-between border-t lg:border-t-0 border-outline-variant/20 pt-space-sm lg:pt-0 gap-space-sm">
+<span class="px-space-xs py-0.5 rounded text-[11px] font-mono bg-surface-container text-secondary font-medium">QUEUE_PRIORITY: HIGH</span>
+<button class="inline-flex items-center space-x-space-2xs text-secondary hover:text-primary font-label-md text-label-md transition-colors" title="View historical audit logs">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+<span>View Case Log</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Record 3: Rejected -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-space-lg shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-md">
+<div class="space-y-space-xs max-w-4xl min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded-full bg-red-50 text-red-700 border border-red-200 font-label-sm text-label-sm font-semibold flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-red-600"></span>
+<span>Rejected</span>
+</span>
+<span class="font-body-sm text-body-sm text-secondary">•</span>
+<span class="font-label-md text-label-md font-semibold text-primary">Report #REP-7602</span>
+<span class="font-body-sm text-body-sm text-secondary">•</span>
+<span class="font-body-sm text-body-sm text-secondary">Submitted: Aug 12, 2024 • 16:40 UTC</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold pt-space-2xs">
+                  Discussions Guild Rule Violation: Duplicate Cross-Posting
+                </h3>
+<p class="font-body-sm text-body-sm text-secondary">
+                  Target: <span class="text-on-surface font-medium italic">Discussions: Topic #DISC-104</span>
+</p>
+<!-- User Appeal Summary -->
+<div class="mt-space-md p-space-md rounded-lg bg-surface-container-low border border-outline-variant/20">
+<div class="flex items-center space-x-space-xs text-secondary font-label-sm text-label-sm uppercase font-semibold mb-space-2xs">
+<span class="material-symbols-outlined text-sm">record_voice_over</span>
+<span>Author Appeal Justification: Account Compromise / Glitch</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-normal">
+                    "Accidental double-click during network timeout while publishing response to Kafka partition consensus thread."
+                  </p>
+</div>
+<!-- Admin Status Notes Box -->
+<div class="mt-space-sm p-space-md rounded-lg bg-surface border-l-4 border-l-red-600 border border-outline-variant/30">
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm mb-space-2xs">
+<div class="flex items-center space-x-space-xs">
+<span class="material-symbols-outlined text-sm text-red-700">cancel</span>
+<span class="font-semibold text-on-surface">Admin Resolution</span>
+<span class="text-secondary">• Reviewed by Admin Elena Rostova</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Resolved: Aug 13, 2024 • 10:20 UTC</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+                    "Reviewed by Admin Elena Rostova: Logs indicate 3 separate thread postings over a 15-minute interval. Penalty upheld (48-hour discussion cooldown expired)."
+                  </p>
+</div>
+</div>
+<!-- Metadata Column -->
+<div class="flex lg:flex-col items-center lg:items-end justify-between border-t lg:border-t-0 border-outline-variant/20 pt-space-sm lg:pt-0 gap-space-sm">
+<span class="px-space-xs py-0.5 rounded text-[11px] font-mono bg-surface-container text-secondary font-medium">CASE_CLOSED</span>
+<button class="inline-flex items-center space-x-space-2xs text-secondary hover:text-primary font-label-md text-label-md transition-colors" title="View historical audit logs">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+<span>View Case Log</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- TAB 2: Submit Appeal (Organized Form Interface) -->
+<section class="hidden" id="tab-content-submit" role="tabpanel">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Main Form Column (8 cols) -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-space-xl shadow-sm">
+<div class="border-b border-outline-variant/20 pb-space-md mb-space-lg">
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">Submit a New Appeal</h2>
+<p class="font-body-md text-body-md text-secondary mt-space-2xs">
+                Contest a moderation decision, content strike, or penalty associated with your account.
+              </p>
+</div>
+<form class="space-y-space-lg" id="appeal-form" onsubmit="event.preventDefault(); handleSubmitAppeal();">
+<!-- Field 1: Target Penalty Dropdown -->
+<div class="space-y-space-xs">
+<label class="block font-label-md text-label-md font-semibold text-on-surface" for="report-select">
+                  Select Relevant Report or Penalty <span class="text-error">*</span>
+</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-low text-on-surface font-body-md text-body-md px-space-md py-2.5 rounded-lg border border-outline-variant/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary pr-10 transition-colors" id="report-select" required="">
+<option disabled="" selected="" value="">[Select Action / Report to Contest]</option>
+<option value="REP-9321">Report #REP-9321 • Automated Flag: Draft Code Block Syntax (Oct 24, 2024)</option>
+<option value="REP-9104">Report #REP-9104 • Comment Rate Limit Notice (Oct 21, 2024)</option>
+<option value="REP-9400">Report #REP-9400 • Editorial Keyword Strike: Citation Format (Oct 26, 2024)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-secondary">expand_more</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">
+                  Only reports logged within the last 30 calendar days are eligible for formal dispute.
+                </p>
+</div>
+<!-- Field 2: Appeal Reason Category (Radio Pill Selection) -->
+<div class="space-y-space-xs">
+<label class="block font-label-md text-label-md font-semibold text-on-surface">
+                  Appeal Reason Category <span class="text-error">*</span>
+</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-2xs">
+<label class="relative flex items-start p-space-md rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors group">
+<input checked="" class="mt-1 text-primary focus:ring-primary h-4 w-4 border-outline-variant" name="appeal-category" type="radio" value="misidentified"/>
+<div class="ml-space-sm">
+<span class="block font-label-md text-label-md font-semibold text-on-surface group-hover:text-primary transition-colors">Misidentified Violation</span>
+<span class="block font-body-sm text-body-sm text-secondary">Automated heuristic misread legitimate technical phrasing or context.</span>
+</div>
+</label>
+<label class="relative flex items-start p-space-md rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors group">
+<input class="mt-1 text-primary focus:ring-primary h-4 w-4 border-outline-variant" name="appeal-category" type="radio" value="factual"/>
+<div class="ml-space-sm">
+<span class="block font-label-md text-label-md font-semibold text-on-surface group-hover:text-primary transition-colors">Factual / Technical Accuracy</span>
+<span class="block font-body-sm text-body-sm text-secondary">Citation benchmarks or mathematical proof provided to validate content.</span>
+</div>
+</label>
+<label class="relative flex items-start p-space-md rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors group">
+<input class="mt-1 text-primary focus:ring-primary h-4 w-4 border-outline-variant" name="appeal-category" type="radio" value="procedural"/>
+<div class="ml-space-sm">
+<span class="block font-label-md text-label-md font-semibold text-on-surface group-hover:text-primary transition-colors">Procedural Error</span>
+<span class="block font-body-sm text-body-sm text-secondary">Penalty applied out of alignment with standard Lumen author guidelines.</span>
+</div>
+</label>
+<label class="relative flex items-start p-space-md rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors group">
+<input class="mt-1 text-primary focus:ring-primary h-4 w-4 border-outline-variant" name="appeal-category" type="radio" value="glitch"/>
+<div class="ml-space-sm">
+<span class="block font-label-md text-label-md font-semibold text-on-surface group-hover:text-primary transition-colors">Account Compromise / Glitch</span>
+<span class="block font-body-sm text-body-sm text-secondary">Platform synchronization failure, double submission, or network glitch.</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Field 3: Detailed Justification -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<label class="block font-label-md text-label-md font-semibold text-on-surface" for="detailed-justification">
+                    Detailed Justification <span class="text-error">*</span>
+</label>
+<span class="font-body-sm text-body-sm text-secondary font-mono" id="char-counter">0 / 1000</span>
+</div>
+<textarea class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md p-space-md rounded-lg border border-outline-variant/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors placeholder:text-outline" id="detailed-justification" maxlength="1000" oninput="updateCharCount(this)" placeholder="Provide a clear, objective explanation of why this penalty or report should be reviewed or overturned. Reference specific technical context, timestamps, or guideline clarifications..." required="" rows="5"></textarea>
+</div>
+<!-- Notice Box -->
+<div class="p-space-md rounded-lg bg-surface-container-highest/40 border border-outline-variant/30 flex items-start space-x-space-sm">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<span class="font-semibold text-on-surface">Notice:</span> False statements or repeated frivolous appeals may negatively impact your TrustScore. All submissions are logged to your permanent author ledger.
+                </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center space-x-space-md pt-space-xs">
+<button class="px-space-xl py-2.5 bg-primary text-on-primary rounded-lg font-label-lg text-label-lg font-medium hover:bg-primary-container transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40" type="submit">
+                  Submit Appeal
+                </button>
+<button class="px-space-lg py-2.5 bg-surface-container-low text-on-surface hover:bg-surface-container rounded-lg font-label-lg text-label-lg font-medium border border-outline-variant/40 transition-colors focus:outline-none" onclick="resetAppealForm()" type="button">
+                  Cancel / Clear
+                </button>
+</div>
+</form>
+</div>
+<!-- Guidelines & Policy Sidebar (4 cols) -->
+<div class="lg:col-span-4 space-y-space-lg">
+<!-- Guideline Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-space-lg shadow-sm">
+<div class="flex items-center space-x-space-xs text-primary font-label-lg text-label-lg font-semibold mb-space-sm">
+<span class="material-symbols-outlined text-xl">fact_check</span>
+<span>Appeal Criteria Checklist</span>
+</div>
+<ul class="space-y-space-sm font-body-sm text-body-sm text-secondary">
+<li class="flex items-start space-x-space-xs">
+<span class="material-symbols-outlined text-emerald-600 text-sm mt-0.5">check_circle</span>
+<span>Directly reference the specific benchmark or paragraph flagged.</span>
+</li>
+<li class="flex items-start space-x-space-xs">
+<span class="material-symbols-outlined text-emerald-600 text-sm mt-0.5">check_circle</span>
+<span>Avoid emotional appeals; stick to reproducible code traces and RFC citations.</span>
+</li>
+<li class="flex items-start space-x-space-xs">
+<span class="material-symbols-outlined text-emerald-600 text-sm mt-0.5">check_circle</span>
+<span>Allow up to 48 business hours before requesting status escalations.</span>
+</li>
+</ul>
+</div>
+<!-- Role Scope Card -->
+<div class="bg-surface-container-low rounded-xl border border-outline-variant/20 p-space-lg">
+<h4 class="font-label-md text-label-md font-semibold text-on-surface mb-space-xs">Reviewer Authority</h4>
+<p class="font-body-sm text-body-sm text-secondary leading-normal">
+                Only verified <span class="font-semibold text-on-surface">Admin</span> staff possess binding authority to overturn strikes. Neither <span class="font-semibold text-on-surface">Author</span> peers nor <span class="font-semibold text-on-surface">Reader</span> moderators can alter official tribunal decisions.
+              </p>
+</div>
+<!-- Help Contact Box -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between">
+<div>
+<span class="block font-label-md text-label-md font-semibold text-on-surface">Need Legal or DMCA Help?</span>
+<span class="block font-body-sm text-body-sm text-secondary">Statutory inquiries bypass standard moderation.</span>
+</div>
+<a class="font-label-sm text-label-sm text-primary font-semibold hover:underline" href="#">Contact</a>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Notification Toast (Hidden by default) -->
+<div class="fixed bottom-6 right-6 z-50 bg-inverse-surface text-inverse-on-surface px-space-lg py-space-md rounded-xl shadow-xl border border-outline-variant/30 flex items-center space-x-space-sm transition-all duration-300 opacity-0 pointer-events-none translate-y-2" id="toast-notification">
+<span class="material-symbols-outlined text-tertiary-fixed text-xl">check_circle</span>
+<div>
+<p class="font-label-md text-label-md font-semibold">Appeal Transmitted Successfully</p>
+<p class="font-body-sm text-body-sm text-inverse-on-surface/80">Assigned Case Ref #REP-9321-A. SLA tracking started.</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function switchTab(tabId) {
+    const recordsBtn = document.getElementById('tab-btn-records');
+    const submitBtn = document.getElementById('tab-btn-submit');
+    const recordsContent = document.getElementById('tab-content-records');
+    const submitContent = document.getElementById('tab-content-submit');
+
+    if (tabId === 'records') {
+      recordsBtn.classList.remove('border-transparent', 'text-secondary', 'font-medium');
+      recordsBtn.classList.add('border-primary', 'text-primary', 'font-semibold');
+      recordsBtn.setAttribute('aria-selected', 'true');
+
+      submitBtn.classList.remove('border-primary', 'text-primary', 'font-semibold');
+      submitBtn.classList.add('border-transparent', 'text-secondary', 'font-medium');
+      submitBtn.setAttribute('aria-selected', 'false');
+
+      recordsContent.classList.remove('hidden');
+      submitContent.classList.add('hidden');
+    } else {
+      submitBtn.classList.remove('border-transparent', 'text-secondary', 'font-medium');
+      submitBtn.classList.add('border-primary', 'text-primary', 'font-semibold');
+      submitBtn.setAttribute('aria-selected', 'true');
+
+      recordsBtn.classList.remove('border-primary', 'text-primary', 'font-semibold');
+      recordsBtn.classList.add('border-transparent', 'text-secondary', 'font-medium');
+      recordsBtn.setAttribute('aria-selected', 'false');
+
+      submitContent.classList.remove('hidden');
+      recordsContent.classList.add('hidden');
+    }
+  }
+
+  function updateCharCount(el) {
+    const counter = document.getElementById('char-counter');
+    if (counter) {
+      counter.textContent = `${el.value.length} / 1000`;
+    }
+  }
+
+  function resetAppealForm() {
+    const form = document.getElementById('appeal-form');
+    if (form) {
+      form.reset();
+      const counter = document.getElementById('char-counter');
+      if (counter) counter.textContent = '0 / 1000';
+    }
+    switchTab('records');
+  }
+
+  function handleSubmitAppeal() {
+    const toast = document.getElementById('toast-notification');
+    if (toast) {
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+        resetAppealForm();
+      }, 3500);
+    }
+  }
+</script>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/30 py-space-lg text-secondary">
+<div class="max-w-7xl mx-auto px-gutter-sm sm:px-gutter flex flex-col sm:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm">
+<div class="flex items-center space-x-space-xs">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Lumen Platform</span>
+<span>•</span>
+<span>Scholarly Research &amp; Peer Assessment</span>
+</div>
+<div class="flex items-center space-x-space-lg">
+<a class="hover:text-on-surface transition-colors" data-path="author-studio" href="#">Author Guidelines</a>
+<a class="hover:text-on-surface transition-colors" data-path="appeals-center" href="#">Appeals Resolution</a>
+<a class="hover:text-on-surface transition-colors" href="#">Documentation</a>
+<span>© 2025 Lumen CMS</span>
+</div>
+</div>
+</footer>
+</body></html>

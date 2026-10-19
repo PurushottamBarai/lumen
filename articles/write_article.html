@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumen CMS - Author &amp; Admin Studio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#4edea3",
+            "on-tertiary-container": "#bdffdb",
+            "primary-fixed": "#dbe1ff",
+            "on-primary-fixed-variant": "#003ea8",
+            "primary-fixed-dim": "#b4c5ff",
+            "on-primary-fixed": "#00174b",
+            "on-secondary-fixed-variant": "#3f465c",
+            "surface-container": "#e5eeff",
+            "inverse-on-surface": "#eaf1ff",
+            "outline": "#737686",
+            "surface-tint": "#0053db",
+            "on-secondary": "#ffffff",
+            "surface-container-highest": "#d3e4fe",
+            "surface-bright": "#f8f9ff",
+            "error-container": "#ffdad6",
+            "on-error": "#ffffff",
+            "on-surface": "#0b1c30",
+            "tertiary-container": "#007d55",
+            "inverse-surface": "#213145",
+            "surface-container-high": "#dce9ff",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed": "#002113",
+            "surface": "#f8f9ff",
+            "inverse-primary": "#b4c5ff",
+            "on-tertiary-fixed-variant": "#005236",
+            "secondary-fixed-dim": "#bec6e0",
+            "primary-container": "#2563eb",
+            "on-secondary-container": "#5c647a",
+            "secondary": "#565e74",
+            "tertiary-fixed": "#6ffbbe",
+            "primary": "#004ac6",
+            "outline-variant": "#c3c6d7",
+            "surface-container-low": "#eff4ff",
+            "secondary-fixed": "#dae2fd",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#cbdbf5",
+            "surface-variant": "#d3e4fe",
+            "secondary-container": "#dae2fd",
+            "error": "#ba1a1a",
+            "on-background": "#0b1c30",
+            "on-secondary-fixed": "#131b2e",
+            "tertiary": "#006242",
+            "on-primary-container": "#eeefff",
+            "on-surface-variant": "#434655",
+            "background": "#f8f9ff",
+            "on-primary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "space-2xs": "0.125rem",
+            "space-lg": "1rem",
+            "space-xl": "1.5rem",
+            "gutter-sm": "1rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "0.75rem",
+            "space-sm": "0.5rem",
+            "margin-sm": "1rem",
+            "space-2xl": "2rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-md": ["Inter"],
+            "metric-display": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-lg": ["Inter"]
+          },
+          "fontSize": {
+            "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600" }],
+            "label-md": ["0.8125rem", { "lineHeight": "1.125rem", "fontWeight": "500" }],
+            "body-sm": ["0.75rem", { "lineHeight": "1rem", "fontWeight": "400" }],
+            "body-lg": ["1rem", { "lineHeight": "1.5rem", "fontWeight": "400" }],
+            "headline-sm": ["1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.025em", "fontWeight": "700" }],
+            "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["0.875rem", { "lineHeight": "1.25rem", "fontWeight": "400" }],
+            "metric-display": ["1.75rem", { "lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-lg": ["0.875rem", { "lineHeight": "1.25rem", "fontWeight": "500" }],
+            "headline-lg": ["1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+          }
+        }
+      }
+    };
+  </script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html {
+        color: #0b1c30;
+        background-color: #f8f9ff;
+        font-family: 'Inter', sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+<meta content="web_standard" name="shell-type"/>
+
+    <!-- Lumen Favicons -->
+    <link rel="icon" type="image/png" href="../assets/lumen-favicon.png">
+    <link rel="shortcut icon" href="../assets/lumen-favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
+
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+<!-- Header Navigation -->
+<header class="bg-surface-container-lowest sticky top-0 z-30 shadow-sm">
+<div class="max-w-7xl mx-auto px-margin-sm sm:px-margin h-16 flex items-center justify-between">
+<div class="flex items-center gap-space-xl">
+<!-- Lumen Studio Brand -->
+<a class="flex items-center focus:outline-none" href="#"><img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-9 w-auto object-contain" /></a>
+<!-- Top Nav Menu -->
+<nav class="hidden md:flex items-center gap-space-xs" data-active-classes="bg-surface-container text-primary font-semibold" id="main-nav">
+<a class="px-space-md py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" data-path="articles" href="#">Articles</a>
+<a class="px-space-md py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" data-path="quiz-builder" href="#">Quiz Builder</a>
+<a class="px-space-md py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" data-path="discussions" href="#">Discussions</a>
+<a aria-current="page" class="px-space-md py-space-xs rounded-lg transition-colors bg-surface-container text-primary font-semibold" data-path="author-studio" href="#">Author Studio</a>
+</nav>
+</div>
+<!-- Workspace & Identity Badges -->
+<div class="flex items-center gap-space-md">
+<div class="hidden sm:flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-low text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-label-sm">Workspace: Author &amp; Admin</span>
+</div>
+<div class="flex items-center gap-space-md pl-space-md">
+<div class="text-right hidden sm:block">
+<div class="flex items-center justify-end gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Dr. Jonathan Vance</span>
+<span class="font-label-sm text-label-sm px-space-xs py-space-2xs rounded-full bg-surface-container-highest text-primary font-semibold uppercase tracking-wide">Author</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">vance@lumen.research</div>
+</div>
+<div class="w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-lg text-label-lg font-bold shadow-sm">
+            JV
+          </div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Viewport -->
+<main class="pt-16 max-w-7xl mx-auto px-margin-sm sm:px-margin py-space-xl flex-1 w-full">
+<div class="flex flex-col w-full">
+<!-- Top Action & Sub-Navigation Header -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm mb-space-lg px-space-xl py-space-md flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md flex-wrap">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Author Studio</a>
+<span class="text-outline-variant font-normal">/</span>
+<span class="text-on-surface font-semibold">Write &amp; Edit Article</span>
+</nav>
+<div class="h-4 w-px bg-surface-container-high hidden sm:block"></div>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-medium">Draft</span>
+<span class="text-outline">•</span>
+<span class="text-on-surface-variant">Auto-saved 2m ago</span>
+</div>
+</div>
+<!-- Global Actions -->
+<div class="flex items-center gap-space-sm">
+<button class="h-9 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-space-xs transition-colors" id="btn-save-draft" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">save</span>
+<span>Save Draft</span>
+</button>
+<button class="h-9 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-space-xs transition-colors" id="btn-open-preview" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">visibility</span>
+<span>Preview Article</span>
+</button>
+<button class="h-9 px-space-lg rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md flex items-center gap-space-xs shadow-sm transition-colors" id="btn-submit-review" type="button">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Submit for Admin Review</span>
+</button>
+</div>
+</div>
+<!-- Two-Pane Workspace Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Main Writing Area (~68%) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Primary Article Details Canvas -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-xl flex flex-col gap-space-lg">
+<!-- Title & Slug -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Article Title</span>
+<span class="font-label-sm text-label-sm text-outline" id="title-char-count">72 / 120</span>
+</div>
+<input class="w-full text-headline-xl font-headline-xl text-on-surface placeholder:text-outline-variant bg-surface-container-low px-space-md py-space-sm rounded-lg focus:outline-none focus:bg-surface-container transition-colors" id="article-title-input" placeholder="Enter article headline..." type="text" value="Architecting Resilient Event Streams with Distributed Kafka Clusters"/>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm px-space-xs pt-space-2xs">
+<span class="material-symbols-outlined text-[16px] text-outline">link</span>
+<span class="text-outline">Slug:</span>
+<span class="font-mono text-primary font-medium">/browse/architecting-resilient-event-streams</span>
+<button class="text-on-surface-variant hover:text-on-surface ml-space-xs" title="Edit Permalink">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+</button>
+</div>
+</div>
+<!-- Metadata Row: Category & Video -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs">
+<!-- Category Select -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Category</label>
+<div class="relative">
+<select class="w-full h-10 px-space-md pr-space-xl rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md appearance-none focus:outline-none focus:bg-surface-container transition-colors cursor-pointer">
+<option selected="" value="distributed-systems">Distributed Systems</option>
+<option value="cloud-native">Cloud-Native Architecture</option>
+<option value="event-driven">Event-Driven Microservices</option>
+<option value="database-internals">Database Internals</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-3 top-2.5 text-on-surface-variant text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Video URL Input -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Video Walkthrough (Optional)</label>
+<button class="font-label-sm text-label-sm text-primary hover:underline flex items-center gap-space-2xs" type="button">
+<span class="material-symbols-outlined text-[14px]">play_circle</span>
+<span>Test Link</span>
+</button>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">smart_display</span>
+<input class="w-full h-10 pl-10 pr-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline-variant focus:outline-none focus:bg-surface-container transition-colors" placeholder="https://..." type="text" value="https://www.youtube.com/watch?v=0kF6xQ_arch"/>
+</div>
+</div>
+</div>
+<!-- Excerpt Field -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Executive Excerpt &amp; Summary</label>
+<span class="font-label-sm text-label-sm text-outline">210 / 300</span>
+</div>
+<textarea class="w-full p-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline-variant focus:outline-none focus:bg-surface-container transition-colors leading-relaxed" rows="3">An exhaustive architectural blueprint on multi-region partition rebalancing, quorum durability, and backpressure governance for mission-critical asynchronous workloads.</textarea>
+</div>
+<!-- Tags Container -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Keywords &amp; Domain Tags</label>
+<div class="flex flex-wrap items-center gap-space-xs p-space-sm rounded-lg bg-surface-container-low min-h-[44px]">
+<span class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-medium">
+              Distributed Systems
+              <button class="hover:text-error transition-colors flex items-center" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-medium">
+              Kafka
+              <button class="hover:text-error transition-colors flex items-center" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-medium">
+              Microservices
+              <button class="hover:text-error transition-colors flex items-center" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-medium">
+              Event Driven
+              <button class="hover:text-error transition-colors flex items-center" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<div class="flex items-center gap-space-xs pl-space-xs flex-1 min-w-[120px]">
+<span class="material-symbols-outlined text-[16px] text-outline">add</span>
+<input class="bg-transparent text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none w-full" placeholder="Add tag..." type="text"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Editorial Rich Text Writing Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Sticky Editor Toolbar -->
+<div class="sticky top-16 z-20 bg-surface-container-lowest px-space-md py-space-sm flex flex-wrap items-center justify-between gap-space-sm shadow-sm">
+<div class="flex items-center gap-space-2xs flex-wrap">
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center font-bold font-headline-sm text-headline-sm" title="Heading 1" type="button">H1</button>
+<button class="w-8 h-8 rounded bg-surface-container text-primary flex items-center justify-center font-bold font-headline-sm text-headline-sm" title="Heading 2" type="button">H2</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center font-bold font-headline-sm text-headline-sm" title="Heading 3" type="button">H3</button>
+<div class="w-px h-5 bg-surface-container-high mx-space-2xs"></div>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="Bold" type="button">
+<span class="material-symbols-outlined text-[18px]">format_bold</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="Italic" type="button">
+<span class="material-symbols-outlined text-[18px]">format_italic</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="Strikethrough" type="button">
+<span class="material-symbols-outlined text-[18px]">strikethrough_s</span>
+</button>
+<div class="w-px h-5 bg-surface-container-high mx-space-2xs"></div>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="Code Block" type="button">
+<span class="material-symbols-outlined text-[18px]">code_blocks</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="Blockquote" type="button">
+<span class="material-symbols-outlined text-[18px]">format_quote</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="Ordered List" type="button">
+<span class="material-symbols-outlined text-[18px]">format_list_numbered</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="Bulleted List" type="button">
+<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+</button>
+<div class="w-px h-5 bg-surface-container-high mx-space-2xs"></div>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="Insert Link" type="button">
+<span class="material-symbols-outlined text-[18px]">link</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="Insert Image" type="button">
+<span class="material-symbols-outlined text-[18px]">image</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="Insert Data Table" type="button">
+<span class="material-symbols-outlined text-[18px]">table_chart</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center font-serif text-[16px] font-bold" title="Math / TeX formula" type="button">
+              Σ
+            </button>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low px-space-sm py-space-2xs rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary">schedule</span>
+<span>1,840 words • ~12 min read</span>
+</div>
+</div>
+<!-- Document Body Editable Space -->
+<div class="p-space-2xl flex flex-col gap-space-lg text-on-surface">
+<!-- Lead Section -->
+<div class="text-body-lg font-body-lg text-on-surface-variant leading-relaxed">
+            When operating high-throughput event streaming architectures, the theoretical guarantees provided by the write-ahead append log are directly modulated by broker topology, in-sync replicas (<code class="px-space-xs py-space-2xs bg-surface-container rounded font-mono text-label-sm text-primary font-semibold">min.insync.replicas</code>), and consumer coordination primitives.
+          </div>
+<!-- Section Heading -->
+<h2 class="text-headline-lg font-headline-lg text-on-surface pt-space-md">
+            1. The Fundamental Geometry of Partition Rebalancing
+          </h2>
+<p class="text-body-lg font-body-lg text-on-surface leading-relaxed">
+            The historical implementation of consumer group management depended upon the "Eager Rebalance Protocol". Under this paradigm, every time a new consumer instances joined or left the pool, the entire consumer group surrendered its active partition leases before new mappings were determined.
+          </p>
+<!-- High Value Architectural Callout -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<span class="material-symbols-outlined text-primary text-[24px] mt-0.5">verified_user</span>
+<div class="flex flex-col gap-space-2xs">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Key Architectural Invariant</span>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                Never allow consumer group rebalances to trigger stop-the-world partition assignment for mission-critical asynchronous workloads. By enabling the <code class="px-1.5 py-0.5 rounded bg-surface-container text-primary font-mono text-label-sm">CooperativeStickyAssignor</code>, individual partitions migrate iteratively without revoking unaffected consumer assignments.
+              </p>
+</div>
+</div>
+<!-- Technical Code Block -->
+<div class="rounded-xl overflow-hidden bg-inverse-surface text-inverse-on-surface shadow-sm">
+<div class="bg-on-surface px-space-md py-space-xs flex items-center justify-between text-label-sm font-label-sm">
+<span class="flex items-center gap-space-2xs text-surface-container-high">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">terminal</span>
+<span>consumer.properties — Cooperative Sticky Configuration</span>
+</span>
+<button class="text-surface-container-high hover:text-surface-bright flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span>Copy</span>
+</button>
+</div>
+<pre class="p-space-md font-mono text-body-sm font-body-sm overflow-x-auto leading-relaxed text-surface-container-lowest"><code># Enforce Cooperative Sticky Partition Assignment
+partition.assignment.strategy=org.apache.kafka.clients.consumer.CooperativeStickyAssignor
+enable.auto.commit=false
+max.poll.interval.ms=300000
+session.timeout.ms=45000
+heartbeat.interval.ms=10000
+auto.offset.reset=earliest</code></pre>
+</div>
+<!-- Section Heading 2 -->
+<h2 class="text-headline-lg font-headline-lg text-on-surface pt-space-md">
+            2. Broker Durability Matrix Under Network Partitioning
+          </h2>
+<p class="text-body-lg font-body-lg text-on-surface leading-relaxed">
+            The write durability of distributed logs is defined by the interaction between the producer acknowledge level and replication minimum thresholds. The matrix below defines behavior during broker quorum failures:
+          </p>
+<!-- Clean Semantic Data Table -->
+<div class="w-full overflow-x-auto rounded-xl shadow-sm bg-surface-container-low">
+<table class="w-full text-left font-body-md text-body-md">
+<thead class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<tr>
+<th class="py-space-sm px-space-md">Acks Policy</th>
+<th class="py-space-sm px-space-md">min.insync.replicas</th>
+<th class="py-space-sm px-space-md">Broker Failures Tolerated (RF=3)</th>
+<th class="py-space-sm px-space-md">Durability Guarantee</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container text-on-surface">
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="py-space-md px-space-md font-mono font-medium text-primary">acks=0</td>
+<td class="py-space-md px-space-md font-mono">1</td>
+<td class="py-space-md px-space-md">None (Fire-and-forget)</td>
+<td class="py-space-md px-space-md"><span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">Zero Durability</span></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="py-space-md px-space-md font-mono font-medium text-primary">acks=1</td>
+<td class="py-space-md px-space-md font-mono">1</td>
+<td class="py-space-md px-space-md">0 (Leader crash risks data loss)</td>
+<td class="py-space-md px-space-md"><span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-label-sm">Leader-Only Ack</span></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors bg-surface-container-lowest">
+<td class="py-space-md px-space-md font-mono font-medium text-primary">acks=all (-1)</td>
+<td class="py-space-md px-space-md font-mono font-bold">2</td>
+<td class="py-space-md px-space-md">1 broker outage surviving quorum</td>
+<td class="py-space-md px-space-md"><span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">Quorum Guaranteed</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="text-body-lg font-body-lg text-on-surface leading-relaxed">
+            In our next architectural section, we will formulate the mathematical lower bound for partition rebalance completion times under varying cluster diameters.
+          </p>
+</div>
+</div>
+</div>
+<!-- Right Inspector (~32%) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Tabbed Sidebar Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Inspector Tabs -->
+<div class="flex items-center bg-surface-container-low px-space-xs pt-space-xs">
+<button class="tab-btn px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface rounded-t-lg transition-colors flex items-center gap-space-xs" data-target="tab-publishing" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>Publishing</span>
+</button>
+<button class="tab-btn px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface rounded-t-lg transition-colors flex items-center gap-space-xs" data-target="tab-quality" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Content Quality</span>
+</button>
+<button class="tab-btn active px-space-md py-space-sm font-label-md text-label-md bg-surface-container-lowest text-primary font-bold rounded-t-lg shadow-sm flex items-center gap-space-xs" data-target="tab-quiz" type="button">
+<span class="material-symbols-outlined text-[18px]">quiz</span>
+<span>Attached Quiz</span>
+<span class="w-2 h-2 rounded-full bg-primary ml-space-2xs"></span>
+</button>
+</div>
+<!-- Tab Panes Container -->
+<div class="p-space-lg flex flex-col gap-space-lg">
+<!-- TAB 3: Attached Quiz (Active Default) -->
+<div class="tab-content flex flex-col gap-space-lg" id="tab-quiz">
+<!-- Quiz Attachment Toggle Card -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Knowledge Checkpoint</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Attach interactive quiz to article bottom</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Quiz Summary Header -->
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Attached Quiz</span>
+<span class="px-space-xs py-space-2xs rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold">Draft Attached</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface">
+                Kafka Architecture &amp; Durability Checkpoint
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Verify technical comprehension of min.insync.replicas, quorum state replication, and consumer rebalance protocols.
+              </p>
+</div>
+<!-- Questions Configurator List -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Configured Questions (3)</span>
+<span class="font-label-sm text-label-sm text-outline">Max: 10</span>
+</div>
+<!-- Question 1: Expanded -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col gap-space-md shadow-sm">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center font-bold">1</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Multiple Choice</span>
+</div>
+<div class="flex items-center gap-space-2xs text-on-surface-variant">
+<button class="hover:text-primary transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">drag_indicator</span></button>
+<button class="hover:text-error transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Question Prompt</label>
+<p class="font-body-md text-body-md font-medium text-on-surface bg-surface-container-lowest p-space-sm rounded-lg">
+                    Which delivery guarantee does standard Kafka broker partitioning provide without supplementary clustering configuration?
+                  </p>
+</div>
+<!-- Multiple Choices -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Answer Choices (Select Correct)</label>
+<!-- Choice A -->
+<div class="flex items-center gap-space-sm p-space-xs rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-colors">
+<input class="text-primary focus:ring-primary h-4 w-4 ml-space-xs" name="q1_choice" type="radio"/>
+<span class="font-mono text-label-sm text-on-surface-variant font-bold">A.</span>
+<span class="font-body-sm text-body-sm text-on-surface flex-1">Strict Exactly-Once across all partitions</span>
+</div>
+<!-- Choice B (Correct highlighted) -->
+<div class="flex items-center gap-space-sm p-space-xs rounded-lg bg-tertiary-fixed text-on-tertiary-fixed transition-colors">
+<input checked="" class="text-tertiary focus:ring-tertiary h-4 w-4 ml-space-xs" name="q1_choice" type="radio"/>
+<span class="font-mono text-label-sm font-bold">B.</span>
+<span class="font-body-sm text-body-sm font-semibold flex-1">Total ordering strictly within a single partition</span>
+<span class="material-symbols-outlined text-tertiary text-[18px] mr-space-xs">check_circle</span>
+</div>
+<!-- Choice C -->
+<div class="flex items-center gap-space-sm p-space-xs rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-colors">
+<input class="text-primary focus:ring-primary h-4 w-4 ml-space-xs" name="q1_choice" type="radio"/>
+<span class="font-mono text-label-sm text-on-surface-variant font-bold">C.</span>
+<span class="font-body-sm text-body-sm text-on-surface flex-1">Global ordering across heterogeneous topics</span>
+</div>
+<!-- Choice D -->
+<div class="flex items-center gap-space-sm p-space-xs rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-colors">
+<input class="text-primary focus:ring-primary h-4 w-4 ml-space-xs" name="q1_choice" type="radio"/>
+<span class="font-mono text-label-sm text-on-surface-variant font-bold">D.</span>
+<span class="font-body-sm text-body-sm text-on-surface flex-1">Atomic multi-consumer partition locking</span>
+</div>
+</div>
+<!-- Explanation Box -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Reader Answer Explanation</label>
+<textarea class="w-full p-space-xs rounded-lg bg-surface-container-lowest font-body-sm text-body-sm text-on-surface-variant focus:outline-none focus:bg-surface-container transition-colors" rows="2">Kafka logs are append-only per individual partition; cross-partition ordering requires transactional or sequencing metadata.</textarea>
+</div>
+</div>
+<!-- Question 2: Collapsed -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex items-center justify-between shadow-sm cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center justify-center font-bold">2</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate max-w-[220px]">What does min.insync.replicas=2 enforce...</span>
+<span class="font-body-sm text-body-sm text-tertiary flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px]">check</span> Option C configured
+                    </span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">expand_more</span>
+</div>
+<!-- Question 3: Collapsed -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex items-center justify-between shadow-sm cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center justify-center font-bold">3</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate max-w-[220px]">Which rebalance protocol eliminates stop-the-world...</span>
+<span class="font-body-sm text-body-sm text-tertiary flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px]">check</span> Option A configured
+                    </span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">expand_more</span>
+</div>
+<!-- Action Buttons -->
+<button class="w-full h-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary font-label-md text-label-md flex items-center justify-center gap-space-xs font-semibold transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add Question (Max 10 per Quiz)</span>
+</button>
+<div class="pt-space-xs text-center">
+<a class="font-label-sm text-label-sm text-primary hover:underline font-semibold inline-flex items-center gap-space-2xs" href="#">
+<span>Open in Quiz Builder Studio</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- TAB 2: Content Quality (Hidden toggleable preview) -->
+<div class="tab-content hidden flex-col gap-space-lg" id="tab-quality">
+<!-- Quality Metric Hero -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Editorial Score</span>
+<span class="px-space-xs py-space-2xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold">Exemplary</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="text-headline-xl font-headline-xl font-extrabold text-on-surface">94</span>
+<span class="text-headline-sm font-headline-sm text-outline">/ 100</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2">
+<div class="bg-tertiary h-2 rounded-full w-[94%]"></div>
+</div>
+</div>
+<!-- Readability & Tone -->
+<div class="flex flex-col gap-space-sm">
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-2xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Readability Difficulty</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">Technical / Advanced</span>
+<span class="font-body-sm text-body-sm text-outline">Grade 14+ Flesch-Kincaid scale</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-2xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Computed Tone</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">Analytical, Academic, Authoritative</span>
+<span class="font-body-sm text-body-sm text-outline">Target fit: System Architects &amp; SRE Leads</span>
+</div>
+</div>
+<!-- Actionable Suggestions -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Heuristic Audit</span>
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-tertiary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Code syntax verified (bash &amp; properties)</span>
+</div>
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-tertiary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>High reference and citation density</span>
+</div>
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-outline">info</span>
+<span>Add 1 more data table in Section 3</span>
+</div>
+</div>
+</div>
+<button class="w-full h-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary font-label-md text-label-md flex items-center justify-center gap-space-xs font-semibold transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+<span>Re-run AI Quality Analysis</span>
+</button>
+</div>
+<!-- TAB 1: Publishing (Hidden toggleable preview) -->
+<div class="tab-content hidden flex-col gap-space-lg" id="tab-publishing">
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Publication Visibility</label>
+<select class="w-full h-9 px-space-md rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md">
+<option selected="">Public — All Verified Readers</option>
+<option>Restricted — Lumen Members Only</option>
+<option>Unlisted — Private Link</option>
+</select>
+</div>
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Scheduled Release Date</label>
+<input class="w-full h-9 px-space-md rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md" type="date" value="2025-04-15"/>
+</div>
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Canonical Reference URL</label>
+<input class="w-full h-9 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder:text-outline" placeholder="https://external-archive.org/..." type="text"/>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-2xs">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Target Reviewer Assignment</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Editorial Board • Distributed Systems Pod</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Status Card beneath tab container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<span>Role: <strong class="text-on-surface">Author</strong> • Lumen CMS</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">v2.4.8-prod</span>
+</div>
+</div>
+</div>
+<!-- ARTICLE PREVIEW MODAL OVERLAY -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm hidden items-center justify-center p-space-md sm:p-space-xl" id="preview-modal">
+<div class="bg-surface-container-lowest w-full max-w-4xl max-h-[921px] rounded-xl shadow-2xl flex flex-col overflow-hidden animate-fadeIn">
+<!-- Modal Header -->
+<div class="bg-surface-container-lowest px-space-xl py-space-md flex items-center justify-between border-b border-surface-container">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">preview</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Reader Experience Preview (Desktop) — Live Article Rendering</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<a class="font-label-sm text-label-sm text-primary hover:underline font-semibold flex items-center gap-space-2xs" href="#">
+<span>Open Full Screen</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center" id="btn-close-modal" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+<!-- Modal Body (Simulated Reader View) -->
+<div class="overflow-y-auto p-space-2xl flex flex-col gap-space-xl bg-surface-bright">
+<!-- Metadata Header for Reader -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-space-sm py-space-2xs rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold">Distributed Systems</span>
+<span class="px-space-sm py-space-2xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px]">quiz</span>
+<span>Interactive Knowledge Checkpoint Attached • 3 Questions</span>
+</span>
+</div>
+<h1 class="text-headline-xl font-headline-xl text-on-surface font-extrabold tracking-tight">
+            Architecting Resilient Event Streams with Distributed Kafka Clusters
+          </h1>
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-label-sm font-label-sm">
+                JV
+              </div>
+<span class="font-semibold text-on-surface">Dr. Jonathan Vance</span>
+<span class="text-outline">•</span>
+<span class="text-primary font-medium">Author</span>
+</div>
+<span>Published: Spring 2025</span>
+<span>•</span>
+<span>12 min read</span>
+</div>
+</div>
+<!-- Video Player Preview Container -->
+<div class="relative w-full rounded-xl overflow-hidden aspect-video shadow-md bg-inverse-surface flex items-center justify-center">
+<div class="bg-cover bg-center absolute inset-0 opacity-40" data-alt="High tech server room visualization representing distributed event streaming pipelines and real-time Kafka cluster node nodes in deep blue and indigo lighting with architectural data diagrams" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDeFPv8OSRcAwDOJUqOQnHU963Iq8EZIz2AhEj_9YQYhOurvdS3UpAOWuajnP4B9jsSzNAFnazDSMuDgrynOVriDt99gULZ-lNURfRtPOxWBOSmdYuofyhzj2xA6HKnsTFn5juYFWbAmQzCqQEx-fM-4-2lqA7L4oucOXFI9-hJ4Vs_hqk0_EwDkqUZqi1zlmg9VFn4v_lWZkZAvMGbnx8kel-8sqr4YUe5RELxORlXWeDNcNbcsek4eg')"></div>
+<div class="relative z-10 flex flex-col items-center gap-space-xs text-on-primary">
+<button class="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg hover:scale-105 transition-transform" type="button">
+<span class="material-symbols-outlined text-[32px] ml-0.5">play_arrow</span>
+</button>
+<span class="font-label-md text-label-md font-semibold">Embedded Architectural Walkthrough (18:42)</span>
+</div>
+</div>
+<!-- Simulated Rendered Article Text -->
+<div class="flex flex-col gap-space-md font-body-lg text-body-lg text-on-surface leading-relaxed">
+<p class="font-semibold text-on-surface-variant">
+            An exhaustive architectural blueprint on multi-region partition rebalancing, quorum durability, and backpressure governance for mission-critical asynchronous workloads.
+          </p>
+<p>
+            When operating high-throughput event streaming architectures, the theoretical guarantees provided by the write-ahead append log are directly modulated by broker topology, in-sync replicas (<code class="text-primary font-mono text-label-sm">min.insync.replicas</code>), and consumer coordination primitives.
+          </p>
+<div class="p-space-md rounded-lg bg-surface-container-low text-on-surface">
+<strong>Key Architectural Invariant:</strong> Never allow consumer group rebalances to trigger stop-the-world partition assignment for mission-critical asynchronous workloads.
+          </div>
+</div>
+<!-- Attached Quiz Teaser at article base -->
+<div class="p-space-xl rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md mt-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[24px]">school</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Knowledge Checkpoint: Kafka Durability</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3 Interactive Questions</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Complete this checkpoint to earn your Lumen Distributed Systems comprehension certification badge.
+          </p>
+<div class="p-space-md bg-surface-container-lowest rounded-lg font-body-sm text-body-sm text-on-surface flex items-center justify-between">
+<span><strong>Q1:</strong> Which delivery guarantee does standard Kafka broker partitioning provide without supplementary clustering configuration?</span>
+<span class="text-primary font-semibold text-label-sm font-label-sm">Ready to answer</span>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="bg-surface-container-lowest px-space-xl py-space-sm flex items-center justify-between border-t border-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Rendered in Lumen CMS Reader Engine v4.2</span>
+<button class="h-9 px-space-lg rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" id="btn-close-modal-bottom" type="button">
+          Close Preview
+        </button>
+</div>
+</div>
+</div>
+<!-- Inline Micro-interactions Script -->
+<script>
+    (function initEditorInteractions() {
+      // Tab switcher in inspector
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-target');
+          
+          tabButtons.forEach(b => {
+            b.classList.remove('active', 'bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+            b.classList.add('text-on-surface-variant');
+          });
+
+          btn.classList.add('active', 'bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+          btn.classList.remove('text-on-surface-variant');
+
+          tabContents.forEach(content => {
+            if (content.id === targetId) {
+              content.classList.remove('hidden');
+              content.classList.add('flex');
+            } else {
+              content.classList.add('hidden');
+              content.classList.remove('flex');
+            }
+          });
+        });
+      });
+
+      // Character count tracking for title
+      const titleInput = document.getElementById('article-title-input');
+      const charCounter = document.getElementById('title-char-count');
+      if (titleInput && charCounter) {
+        titleInput.addEventListener('input', (e) => {
+          const length = e.target.value.length;
+          charCounter.textContent = `${length} / 120`;
+          if (length > 120) {
+            charCounter.classList.add('text-error');
+          } else {
+            charCounter.classList.remove('text-error');
+          }
+        });
+      }
+
+      // Preview Modal triggers
+      const openModalBtn = document.getElementById('btn-open-preview');
+      const closeModalBtn = document.getElementById('btn-close-modal');
+      const closeModalBtnBottom = document.getElementById('btn-close-modal-bottom');
+      const modal = document.getElementById('preview-modal');
+
+      const toggleModal = (show) => {
+        if (!modal) return;
+        if (show) {
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+          document.body.classList.add('overflow-hidden');
+        } else {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          document.body.classList.remove('overflow-hidden');
+        }
+      };
+
+      if (openModalBtn) openModalBtn.addEventListener('click', () => toggleModal(true));
+      if (closeModalBtn) closeModalBtn.addEventListener('click', () => toggleModal(false));
+      if (closeModalBtnBottom) closeModalBtnBottom.addEventListener('click', () => toggleModal(false));
+      
+      // Close on backdrop click
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) toggleModal(false);
+        });
+      }
+
+      // Submit feedback toast emulation
+      const submitBtn = document.getElementById('btn-submit-review');
+      if (submitBtn) {
+        submitBtn.addEventListener('click', () => {
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Submitting...</span>';
+          submitBtn.disabled = true;
+          setTimeout(() => {
+            submitBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span><span>Submitted for Review</span>';
+            submitBtn.classList.remove('bg-primary-container', 'hover:bg-primary');
+            submitBtn.classList.add('bg-tertiary-container');
+            setTimeout(() => {
+              submitBtn.innerHTML = originalText;
+              submitBtn.disabled = false;
+              submitBtn.classList.add('bg-primary-container', 'hover:bg-primary');
+              submitBtn.classList.remove('bg-tertiary-container');
+            }, 3000);
+          }, 800);
+        });
+      }
+    })();
+  </script>
+</div>
+</main>
+<!-- Global Studio Footer -->
+<footer class="bg-surface-container-lowest py-space-lg mt-auto shadow-inner text-on-surface-variant">
+<div class="max-w-7xl mx-auto px-margin-sm sm:px-margin flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Lumen CMS</span>
+<span>•</span>
+<span>Author &amp; Admin Studio</span>
+</div>
+<div class="flex items-center gap-space-lg font-label-md text-label-md">
+<a class="hover:text-on-surface transition-colors" href="#">Author Guidelines</a>
+<a class="hover:text-on-surface transition-colors" href="#">Documentation</a>
+<a class="hover:text-on-surface transition-colors" href="#">API Status</a>
+<span class="font-body-sm text-body-sm text-outline">© 2025 Lumen CMS. All rights reserved.</span>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><title>Lumen CMS - User & Role Management</title><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "surface-container-low": "#eff4ff",
+        "secondary-fixed-dim": "#bec6e0",
+        "primary": "#004ac6",
+        "on-secondary-container": "#5c647a",
+        "error": "#ba1a1a",
+        "on-secondary-fixed": "#131b2e",
+        "surface-container-lowest": "#ffffff",
+        "secondary-fixed": "#dae2fd",
+        "outline": "#737686",
+        "error-container": "#ffdad6",
+        "inverse-surface": "#213145",
+        "surface-container-highest": "#d3e4fe",
+        "on-secondary": "#ffffff",
+        "on-primary-container": "#eeefff",
+        "surface-bright": "#f8f9ff",
+        "surface": "#f8f9ff",
+        "background": "#f8f9ff",
+        "tertiary": "#006242",
+        "on-secondary-fixed-variant": "#3f465c",
+        "surface-container-high": "#dce9ff",
+        "on-tertiary-container": "#bdffdb",
+        "tertiary-container": "#007d55",
+        "surface-variant": "#d3e4fe",
+        "on-primary-fixed": "#00174b",
+        "secondary-container": "#dae2fd",
+        "on-tertiary-fixed": "#002113",
+        "on-surface-variant": "#434655",
+        "outline-variant": "#c3c6d7",
+        "on-tertiary": "#ffffff",
+        "on-error": "#ffffff",
+        "surface-container": "#e5eeff",
+        "primary-fixed": "#dbe1ff",
+        "on-tertiary-fixed-variant": "#005236",
+        "on-error-container": "#93000a",
+        "on-surface": "#0b1c30",
+        "on-primary-fixed-variant": "#003ea8",
+        "primary-fixed-dim": "#b4c5ff",
+        "surface-dim": "#cbdbf5",
+        "inverse-primary": "#b4c5ff",
+        "tertiary-fixed-dim": "#4edea3",
+        "surface-tint": "#0053db",
+        "secondary": "#565e74",
+        "primary-container": "#2563eb",
+        "tertiary-fixed": "#6ffbbe",
+        "on-background": "#0b1c30",
+        "on-primary": "#ffffff",
+        "inverse-on-surface": "#eaf1ff"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-2xl": "2rem",
+        "space-sm": "0.5rem",
+        "gutter": "1.5rem",
+        "space-xs": "0.25rem",
+        "space-md": "0.75rem",
+        "gutter-sm": "1rem",
+        "margin-sm": "1rem",
+        "space-2xs": "0.125rem",
+        "margin": "2rem",
+        "space-xl": "1.5rem",
+        "space-lg": "1rem"
+      },
+      "fontFamily": {
+        "body-lg": ["Inter"],
+        "label-lg": ["Inter"],
+        "headline-lg": ["Inter"],
+        "headline-md": ["Inter"],
+        "headline-xl": ["Inter"],
+        "body-md": ["Inter"],
+        "body-sm": ["Inter"],
+        "headline-sm": ["Inter"],
+        "metric-display": ["Inter"],
+        "label-sm": ["Inter"],
+        "label-md": ["Inter"]
+      },
+      "fontSize": {
+        "body-lg": ["1rem", {"lineHeight": "1.5rem", "fontWeight": "400"}],
+        "label-lg": ["0.875rem", {"lineHeight": "1.25rem", "fontWeight": "500"}],
+        "headline-lg": ["1.5rem", {"lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+        "headline-md": ["1.25rem", {"lineHeight": "1.75rem", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "headline-xl": ["2rem", {"lineHeight": "2.5rem", "letterSpacing": "-0.025em", "fontWeight": "700"}],
+        "body-md": ["0.875rem", {"lineHeight": "1.25rem", "fontWeight": "400"}],
+        "body-sm": ["0.75rem", {"lineHeight": "1rem", "fontWeight": "400"}],
+        "headline-sm": ["1.125rem", {"lineHeight": "1.5rem", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+        "metric-display": ["1.75rem", {"lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+        "label-sm": ["0.75rem", {"lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600"}],
+        "label-md": ["0.8125rem", {"lineHeight": "1.125rem", "fontWeight": "500"}]
+      }
+    }
+  }
+}</script>
+    <!-- Lumen Favicons -->
+    <link rel="icon" type="image/png" href="../assets/lumen-favicon.png">
+    <link rel="shortcut icon" href="../assets/lumen-favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
+
+</head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[260px] bg-inverse-surface z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center justify-between border-b border-outline-variant/20"><div class="flex items-center gap-space-sm"><img alt="Lumen CMS" class="h-8 w-auto object-contain" src="../assets/lumen_logo.png" /></div><span class="font-label-sm text-label-sm px-space-xs py-space-2xs rounded bg-surface-container-highest/20 text-inverse-on-surface font-medium">v2.4</span></div><nav class="px-space-md py-space-lg flex flex-col gap-space-lg" data-active-classes="bg-primary-container text-on-primary font-medium rounded-lg"><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm uppercase tracking-wider text-outline-variant font-semibold">Main</span><div class="flex flex-col gap-space-2xs"><a class="flex items-center px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors font-label-md text-label-md" data-path="overview" href="#">Admin Overview</a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors font-label-md text-label-md" data-path="articles" href="#">Articles</a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors font-label-md text-label-md" data-path="quiz-builder" href="#">Quiz Builder</a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors font-label-md text-label-md" data-path="quizzes" href="#">Quizzes</a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors font-label-md text-label-md" data-path="comments" href="#">Comments</a></div></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm uppercase tracking-wider text-outline-variant font-semibold">Moderation &amp; Trust</span><div class="flex flex-col gap-space-2xs"><a class="flex items-center px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors font-label-md text-label-md" data-path="ai-moderation" href="#">AI Moderation</a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors font-label-md text-label-md" data-path="reports" href="#">Reports</a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors font-label-md text-label-md" data-path="content-verification" href="#">Content Verification</a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors font-label-md text-label-md" data-path="appeals" href="#">Appeals</a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors font-label-md text-label-md" data-path="spam-abuse" href="#">Spam &amp; Abuse</a></div></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm uppercase tracking-wider text-outline-variant font-semibold">Audience &amp; Settings</span><div class="flex flex-col gap-space-2xs"><a aria-current="page" class="flex items-center px-space-sm py-space-sm transition-colors bg-primary-container text-on-primary font-medium rounded-lg" data-path="users" href="#">Users</a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors font-label-md text-label-md" data-path="subscriptions" href="#">Subscriptions</a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-outline-variant hover:text-inverse-on-surface hover:bg-surface-container-highest/10 transition-colors font-label-md text-label-md" data-path="settings" href="#">Settings</a></div></div></nav></div><div class="p-space-lg border-t border-outline-variant/20 flex flex-col gap-space-md"><a class="flex items-center gap-space-xs font-label-md text-label-md text-outline-variant hover:text-inverse-on-surface transition-colors" data-path="documentation" href="#"><span class="material-symbols-outlined text-base">help_outline</span>Documentation</a></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 bg-surface-container-lowest border-b border-outline-variant/40 z-40 px-space-2xl flex items-center justify-between"><div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant"><span class="hover:text-on-surface cursor-pointer">Admin</span><span class="material-symbols-outlined text-sm">chevron_right</span><span class="text-on-surface font-semibold">Users</span></div><div class="flex items-center gap-space-lg"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-2.5 text-outline text-lg pointer-events-none">search</span><input class="h-9 pl-9 pr-12 rounded-lg bg-surface border border-outline-variant/60 font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-primary-container w-72 transition-all" placeholder="Search articles, users, moderation reports..." type="text"/><span class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant/40 font-label-sm text-label-sm text-outline font-semibold">⌘K</span></div><button class="relative p-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-space-sm pl-space-sm border-l border-outline-variant/40"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQbDOS9BXRRpcebhNVsqs5AwY3fJQ2fImyR_3fjVu-OYF2wCpVThvbv16aVZ88rL5E4DP0-OVVKCyvQ44GVvEtIulYP2TI0Ww4rVm0bhivCbLRDqLoWjfw6pi5JniDuDE_tFtCZx4yJ2EWzuCczDUqN5yVGZwv15b9qMuIcJuaWOzC2rcP4ZNZ1gRTXhjfWBPGmFh7LYaMvK5kBpRdU1TSQateO7a5_qJ7B1NF_DEyUXsIvlsYct9Xdw"/><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Sarah Jenkins</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Editor-in-Chief</span></div></div></div></header><main class="w-full pt-16 bg-surface px-space-2xl py-space-xl"><div class="flex flex-col w-full">
+<!-- Top Content Header -->
+<div class="flex items-center justify-between pb-space-lg">
+<div class="flex flex-col">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">User Management</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-2xs">Manage users, roles, and trust information across Lumen CMS.</p>
+</div>
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm hover:opacity-95 transition-all" type="button">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Add User</span>
+</button>
+</div>
+<!-- Filter & Search Toolbar -->
+<div class="flex items-center justify-between gap-space-md pb-space-lg">
+<div class="flex items-center gap-space-md">
+<!-- Search Field -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-lg pointer-events-none">search</span>
+<input class="w-72 bg-surface-container-lowest border border-outline-variant/60 rounded-lg font-body-md text-body-md text-on-surface pl-9 pr-space-md py-space-xs shadow-sm placeholder:text-outline focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" id="user-search-input" placeholder="Search users..." type="text"/>
+</div>
+<!-- Role Filter Dropdown -->
+<div class="relative inline-block text-left">
+<select class="appearance-none bg-surface-container-lowest border border-outline-variant/60 rounded-lg font-label-md text-label-md text-on-surface-variant pl-space-md pr-8 py-space-xs shadow-sm hover:text-on-surface focus:outline-none focus:border-primary-container cursor-pointer transition-colors" id="role-filter-select">
+<option value="ALL">All Roles</option>
+<option value="Admin">Admin</option>
+<option value="Author">Author</option>
+<option value="Reader">Reader</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline text-base pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Users Data Table Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/40 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse" id="users-table">
+<thead>
+<tr class="bg-surface border-b border-outline-variant/30 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-md px-space-xl font-semibold" scope="col">User</th>
+<th class="py-space-md px-space-xl font-semibold" scope="col">Email</th>
+<th class="py-space-md px-space-xl font-semibold w-44" scope="col">Role</th>
+<th class="py-space-md px-space-xl font-semibold" scope="col">Trust</th>
+<th class="py-space-md px-space-xl font-semibold text-right w-24" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container/60 font-body-md text-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors user-row" data-email="s.jenkins@lumencms.io" data-name="Sarah Jenkins" data-role="Admin">
+<td class="py-space-md px-space-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-label-md text-label-md font-semibold tracking-tight">
+                  SJ
+                </div>
+<span class="font-semibold text-on-surface">Sarah Jenkins</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl text-on-surface-variant">s.jenkins@lumencms.io</td>
+<td class="py-space-md px-space-xl">
+<div class="relative w-32">
+<select class="w-full appearance-none bg-surface-container-low border border-outline-variant/50 text-on-surface font-label-sm text-label-sm font-medium rounded-md px-2.5 py-1.5 pr-6 cursor-pointer focus:outline-none focus:border-primary-container">
+<option selected="">Admin</option>
+<option>Author</option>
+<option>Reader</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 text-outline text-sm pointer-events-none">unfold_more</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-medium bg-tertiary/10 text-tertiary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                Staff / Verified
+              </span>
+</td>
+<td class="py-space-md px-space-xl text-right">
+<button class="p-1.5 text-outline hover:text-error hover:bg-error-container/30 rounded-lg transition-colors" title="Delete user" type="button">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors user-row" data-email="alex.rivera@techpulse.org" data-name="Alex Rivera" data-role="Author">
+<td class="py-space-md px-space-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-md text-label-md font-semibold tracking-tight">
+                  AR
+                </div>
+<span class="font-semibold text-on-surface">Alex Rivera</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl text-on-surface-variant">alex.rivera@techpulse.org</td>
+<td class="py-space-md px-space-xl">
+<div class="relative w-32">
+<select class="w-full appearance-none bg-surface-container-low border border-outline-variant/50 text-on-surface font-label-sm text-label-sm font-medium rounded-md px-2.5 py-1.5 pr-6 cursor-pointer focus:outline-none focus:border-primary-container">
+<option>Admin</option>
+<option selected="">Author</option>
+<option>Reader</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 text-outline text-sm pointer-events-none">unfold_more</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-medium bg-primary-fixed/40 text-primary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                Verified Contributor
+              </span>
+</td>
+<td class="py-space-md px-space-xl text-right">
+<button class="p-1.5 text-outline hover:text-error hover:bg-error-container/30 rounded-lg transition-colors" title="Delete user" type="button">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors user-row" data-email="elena.rostova@eduworld.net" data-name="Elena Rostova" data-role="Author">
+<td class="py-space-md px-space-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-md text-label-md font-semibold tracking-tight">
+                  ER
+                </div>
+<span class="font-semibold text-on-surface">Elena Rostova</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl text-on-surface-variant">elena.rostova@eduworld.net</td>
+<td class="py-space-md px-space-xl">
+<div class="relative w-32">
+<select class="w-full appearance-none bg-surface-container-low border border-outline-variant/50 text-on-surface font-label-sm text-label-sm font-medium rounded-md px-2.5 py-1.5 pr-6 cursor-pointer focus:outline-none focus:border-primary-container">
+<option>Admin</option>
+<option selected="">Author</option>
+<option>Reader</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 text-outline text-sm pointer-events-none">unfold_more</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-medium bg-primary-fixed/40 text-primary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                Verified Contributor
+              </span>
+</td>
+<td class="py-space-md px-space-xl text-right">
+<button class="p-1.5 text-outline hover:text-error hover:bg-error-container/30 rounded-lg transition-colors" title="Delete user" type="button">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors user-row" data-email="marcus.chen@finreview.com" data-name="Marcus Chen" data-role="Author">
+<td class="py-space-md px-space-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-label-md text-label-md font-semibold tracking-tight">
+                  MC
+                </div>
+<span class="font-semibold text-on-surface">Marcus Chen</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl text-on-surface-variant">marcus.chen@finreview.com</td>
+<td class="py-space-md px-space-xl">
+<div class="relative w-32">
+<select class="w-full appearance-none bg-surface-container-low border border-outline-variant/50 text-on-surface font-label-sm text-label-sm font-medium rounded-md px-2.5 py-1.5 pr-6 cursor-pointer focus:outline-none focus:border-primary-container">
+<option>Admin</option>
+<option selected="">Author</option>
+<option>Reader</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 text-outline text-sm pointer-events-none">unfold_more</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-medium bg-tertiary/10 text-tertiary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                Staff / Verified
+              </span>
+</td>
+<td class="py-space-md px-space-xl text-right">
+<button class="p-1.5 text-outline hover:text-error hover:bg-error-container/30 rounded-lg transition-colors" title="Delete user" type="button">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors user-row" data-email="maya.p@urbanstudies.org" data-name="Maya Patel" data-role="Author">
+<td class="py-space-md px-space-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-label-md text-label-md font-semibold tracking-tight">
+                  MP
+                </div>
+<span class="font-semibold text-on-surface">Maya Patel</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl text-on-surface-variant">maya.p@urbanstudies.org</td>
+<td class="py-space-md px-space-xl">
+<div class="relative w-32">
+<select class="w-full appearance-none bg-surface-container-low border border-outline-variant/50 text-on-surface font-label-sm text-label-sm font-medium rounded-md px-2.5 py-1.5 pr-6 cursor-pointer focus:outline-none focus:border-primary-container">
+<option>Admin</option>
+<option selected="">Author</option>
+<option>Reader</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 text-outline text-sm pointer-events-none">unfold_more</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-medium bg-primary-fixed/40 text-primary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                Verified Contributor
+              </span>
+</td>
+<td class="py-space-md px-space-xl text-right">
+<button class="p-1.5 text-outline hover:text-error hover:bg-error-container/30 rounded-lg transition-colors" title="Delete user" type="button">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors user-row" data-email="david.kim@codecraft.io" data-name="David Kim" data-role="Author">
+<td class="py-space-md px-space-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-label-md text-label-md font-semibold tracking-tight">
+                  DK
+                </div>
+<span class="font-semibold text-on-surface">David Kim</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl text-on-surface-variant">david.kim@codecraft.io</td>
+<td class="py-space-md px-space-xl">
+<div class="relative w-32">
+<select class="w-full appearance-none bg-surface-container-low border border-outline-variant/50 text-on-surface font-label-sm text-label-sm font-medium rounded-md px-2.5 py-1.5 pr-6 cursor-pointer focus:outline-none focus:border-primary-container">
+<option>Admin</option>
+<option selected="">Author</option>
+<option>Reader</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 text-outline text-sm pointer-events-none">unfold_more</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-medium bg-surface-container-highest text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">groups</span>
+                Community Author
+              </span>
+</td>
+<td class="py-space-md px-space-xl text-right">
+<button class="p-1.5 text-outline hover:text-error hover:bg-error-container/30 rounded-lg transition-colors" title="Delete user" type="button">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 7 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors user-row" data-email="claire.d@horizonmedia.com" data-name="Claire Delacroix" data-role="Reader">
+<td class="py-space-md px-space-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-md text-label-md font-semibold tracking-tight">
+                  CD
+                </div>
+<span class="font-semibold text-on-surface">Claire Delacroix</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl text-on-surface-variant">claire.d@horizonmedia.com</td>
+<td class="py-space-md px-space-xl">
+<div class="relative w-32">
+<select class="w-full appearance-none bg-surface-container-low border border-outline-variant/50 text-on-surface font-label-sm text-label-sm font-medium rounded-md px-2.5 py-1.5 pr-6 cursor-pointer focus:outline-none focus:border-primary-container">
+<option>Admin</option>
+<option>Author</option>
+<option selected="">Reader</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 text-outline text-sm pointer-events-none">unfold_more</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-medium bg-surface-container text-secondary">
+<span class="material-symbols-outlined text-xs">person</span>
+                Standard Member
+              </span>
+</td>
+<td class="py-space-md px-space-xl text-right">
+<button class="p-1.5 text-outline hover:text-error hover:bg-error-container/30 rounded-lg transition-colors" title="Delete user" type="button">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 8 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors user-row" data-email="t.sterling@capitalinsights.com" data-name="Thomas Sterling" data-role="Reader">
+<td class="py-space-md px-space-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-label-md text-label-md font-semibold tracking-tight">
+                  TS
+                </div>
+<span class="font-semibold text-on-surface">Thomas Sterling</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl text-on-surface-variant">t.sterling@capitalinsights.com</td>
+<td class="py-space-md px-space-xl">
+<div class="relative w-32">
+<select class="w-full appearance-none bg-surface-container-low border border-outline-variant/50 text-on-surface font-label-sm text-label-sm font-medium rounded-md px-2.5 py-1.5 pr-6 cursor-pointer focus:outline-none focus:border-primary-container">
+<option>Admin</option>
+<option>Author</option>
+<option selected="">Reader</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 text-outline text-sm pointer-events-none">unfold_more</span>
+</div>
+</td>
+<td class="py-space-md px-space-xl">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-medium bg-surface-container text-secondary">
+<span class="material-symbols-outlined text-xs">person</span>
+                Standard Member
+              </span>
+</td>
+<td class="py-space-md px-space-xl text-right">
+<button class="p-1.5 text-outline hover:text-error hover:bg-error-container/30 rounded-lg transition-colors" title="Delete user" type="button">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination -->
+<div class="flex items-center justify-between px-space-xl py-space-md border-t border-outline-variant/30 bg-surface">
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="pagination-info">
+        Showing 1 to 8 of 8 users
+      </span>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1 rounded bg-surface-container-lowest border border-outline-variant/50 font-label-sm text-label-sm text-outline hover:text-on-surface disabled:opacity-40 transition-colors" disabled="" type="button">
+          Previous
+        </button>
+<button class="px-space-md py-1 rounded bg-surface-container-lowest border border-outline-variant/50 font-label-sm text-label-sm text-outline hover:text-on-surface disabled:opacity-40 transition-colors" disabled="" type="button">
+          Next
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const searchInput = document.getElementById('user-search-input');
+    const roleSelect = document.getElementById('role-filter-select');
+    const rows = document.querySelectorAll('.user-row');
+    const paginationInfo = document.getElementById('pagination-info');
+
+    function filterTable() {
+      const query = (searchInput.value || '').toLowerCase().trim();
+      const selectedRole = roleSelect.value;
+      let visibleCount = 0;
+
+      rows.forEach(row => {
+        const name = (row.getAttribute('data-name') || '').toLowerCase();
+        const email = (row.getAttribute('data-email') || '').toLowerCase();
+        const role = row.getAttribute('data-role');
+
+        const matchesQuery = !query || name.includes(query) || email.includes(query);
+        const matchesRole = selectedRole === 'ALL' || role === selectedRole;
+
+        if (matchesQuery && matchesRole) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      if (paginationInfo) {
+        paginationInfo.textContent = `Showing ${visibleCount === 0 ? 0 : 1} to ${visibleCount} of ${visibleCount} users`;
+      }
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterTable);
+    }
+    if (roleSelect) {
+      roleSelect.addEventListener('change', filterTable);
+    }
+  })();
+</script></main></div>
+</body></html>

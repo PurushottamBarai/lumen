@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><title>Lumen CMS - Quiz Quality Auditing</title><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-lowest":"#ffffff","surface-container-low":"#eff4ff","on-primary-fixed":"#00174b","on-primary-container":"#eeefff","on-secondary-container":"#5c647a","surface-container-high":"#dce9ff","surface-container":"#e5eeff","surface-variant":"#d3e4fe","on-tertiary":"#ffffff","outline-variant":"#c3c6d7","on-surface":"#0b1c30","tertiary":"#006242","secondary":"#565e74","on-secondary":"#ffffff","secondary-fixed-dim":"#bec6e0","on-error":"#ffffff","surface-tint":"#0053db","on-secondary-fixed":"#131b2e","on-background":"#0b1c30","on-tertiary-fixed":"#002113","secondary-fixed":"#dae2fd","inverse-surface":"#213145","surface-bright":"#f8f9ff","primary-container":"#2563eb","tertiary-container":"#007d55","on-primary":"#ffffff","primary":"#004ac6","on-secondary-fixed-variant":"#3f465c","inverse-on-surface":"#eaf1ff","error":"#ba1a1a","inverse-primary":"#b4c5ff","on-tertiary-container":"#bdffdb","outline":"#737686","surface":"#f8f9ff","primary-fixed-dim":"#b4c5ff","on-tertiary-fixed-variant":"#005236","tertiary-fixed-dim":"#4edea3","background":"#f8f9ff","error-container":"#ffdad6","tertiary-fixed":"#6ffbbe","secondary-container":"#dae2fd","primary-fixed":"#dbe1ff","on-primary-fixed-variant":"#003ea8","on-surface-variant":"#434655","on-error-container":"#93000a","surface-container-highest":"#d3e4fe","surface-dim":"#cbdbf5"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-2xl":"2rem","space-md":"0.75rem","space-sm":"0.5rem","margin":"2rem","space-xl":"1.5rem","space-lg":"1rem","space-xs":"0.25rem","space-2xs":"0.125rem","margin-sm":"1rem","gutter-sm":"1rem","gutter":"1.5rem"},fontFamily:{"headline-lg":["Inter"],"body-lg":["Inter"],"headline-xl":["Inter"],"body-md":["Inter"],"headline-md":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"metric-display":["Inter"],"label-lg":["Inter"],"headline-sm":["Inter"],"body-sm":["Inter"]},fontSize:{"headline-lg":["1.5rem",{lineHeight:"2rem",letterSpacing:"-0.02em",fontWeight:"600"}],"body-lg":["1rem",{lineHeight:"1.5rem",fontWeight:"400"}],"headline-xl":["2rem",{lineHeight:"2.5rem",letterSpacing:"-0.025em",fontWeight:"700"}],"body-md":["0.875rem",{lineHeight:"1.25rem",fontWeight:"400"}],"headline-md":["1.25rem",{lineHeight:"1.75rem",letterSpacing:"-0.015em",fontWeight:"600"}],"label-md":["0.8125rem",{lineHeight:"1.125rem",fontWeight:"500"}],"label-sm":["0.75rem",{lineHeight:"1rem",letterSpacing:"0.025em",fontWeight:"600"}],"metric-display":["1.75rem",{lineHeight:"2rem",letterSpacing:"-0.02em",fontWeight:"600"}],"label-lg":["0.875rem",{lineHeight:"1.25rem",fontWeight:"500"}],"headline-sm":["1.125rem",{lineHeight:"1.5rem",letterSpacing:"-0.01em",fontWeight:"600"}],"body-sm":["0.75rem",{lineHeight:"1rem",fontWeight:"400"}]}}}}</script>
+    <!-- Lumen Favicons -->
+    <link rel="icon" type="image/png" href="../assets/lumen-favicon.png">
+    <link rel="shortcut icon" href="../assets/lumen-favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
+
+</head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 bottom-0 w-[260px] bg-[#0F172A] text-inverse-on-surface z-50 flex flex-col justify-between overflow-y-auto"><a class="flex items-center gap-space-xs px-space-sm py-space-xs text-outline-variant hover:text-surface-container-lowest text-label-sm font-label-sm transition-colors" data-path="documentation" href="#"><span class="material-symbols-outlined text-[18px]">help</span><span class="">Documentation</span></a></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-14 bg-surface-container-lowest border-b border-outline-variant/50 z-40 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Lumen CMS" class="h-8 w-auto object-contain" src="../assets/lumen_logo.png" /></div>
+<div class="flex items-center gap-space-sm">
+<button class="inline-flex items-center gap-space-xs px-3.5 py-2 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container-low transition-colors border border-outline-variant/60" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">download</span>
+<span>Export CSV</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-3.5 py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Create Quiz</span>
+</button>
+</div>
+</div>
+<!-- Filter & Search Toolbar Card -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/50 mb-space-lg">
+<div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md">
+<!-- Search Input -->
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-outline">search</span>
+<input class="w-full h-9 pl-9 pr-4 bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-md text-body-md rounded-lg border border-outline-variant/60 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="quizSearch" placeholder="Search quizzes..." type="text"/>
+</div>
+<!-- Filters & Actions -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="relative inline-block text-left">
+<select class="h-9 px-3 pr-8 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md border border-outline-variant/60 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 appearance-none cursor-pointer" id="statusFilter">
+<option value="All Statuses">All Statuses</option>
+<option value="Pending">Pending</option>
+<option value="Published">Published</option>
+<option value="Rejected">Rejected</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[18px] text-outline pointer-events-none">expand_more</span>
+</div>
+<button class="h-9 px-3 rounded-lg bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md border border-outline-variant/60 hover:bg-surface-container-low transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline">filter_list</span>
+<span>More Filters</span>
+</button>
+<span class="h-5 w-px bg-outline-variant/50 hidden sm:block"></span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Showing <strong class="text-on-surface">5</strong> of 48</span>
+</div>
+</div>
+</div>
+<!-- Quizzes Data Table Card -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/50 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/60 border-b border-outline-variant/50">
+<th class="py-3 px-5 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Quiz Title</th>
+<th class="py-3 px-5 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Author</th>
+<th class="py-3 px-5 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Questions</th>
+<th class="py-3 px-5 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="py-3 px-5 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30 text-body-md font-body-md text-on-surface">
+<!-- Row 1 (Target of Modal) -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group">
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-primary">terminal</span>
+</div>
+<div class="min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate block cursor-pointer hover:text-primary-container transition-colors" onclick="openModal()">JavaScript ES2025 Features &amp; Syntax</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">ID: QZ-8041 · Submitted today</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-fixed flex items-center justify-center text-label-sm font-label-sm font-bold">
+                  DK
+                </div>
+<div>
+<span class="text-label-md font-label-md text-on-surface font-semibold block leading-tight">David Kim</span>
+<span class="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-label-sm uppercase tracking-wide bg-surface-container-high text-on-surface-variant">Author</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-5 tabular-nums text-on-surface font-medium">
+              15 Questions
+            </td>
+<td class="py-3.5 px-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-medium bg-amber-50 text-amber-700 border border-amber-200">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                Pending
+              </span>
+</td>
+<td class="py-3.5 px-5 text-right">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-label-md font-label-md font-medium text-primary-container hover:bg-surface-container-low border border-outline-variant/60 hover:border-primary-container/40 transition-all" onclick="openModal()" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Inspect</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group">
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-tertiary-fixed/40 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-tertiary">public</span>
+</div>
+<div class="min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate block">World Geography &amp; Capital Cities</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">ID: QZ-7922 · 3,420 completions</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center text-label-sm font-label-sm font-bold">
+                  ER
+                </div>
+<div>
+<span class="text-label-md font-label-md text-on-surface font-semibold block leading-tight">Elena Rostova</span>
+<span class="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-label-sm uppercase tracking-wide bg-primary-fixed text-on-primary-fixed">Admin</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-5 tabular-nums text-on-surface font-medium">
+              20 Questions
+            </td>
+<td class="py-3.5 px-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Published
+              </span>
+</td>
+<td class="py-3.5 px-5 text-right">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-label-md font-label-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low border border-outline-variant/60 transition-all" onclick="openModal()" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Inspect</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group">
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-secondary">account_balance</span>
+</div>
+<div class="min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate block">Financial Literacy &amp; Market Basics</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">ID: QZ-6819 · 1,180 completions</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center text-label-sm font-label-sm font-bold">
+                  MC
+                </div>
+<div>
+<span class="text-label-md font-label-md text-on-surface font-semibold block leading-tight">Marcus Chen</span>
+<span class="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-label-sm uppercase tracking-wide bg-surface-container-high text-on-surface-variant">Author</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-5 tabular-nums text-on-surface font-medium">
+              12 Questions
+            </td>
+<td class="py-3.5 px-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Published
+              </span>
+</td>
+<td class="py-3.5 px-5 text-right">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-label-md font-label-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low border border-outline-variant/60 transition-all" onclick="openModal()" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Inspect</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group">
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-secondary">biotech</span>
+</div>
+<div class="min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate block">Cellular Biology &amp; Genetics</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">ID: QZ-6403 · Issues flagged</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center text-label-sm font-label-sm font-bold">
+                  AL
+                </div>
+<div>
+<span class="text-label-md font-label-md text-on-surface font-semibold block leading-tight">Aria Lewis</span>
+<span class="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-label-sm uppercase tracking-wide bg-surface-variant text-on-surface-variant">Reader</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-5 tabular-nums text-on-surface font-medium">
+              25 Questions
+            </td>
+<td class="py-3.5 px-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-medium bg-red-50 text-red-700 border border-red-200">
+<span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                Rejected
+              </span>
+</td>
+<td class="py-3.5 px-5 text-right">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-label-md font-label-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low border border-outline-variant/60 transition-all" onclick="openModal()" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Inspect</span>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group">
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-secondary">apartment</span>
+</div>
+<div class="min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate block">Modern Architecture Principles</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">ID: QZ-5801 · 890 completions</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center text-label-sm font-label-sm font-bold">
+                  MC
+                </div>
+<div>
+<span class="text-label-md font-label-md text-on-surface font-semibold block leading-tight">Marcus Chen</span>
+<span class="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-label-sm uppercase tracking-wide bg-surface-container-high text-on-surface-variant">Author</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-5 tabular-nums text-on-surface font-medium">
+              18 Questions
+            </td>
+<td class="py-3.5 px-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Published
+              </span>
+</td>
+<td class="py-3.5 px-5 text-right">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-label-md font-label-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low border border-outline-variant/60 transition-all" onclick="openModal()" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Inspect</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination Footer -->
+<div class="flex items-center justify-between px-5 py-3.5 bg-surface-container-low/40 border-t border-outline-variant/40">
+<div class="text-body-sm font-body-sm text-on-surface-variant">
+        Showing 1 to 5 of 48 quizzes
+      </div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-lowest disabled:opacity-40 transition-colors" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-label-sm font-label-sm font-semibold bg-primary-container text-on-primary" type="button">
+          1
+        </button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-label-sm font-label-sm font-semibold text-on-surface-variant hover:bg-surface-container-lowest transition-colors" type="button">
+          2
+        </button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-label-sm font-label-sm font-semibold text-on-surface-variant hover:bg-surface-container-lowest transition-colors" type="button">
+          3
+        </button>
+<span class="px-1 text-outline font-label-sm">...</span>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-label-sm font-label-sm font-semibold text-on-surface-variant hover:bg-surface-container-lowest transition-colors" type="button">
+          10
+        </button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-lowest transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Question Inspector Modal (Overlay) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0F172A]/40 backdrop-blur-xs transition-opacity duration-200" id="inspectorModal">
+<!-- Modal Dialog Box -->
+<div class="w-full max-w-3xl bg-surface-container-lowest rounded-xl shadow-xl border border-outline-variant/60 flex flex-col max-h-[921px] overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+<!-- Modal Header -->
+<div class="flex items-center justify-between px-6 py-4 border-b border-outline-variant/50 bg-surface-container-lowest">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px] text-primary">quiz</span>
+</div>
+<div>
+<div class="flex items-center gap-2.5">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Inspect Quiz Submission</h2>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-label-sm font-label-sm font-medium bg-amber-50 text-amber-700 border border-amber-200">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                Pending Review
+              </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Verification &amp; content assessment workflow</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" onclick="closeModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body (Scrollable) -->
+<div class="flex-1 overflow-y-auto p-6 space-y-6">
+<!-- Quiz Overview Block -->
+<div class="bg-surface-container-low/50 rounded-xl p-4 border border-outline-variant/40 space-y-2.5">
+<div class="flex items-start justify-between gap-4">
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-wide text-primary font-semibold">Quiz Details</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mt-0.5">JavaScript ES2025 Features &amp; Syntax</h3>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant font-mono">QZ-8041</span>
+</div>
+<div class="flex items-center gap-3 text-body-sm font-body-sm text-on-surface-variant flex-wrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">person</span>
+<span class="font-medium text-on-surface">David Kim</span>
+<span class="text-[11px] px-1.5 py-0.2 bg-surface-container rounded text-on-surface-variant uppercase font-medium">Author</span>
+</div>
+<span>•</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">help_center</span>
+<span>15 Questions</span>
+</div>
+<span>•</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
+<span>Submitted 2h ago</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface pt-1 border-t border-outline-variant/30">
+            Comprehensive assessment testing developer knowledge of upcoming ECMAScript 2025 language proposals, Set methods, pattern matching, and pipeline operators.
+          </p>
+</div>
+<!-- Question Preview Section -->
+<div>
+<div class="flex items-center justify-between mb-3">
+<h4 class="font-label-lg text-label-lg font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary-container">format_list_bulleted</span>
+              Question Preview (Sampled 2 of 15)
+            </h4>
+<span class="text-label-sm font-label-sm text-outline">Reviewing sample set</span>
+</div>
+<div class="space-y-4">
+<!-- Question 1 Card -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/60 shadow-xs">
+<div class="flex items-start justify-between gap-3 mb-3">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface text-label-sm font-label-sm font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
+<p class="font-label-lg text-label-lg text-on-surface font-semibold">Which method was introduced to the Set prototype for set composition in ES2025?</p>
+</div>
+<span class="text-[11px] font-label-sm uppercase px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-medium shrink-0">Single Choice</span>
+</div>
+<!-- Options -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pl-8.5">
+<!-- Option A -->
+<div class="p-2.5 rounded-lg border border-outline-variant/50 bg-surface-container-lowest text-on-surface font-body-md text-body-md flex items-center gap-2">
+<span class="w-4 h-4 rounded-full border border-outline-variant flex items-center justify-center text-[10px] text-outline shrink-0">A</span>
+<span>Set.prototype.merge()</span>
+</div>
+<!-- Option B (Correct) -->
+<div class="p-2.5 rounded-lg border border-emerald-500 bg-emerald-50/70 text-emerald-950 font-body-md text-body-md flex items-center justify-between gap-2 shadow-xs">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-4 h-4 rounded-full bg-emerald-600 text-on-tertiary flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
+<span class="font-medium truncate">Set.prototype.intersection()</span>
+</div>
+<span class="text-[11px] font-label-sm font-semibold text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded shrink-0">Correct Answer</span>
+</div>
+<!-- Option C -->
+<div class="p-2.5 rounded-lg border border-outline-variant/50 bg-surface-container-lowest text-on-surface font-body-md text-body-md flex items-center gap-2">
+<span class="w-4 h-4 rounded-full border border-outline-variant flex items-center justify-center text-[10px] text-outline shrink-0">C</span>
+<span>Set.prototype.combine()</span>
+</div>
+<!-- Option D -->
+<div class="p-2.5 rounded-lg border border-outline-variant/50 bg-surface-container-lowest text-on-surface font-body-md text-body-md flex items-center gap-2">
+<span class="w-4 h-4 rounded-full border border-outline-variant flex items-center justify-center text-[10px] text-outline shrink-0">D</span>
+<span>Set.prototype.joinSets()</span>
+</div>
+</div>
+</div>
+<!-- Question 2 Card -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/60 shadow-xs">
+<div class="flex items-start justify-between gap-3 mb-3">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface text-label-sm font-label-sm font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
+<p class="font-label-lg text-label-lg text-on-surface font-semibold">What is the primary benefit of the Decorator Metadata proposal?</p>
+</div>
+<span class="text-[11px] font-label-sm uppercase px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-medium shrink-0">Single Choice</span>
+</div>
+<!-- Options -->
+<div class="space-y-2 pl-8.5">
+<!-- Option A -->
+<div class="p-2.5 rounded-lg border border-outline-variant/50 bg-surface-container-lowest text-on-surface font-body-md text-body-md flex items-center gap-2">
+<span class="w-4 h-4 rounded-full border border-outline-variant flex items-center justify-center text-[10px] text-outline shrink-0">A</span>
+<span>Replaces standard reflection APIs entirely across runtimes</span>
+</div>
+<!-- Option B (Correct) -->
+<div class="p-2.5 rounded-lg border border-emerald-500 bg-emerald-50/70 text-emerald-950 font-body-md text-body-md flex items-center justify-between gap-2 shadow-xs">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-4 h-4 rounded-full bg-emerald-600 text-on-tertiary flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
+<span class="font-medium truncate">Enables runtime attachment of typed metadata without external polyfills</span>
+</div>
+<span class="text-[11px] font-label-sm font-semibold text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded shrink-0">Correct Answer</span>
+</div>
+<!-- Option C -->
+<div class="p-2.5 rounded-lg border border-outline-variant/50 bg-surface-container-lowest text-on-surface font-body-md text-body-md flex items-center gap-2">
+<span class="w-4 h-4 rounded-full border border-outline-variant flex items-center justify-center text-[10px] text-outline shrink-0">C</span>
+<span>Restricts object mutation in worker threads during compilation</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Reviewer Feedback Block -->
+<div>
+<label class="block font-label-md text-label-md font-semibold text-on-surface mb-1.5" for="feedbackNotes">
+            Reviewer Feedback &amp; Notes
+          </label>
+<textarea class="w-full p-3 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-md text-body-md border border-outline-variant/60 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all resize-none" id="feedbackNotes" placeholder="Enter feedback, question corrections, or required revisions for the author..." rows="3"></textarea>
+<div class="flex items-center justify-between mt-1 text-body-sm font-body-sm text-on-surface-variant">
+<span>Feedback will be emailed directly to the author.</span>
+<span>Markdown supported</span>
+</div>
+</div>
+</div>
+<!-- Modal Footer Actions -->
+<div class="flex items-center justify-between px-6 py-4 bg-surface-container-low/50 border-t border-outline-variant/50">
+<button class="px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" onclick="closeModal()" type="button">
+          Cancel
+        </button>
+<div class="flex items-center gap-2.5">
+<!-- Danger Action: Reject -->
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#DC2626] text-white font-label-md text-label-md font-medium shadow-sm hover:bg-[#B91C1C] active:bg-[#991B1B] transition-colors" onclick="submitAction('Rejected')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+<span>Reject</span>
+</button>
+<!-- Primary Action: Approve -->
+<button class="inline-flex items-center gap-1.5 px-4.5 py-2 rounded-lg bg-[#059669] text-white font-label-md text-label-md font-medium shadow-sm hover:bg-[#047857] active:bg-[#065F46] transition-colors" onclick="submitAction('Published')" type="button">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span>Approve</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function openModal() {
+    const modal = document.getElementById('inspectorModal');
+    if (modal) {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('inspectorModal');
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  }
+
+  function submitAction(status) {
+    const feedback = document.getElementById('feedbackNotes');
+    const note = feedback ? feedback.value : '';
+    console.log(`Quiz submission ${status}. Feedback:`, note);
+    closeModal();
+  }
+
+  // Close modal when pressing Escape key
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  // Client-side quick filter simulation
+  const searchInput = document.getElementById('quizSearch');
+  const statusSelect = document.getElementById('statusFilter');
+
+  function filterRows() {
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+    const selectedStatus = statusSelect ? statusSelect.value : 'All Statuses';
+    const rows = document.querySelectorAll('tbody tr');
+
+    rows.forEach(row => {
+      const text = row.innerText.toLowerCase();
+      const statusCell = row.children[3]?.innerText || '';
+      
+      const matchesSearch = text.includes(searchTerm);
+      const matchesStatus = (selectedStatus === 'All Statuses') || statusCell.includes(selectedStatus);
+
+      if (matchesSearch && matchesStatus) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  if (searchInput) searchInput.addEventListener('input', filterRows);
+  if (statusSelect) statusSelect.addEventListener('change', filterRows);
+</script></main></div>
+</body></html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><title>Lumen CMS - Comment Moderation</title><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-lowest":"#ffffff","surface-container-low":"#eff4ff","on-primary-fixed":"#00174b","on-primary-container":"#eeefff","on-secondary-container":"#5c647a","surface-container-high":"#dce9ff","surface-container":"#e5eeff","surface-variant":"#d3e4fe","on-tertiary":"#ffffff","outline-variant":"#c3c6d7","on-surface":"#0b1c30","tertiary":"#006242","secondary":"#565e74","on-secondary":"#ffffff","secondary-fixed-dim":"#bec6e0","on-error":"#ffffff","surface-tint":"#0053db","on-secondary-fixed":"#131b2e","on-background":"#0b1c30","on-tertiary-fixed":"#002113","secondary-fixed":"#dae2fd","inverse-surface":"#213145","surface-bright":"#f8f9ff","primary-container":"#2563eb","tertiary-container":"#007d55","on-primary":"#ffffff","primary":"#004ac6","on-secondary-fixed-variant":"#3f465c","inverse-on-surface":"#eaf1ff","error":"#ba1a1a","inverse-primary":"#b4c5ff","on-tertiary-container":"#bdffdb","outline":"#737686","surface":"#f8f9ff","primary-fixed-dim":"#b4c5ff","on-tertiary-fixed-variant":"#005236","tertiary-fixed-dim":"#4edea3","background":"#f8f9ff","error-container":"#ffdad6","tertiary-fixed":"#6ffbbe","secondary-container":"#dae2fd","primary-fixed":"#dbe1ff","on-primary-fixed-variant":"#003ea8","on-surface-variant":"#434655","on-error-container":"#93000a","surface-container-highest":"#d3e4fe","surface-dim":"#cbdbf5"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-2xl":"2rem","space-md":"0.75rem","space-sm":"0.5rem","margin":"2rem","space-xl":"1.5rem","space-lg":"1rem","space-xs":"0.25rem","space-2xs":"0.125rem","margin-sm":"1rem","gutter-sm":"1rem","gutter":"1.5rem"},fontFamily:{"headline-lg":["Inter"],"body-lg":["Inter"],"headline-xl":["Inter"],"body-md":["Inter"],"headline-md":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"metric-display":["Inter"],"label-lg":["Inter"],"headline-sm":["Inter"],"body-sm":["Inter"]},fontSize:{"headline-lg":["1.5rem",{lineHeight:"2rem",letterSpacing:"-0.02em",fontWeight:"600"}],"body-lg":["1rem",{lineHeight:"1.5rem",fontWeight:"400"}],"headline-xl":["2rem",{lineHeight:"2.5rem",letterSpacing:"-0.025em",fontWeight:"700"}],"body-md":["0.875rem",{lineHeight:"1.25rem",fontWeight:"400"}],"headline-md":["1.25rem",{lineHeight:"1.75rem",letterSpacing:"-0.015em",fontWeight:"600"}],"label-md":["0.8125rem",{lineHeight:"1.125rem",fontWeight:"500"}],"label-sm":["0.75rem",{lineHeight:"1rem",letterSpacing:"0.025em",fontWeight:"600"}],"metric-display":["1.75rem",{lineHeight:"2rem",letterSpacing:"-0.02em",fontWeight:"600"}],"label-lg":["0.875rem",{lineHeight:"1.25rem",fontWeight:"500"}],"headline-sm":["1.125rem",{lineHeight:"1.5rem",letterSpacing:"-0.01em",fontWeight:"600"}],"body-sm":["0.75rem",{lineHeight:"1rem",fontWeight:"400"}]}}}}</script>
+    <!-- Lumen Favicons -->
+    <link rel="icon" type="image/png" href="../assets/lumen-favicon.png">
+    <link rel="shortcut icon" href="../assets/lumen-favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
+
+</head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 bottom-0 w-[260px] bg-[#0F172A] text-inverse-on-surface z-50 flex flex-col justify-between overflow-y-auto"><a class="flex items-center gap-space-xs px-space-sm py-space-xs text-outline-variant hover:text-surface-container-lowest text-label-sm font-label-sm transition-colors" data-path="documentation" href="#"><span class="material-symbols-outlined text-[18px]">help</span><span class="">Documentation</span></a></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-14 bg-surface-container-lowest border-b border-outline-variant/50 z-40 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Lumen CMS" class="h-8 w-auto object-contain" src="../assets/lumen_logo.png" /></div>
+<!-- Search and Filter Toolbar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md mb-space-lg">
+<div class="flex flex-wrap items-center gap-space-md flex-1">
+<!-- Search Input -->
+<div class="relative flex items-center min-w-[320px] max-w-md w-full">
+<span class="material-symbols-outlined absolute left-space-md text-[20px] text-outline pointer-events-none">search</span>
+<input class="w-full h-10 pl-10 pr-space-md bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container" id="comment-search" placeholder="Search comments or authors..." type="text"/>
+</div>
+<!-- Status Filter Dropdown -->
+<div class="relative inline-block text-left">
+<button aria-expanded="false" aria-haspopup="true" class="h-10 px-space-md bg-surface-container-lowest rounded-lg font-label-md text-label-md text-on-surface flex items-center gap-space-sm shadow-sm hover:bg-surface-container-low transition-colors" id="status-dropdown-button" onclick="toggleStatusDropdown()" type="button">
+<span class="material-symbols-outlined text-[18px] text-outline">filter_list</span>
+<span class="font-medium" id="status-filter-label">Status: All</span>
+<span class="material-symbols-outlined text-[18px] text-outline ml-space-xs">expand_more</span>
+</button>
+<!-- Dropdown Menu -->
+<div class="hidden absolute left-0 mt-space-2xs w-44 rounded-lg bg-surface-container-lowest shadow-xl z-20 py-space-xs flex flex-col" id="status-dropdown-menu">
+<button class="w-full px-space-md py-space-xs text-left font-body-md text-body-md text-on-surface hover:bg-surface-container-low flex items-center justify-between" onclick="selectFilter('All')" type="button">
+<span>All</span>
+<span class="material-symbols-outlined text-[16px] text-primary check-icon" id="check-All">check</span>
+</button>
+<button class="w-full px-space-md py-space-xs text-left font-body-md text-body-md text-on-surface hover:bg-surface-container-low flex items-center justify-between" onclick="selectFilter('Visible')" type="button">
+<span>Visible</span>
+<span class="material-symbols-outlined text-[16px] text-primary check-icon hidden" id="check-Visible">check</span>
+</button>
+<button class="w-full px-space-md py-space-xs text-left font-body-md text-body-md text-on-surface hover:bg-surface-container-low flex items-center justify-between" onclick="selectFilter('Hidden')" type="button">
+<span>Hidden</span>
+<span class="material-symbols-outlined text-[16px] text-primary check-icon hidden" id="check-Hidden">check</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Moderation Table Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse min-w-[960px]">
+<thead>
+<tr class="bg-surface-container-low/60 text-outline uppercase font-label-sm text-label-sm tracking-wider">
+<th class="py-space-md px-space-lg font-semibold w-[36%]" scope="col">Comment</th>
+<th class="py-space-md px-space-lg font-semibold w-[20%]" scope="col">Author</th>
+<th class="py-space-md px-space-lg font-semibold w-[24%]" scope="col">Associated Content</th>
+<th class="py-space-md px-space-lg font-semibold w-[10%]" scope="col">Status</th>
+<th class="py-space-md px-space-lg font-semibold w-[10%] text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y-0" id="comments-table-body">
+<!-- Row 1: Visible, Reader -->
+<tr class="hover:bg-surface-container-low/40 transition-colors comment-row" data-status="Visible">
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex flex-col gap-space-2xs">
+<p class="font-body-md text-body-md text-on-surface line-clamp-2 leading-relaxed">
+                  The comparative analysis between quantized tensor models and traditional architectures is exceptionally clear. Would appreciate an extra code sample for ONNX runtime setup.
+                </p>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-space-2xs mt-space-2xs">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                  25 mins ago
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md font-semibold flex items-center justify-center shrink-0">
+                  ER
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Elena Rostova</span>
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm font-medium bg-surface-container-high text-on-secondary-container mt-space-2xs w-fit">
+                    Reader
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm font-semibold uppercase tracking-wider bg-surface-container-high text-on-secondary-container">
+                    Article
+                  </span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-medium hover:text-primary transition-colors cursor-pointer line-clamp-2">
+                  Deep Learning Architectures in Edge Systems
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-emerald-50 text-emerald-700">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Visible
+              </span>
+</td>
+<td class="py-space-lg px-space-lg align-top text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="h-8 px-space-sm bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg font-label-sm text-label-sm font-medium flex items-center gap-space-2xs transition-colors" onclick="toggleVisibility(this)" title="Hide comment" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility_off</span>
+<span>Hide</span>
+</button>
+<button class="h-8 px-space-sm bg-error-container/40 hover:bg-error-container text-error rounded-lg font-label-sm text-label-sm font-medium flex items-center gap-space-2xs transition-colors" onclick="deleteComment(this)" title="Delete comment" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Hidden, Author -->
+<tr class="hover:bg-surface-container-low/40 transition-colors comment-row bg-surface-container-low/20" data-status="Hidden">
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex flex-col gap-space-2xs">
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 leading-relaxed italic">
+                  Note to editorial: Pending clarification on question 4 regarding Temporal API stage 3 updates before publishing this quiz module.
+                </p>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-space-2xs mt-space-2xs">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                  2 hours ago
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md font-semibold flex items-center justify-center shrink-0">
+                  DK
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">David Kim</span>
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm font-medium bg-primary-fixed text-on-primary-fixed-variant mt-space-2xs w-fit">
+                    Author
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm font-semibold uppercase tracking-wider bg-surface-container-high text-on-secondary-container">
+                    Quiz
+                  </span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-medium hover:text-primary transition-colors cursor-pointer line-clamp-2">
+                  JavaScript ES2025 Features &amp; Syntax
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-amber-50 text-amber-800">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                Hidden
+              </span>
+</td>
+<td class="py-space-lg px-space-lg align-top text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="h-8 px-space-sm bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg font-label-sm text-label-sm font-medium flex items-center gap-space-2xs transition-colors" onclick="toggleVisibility(this)" title="Unhide comment" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Unhide</span>
+</button>
+<button class="h-8 px-space-sm bg-error-container/40 hover:bg-error-container text-error rounded-lg font-label-sm text-label-sm font-medium flex items-center gap-space-2xs transition-colors" onclick="deleteComment(this)" title="Delete comment" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Visible, Reader -->
+<tr class="hover:bg-surface-container-low/40 transition-colors comment-row" data-status="Visible">
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex flex-col gap-space-2xs">
+<p class="font-body-md text-body-md text-on-surface line-clamp-2 leading-relaxed">
+                  Extremely well constructed assessment. Question 8 was genuinely challenging even for senior full-stack developers.
+                </p>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-space-2xs mt-space-2xs">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                  4 hours ago
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md font-semibold flex items-center justify-center shrink-0">
+                  CD
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Claire Delacroix</span>
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm font-medium bg-surface-container-high text-on-secondary-container mt-space-2xs w-fit">
+                    Reader
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm font-semibold uppercase tracking-wider bg-surface-container-high text-on-secondary-container">
+                    Quiz
+                  </span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-medium hover:text-primary transition-colors cursor-pointer line-clamp-2">
+                  JavaScript ES2025 Features &amp; Syntax
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-emerald-50 text-emerald-700">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Visible
+              </span>
+</td>
+<td class="py-space-lg px-space-lg align-top text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="h-8 px-space-sm bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg font-label-sm text-label-sm font-medium flex items-center gap-space-2xs transition-colors" onclick="toggleVisibility(this)" title="Hide comment" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility_off</span>
+<span>Hide</span>
+</button>
+<button class="h-8 px-space-sm bg-error-container/40 hover:bg-error-container text-error rounded-lg font-label-sm text-label-sm font-medium flex items-center gap-space-2xs transition-colors" onclick="deleteComment(this)" title="Delete comment" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Visible, Admin -->
+<tr class="hover:bg-surface-container-low/40 transition-colors comment-row" data-status="Visible">
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex flex-col gap-space-2xs">
+<p class="font-body-md text-body-md text-on-surface line-clamp-2 leading-relaxed">
+                  Pinned note: We have updated benchmark figures on page 3 in line with the latest PyTorch 2.5 stable release guidelines.
+                </p>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-space-2xs mt-space-2xs">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                  Yesterday
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md font-semibold flex items-center justify-center shrink-0">
+                  SJ
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Sarah Jenkins</span>
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm font-medium bg-tertiary-fixed text-on-tertiary-fixed-variant mt-space-2xs w-fit">
+                    Admin
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm font-semibold uppercase tracking-wider bg-surface-container-high text-on-secondary-container">
+                    Article
+                  </span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-medium hover:text-primary transition-colors cursor-pointer line-clamp-2">
+                  Deep Learning Architectures in Edge Systems
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-emerald-50 text-emerald-700">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Visible
+              </span>
+</td>
+<td class="py-space-lg px-space-lg align-top text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="h-8 px-space-sm bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg font-label-sm text-label-sm font-medium flex items-center gap-space-2xs transition-colors" onclick="toggleVisibility(this)" title="Hide comment" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility_off</span>
+<span>Hide</span>
+</button>
+<button class="h-8 px-space-sm bg-error-container/40 hover:bg-error-container text-error rounded-lg font-label-sm text-label-sm font-medium flex items-center gap-space-2xs transition-colors" onclick="deleteComment(this)" title="Delete comment" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Hidden, Reader -->
+<tr class="hover:bg-surface-container-low/40 transition-colors comment-row bg-surface-container-low/20" data-status="Hidden">
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex flex-col gap-space-2xs">
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 leading-relaxed italic">
+                  Check out this promotional link for discounted developer certificates at mydomain.example/deal.
+                </p>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-space-2xs mt-space-2xs">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                  Yesterday
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md font-semibold flex items-center justify-center shrink-0">
+                  MT
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Marcus Thorne</span>
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm font-medium bg-surface-container-high text-on-secondary-container mt-space-2xs w-fit">
+                    Reader
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm font-semibold uppercase tracking-wider bg-surface-container-high text-on-secondary-container">
+                    Article
+                  </span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-medium hover:text-primary transition-colors cursor-pointer line-clamp-2">
+                  Building Resilient Distributed Event Pipelines
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-amber-50 text-amber-800">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                Hidden
+              </span>
+</td>
+<td class="py-space-lg px-space-lg align-top text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="h-8 px-space-sm bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg font-label-sm text-label-sm font-medium flex items-center gap-space-2xs transition-colors" onclick="toggleVisibility(this)" title="Unhide comment" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Unhide</span>
+</button>
+<button class="h-8 px-space-sm bg-error-container/40 hover:bg-error-container text-error rounded-lg font-label-sm text-label-sm font-medium flex items-center gap-space-2xs transition-colors" onclick="deleteComment(this)" title="Delete comment" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: Visible, Author -->
+<tr class="hover:bg-surface-container-low/40 transition-colors comment-row" data-status="Visible">
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex flex-col gap-space-2xs">
+<p class="font-body-md text-body-md text-on-surface line-clamp-2 leading-relaxed">
+                  Thanks for the thorough feedback on the Kafka partitioning diagram! Part two of this series will cover idempotent producers and exactly-once semantics.
+                </p>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-space-2xs mt-space-2xs">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                  2 days ago
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md font-semibold flex items-center justify-center shrink-0">
+                  DK
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">David Kim</span>
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm font-medium bg-primary-fixed text-on-primary-fixed-variant mt-space-2xs w-fit">
+                    Author
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded text-[11px] font-label-sm font-semibold uppercase tracking-wider bg-surface-container-high text-on-secondary-container">
+                    Article
+                  </span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-medium hover:text-primary transition-colors cursor-pointer line-clamp-2">
+                  Building Resilient Distributed Event Pipelines
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-emerald-50 text-emerald-700">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Visible
+              </span>
+</td>
+<td class="py-space-lg px-space-lg align-top text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="h-8 px-space-sm bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg font-label-sm text-label-sm font-medium flex items-center gap-space-2xs transition-colors" onclick="toggleVisibility(this)" title="Hide comment" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility_off</span>
+<span>Hide</span>
+</button>
+<button class="h-8 px-space-sm bg-error-container/40 hover:bg-error-container text-error rounded-lg font-label-sm text-label-sm font-medium flex items-center gap-space-2xs transition-colors" onclick="deleteComment(this)" title="Delete comment" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer with Pagination -->
+<div class="px-space-lg py-space-md bg-surface-container-lowest flex flex-wrap items-center justify-between gap-space-md">
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+        Showing <span class="font-semibold text-on-surface">1</span> to <span class="font-semibold text-on-surface">6</span> of <span class="font-semibold text-on-surface">42</span> comments
+      </span>
+<div class="flex items-center gap-space-xs">
+<button class="h-8 px-space-sm rounded-lg font-label-sm text-label-sm font-medium text-outline bg-surface-container-low cursor-not-allowed flex items-center gap-space-2xs" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+<span>Previous</span>
+</button>
+<div class="flex items-center gap-1">
+<button class="h-8 w-8 rounded-lg font-label-sm text-label-sm font-semibold bg-primary-container text-on-primary flex items-center justify-center" type="button">1</button>
+<button class="h-8 w-8 rounded-lg font-label-sm text-label-sm font-medium text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" type="button">2</button>
+<button class="h-8 w-8 rounded-lg font-label-sm text-label-sm font-medium text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" type="button">3</button>
+<span class="h-8 px-1 text-outline font-label-sm flex items-center justify-center">...</span>
+<button class="h-8 w-8 rounded-lg font-label-sm text-label-sm font-medium text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" type="button">7</button>
+</div>
+<button class="h-8 px-space-sm rounded-lg font-label-sm text-label-sm font-medium text-on-surface bg-surface-container-low hover:bg-surface-container transition-colors flex items-center gap-space-2xs" type="button">
+<span>Next</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  let activeFilter = 'All';
+
+  function toggleStatusDropdown() {
+    const menu = document.getElementById('status-dropdown-menu');
+    menu.classList.toggle('hidden');
+  }
+
+  // Close dropdown on outside click
+  window.addEventListener('click', function(e) {
+    const btn = document.getElementById('status-dropdown-button');
+    const menu = document.getElementById('status-dropdown-menu');
+    if (btn && menu && !btn.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add('hidden');
+    }
+  });
+
+  function selectFilter(status) {
+    activeFilter = status;
+    document.getElementById('status-filter-label').innerText = 'Status: ' + status;
+    
+    // Update checkmark indicators
+    ['All', 'Visible', 'Hidden'].forEach(item => {
+      const el = document.getElementById('check-' + item);
+      if (el) {
+        if (item === status) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      }
+    });
+
+    document.getElementById('status-dropdown-menu').classList.add('hidden');
+    filterTable();
+  }
+
+  // Live search filtering
+  document.getElementById('comment-search').addEventListener('input', function() {
+    filterTable();
+  });
+
+  function filterTable() {
+    const query = document.getElementById('comment-search').value.toLowerCase().trim();
+    const rows = document.querySelectorAll('.comment-row');
+
+    rows.forEach(row => {
+      const rowStatus = row.getAttribute('data-status');
+      const text = row.innerText.toLowerCase();
+
+      const matchesStatus = (activeFilter === 'All' || rowStatus === activeFilter);
+      const matchesSearch = (!query || text.includes(query));
+
+      if (matchesStatus && matchesSearch) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  // Toggle visible / hidden state
+  function toggleVisibility(btn) {
+    const row = btn.closest('.comment-row');
+    const currentStatus = row.getAttribute('data-status');
+    const statusCell = row.children[3];
+    const isNowVisible = currentStatus === 'Hidden';
+
+    if (isNowVisible) {
+      row.setAttribute('data-status', 'Visible');
+      row.classList.remove('bg-surface-container-low/20');
+      statusCell.innerHTML = `
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-emerald-50 text-emerald-700">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          Visible
+        </span>
+      `;
+      btn.title = "Hide comment";
+      btn.innerHTML = `
+        <span class="material-symbols-outlined text-[16px]">visibility_off</span>
+        <span>Hide</span>
+      `;
+      // remove italic from text
+      const p = row.querySelector('p');
+      if (p) p.classList.remove('italic', 'text-on-surface-variant');
+      if (p) p.classList.add('text-on-surface');
+    } else {
+      row.setAttribute('data-status', 'Hidden');
+      row.classList.add('bg-surface-container-low/20');
+      statusCell.innerHTML = `
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-amber-50 text-amber-800">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          Hidden
+        </span>
+      `;
+      btn.title = "Unhide comment";
+      btn.innerHTML = `
+        <span class="material-symbols-outlined text-[16px]">visibility</span>
+        <span>Unhide</span>
+      `;
+      const p = row.querySelector('p');
+      if (p) p.classList.add('italic', 'text-on-surface-variant');
+    }
+
+    // Reapply filter if active
+    filterTable();
+  }
+
+  // Delete comment action
+  function deleteComment(btn) {
+    const row = btn.closest('.comment-row');
+    if (confirm('Are you sure you want to delete this comment? This action cannot be undone.')) {
+      row.style.transition = 'opacity 180ms ease, transform 180ms ease';
+      row.style.opacity = '0';
+      row.style.transform = 'translateY(-6px)';
+      setTimeout(() => {
+        row.remove();
+      }, 180);
+    }
+  }
+</script></main></div>
+</body></html>

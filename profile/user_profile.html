@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumen CMS - User Profile & Trust Hub</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Newsreader', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            surface: {
+              DEFAULT: '#f8f9ff',
+              container: '#eff4ff',
+              lowest: '#ffffff',
+              border: '#e2e8f0',
+              muted: '#64748b'
+            },
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              navy: '#0f172a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #f8f9fc;
+      color: #0f172a;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+  </style>
+<meta content="web_standard" name="shell-type"/>
+    <!-- Lumen Favicons -->
+    <link rel="icon" type="image/png" href="../assets/lumen-favicon.png">
+    <link rel="shortcut icon" href="../assets/lumen-favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
+
+</head>
+<body class="font-sans min-h-screen flex flex-col antialiased bg-[#f8fafc]">
+<!-- Top Navigation (Author & Admin Workspace Shell) -->
+<header class="bg-white border-b border-[#e2e8f0] sticky top-0 z-30">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<div class="flex items-center space-x-8">
+<a class="flex items-center focus:outline-none" href="#"><img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-9 w-auto object-contain" /></a>
+<nav class="hidden md:flex space-x-1">
+<a class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 rounded-md" href="#">Articles</a>
+<a class="px-3 py-2 text-sm font-semibold text-brand-600 bg-blue-50/70 rounded-md flex items-center" href="#">
+<span>Quiz Builder</span>
+<span class="ml-2 w-2 h-2 rounded-full bg-brand-600"></span>
+</a>
+<a class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 rounded-md" href="#">Discussions</a>
+<a class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 rounded-md" href="#">Author Studio</a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<div class="hidden sm:flex items-center space-x-2 text-xs text-slate-500 bg-slate-100/80 px-2.5 py-1.5 rounded-md border border-slate-200">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>Workspace: Author &amp; Admin</span>
+</div>
+<div class="flex items-center pl-3 border-l border-slate-200 space-x-3">
+<div class="text-right hidden sm:block">
+<div class="text-xs font-semibold text-slate-900 flex items-center justify-end space-x-1.5">
+<span>Dr. Jonathan Vance</span>
+<span class="px-1.5 py-0.2 text-[10px] font-bold uppercase rounded bg-indigo-100 text-indigo-700 tracking-wide">Author</span>
+</div>
+<div class="text-[11px] text-slate-500 font-mono">vance@lumen.research</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-xs ring-2 ring-blue-100">
+            JV
+          </div>
+</div>
+</div>
+</div>
+</header>
+<!-- Sub-header / Context breadcrumb -->
+<div class="bg-white border-b border-slate-200 py-3">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center space-x-3">
+<span class="text-xs font-medium text-slate-500">Author Studio</span>
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-xs font-semibold text-slate-800">Quiz Builder Studio</span>
+<span class="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 font-medium border border-blue-200">Knowledge Checkpoint Engine</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-xs text-slate-500">Authenticated Role:</span>
+<span class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 text-slate-700 border border-slate-200">Author</span>
+<span class="px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 text-slate-700 border border-slate-200">Admin</span>
+</div>
+</div>
+</div>
+<!-- Main Body Content: Two Primary Layout Sections (Quiz Management & Active Question Builder) -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-8"><div class="flex flex-col w-full">
+<!-- Profile Workspace Header Notification Banner -->
+<div class="mb-6 bg-surface-container-low rounded-xl p-3 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
+<div class="flex items-center space-x-2.5">
+<span class="flex h-2.5 w-2.5 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed-dim opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary"></span>
+</span>
+<span class="font-label-md text-text-label-md text-on-surface">Account in Good Standing</span>
+<span class="hidden md:inline text-outline text-body-sm">•</span>
+<span class="text-body-sm font-body-sm text-secondary hidden md:inline">No active moderation restrictions, rate limits, or peer-review sanctions.</span>
+</div>
+<div class="flex items-center space-x-3 text-body-sm font-body-sm">
+<span class="font-mono text-outline">GPG: 0x9FD8...34E1</span>
+<span class="bg-surface-container-lowest text-tertiary font-label-sm text-label-sm px-2.5 py-0.5 rounded-full shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+        Enforced 2FA Active
+      </span>
+</div>
+</div>
+<!-- Primary Profile Identity Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 sm:p-8 shadow-sm mb-8 relative">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<!-- Identity & Metadata -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+<div class="relative shrink-0">
+<div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-headline-lg text-headline-lg shadow-md">
+            JV
+          </div>
+<span class="absolute bottom-1 right-1 w-4 h-4 bg-tertiary-fixed-dim rounded-full shadow-sm" title="Online &amp; Active"></span>
+</div>
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2.5">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Dr. Jonathan Vance</h1>
+<!-- Badges -->
+<span class="bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm px-2.5 py-0.5 rounded-full uppercase tracking-wider">Author</span>
+<span class="bg-surface-container-high text-primary font-label-sm text-label-sm px-2.5 py-0.5 rounded-full uppercase tracking-wider">Admin</span>
+<!-- Official Trust Badge -->
+<div class="bg-surface-container-low text-tertiary px-3 py-0.5 rounded-full font-label-sm text-label-sm flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Verified Contributor • Tier 1</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-4 text-body-sm font-body-sm text-secondary">
+<span class="flex items-center gap-1.5 font-mono text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">alternate_email</span>
+              vance@lumen.research
+            </span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">domain</span>
+              Distributed Systems Research Lab
+            </span>
+<span class="flex items-center gap-1.5 text-outline">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+              Member since Sep 14, 2024
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl pt-1">
+            Lead Distributed Systems Architect focusing on event-stream topologies, consensus protocol verification, and fault-tolerant distributed ledger architectures.
+          </p>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex sm:flex-row lg:flex-col shrink-0 gap-2.5 pt-2 lg:pt-0">
+<button class="bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md px-4 py-2 rounded-lg shadow-sm flex items-center justify-center gap-2 transition" onclick="toggleEditModal(true)">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+          Edit Profile
+        </button>
+<button class="bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md px-4 py-2 rounded-lg shadow-sm flex items-center justify-center gap-2 transition">
+<span class="material-symbols-outlined text-[16px]">lock_reset</span>
+          Change Password
+        </button>
+</div>
+</div>
+</div>
+<!-- Horizontal Tab Navigation Bar -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm px-4 sm:px-6 mb-8 overflow-x-auto custom-scrollbar">
+<div class="flex space-x-8 min-w-max">
+<button class="py-4 font-label-md text-label-md text-primary flex items-center gap-2 relative">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Overview &amp; Trust</span>
+<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-container rounded-t-full"></div>
+</button>
+<button class="py-4 font-label-md text-label-md text-secondary hover:text-on-surface flex items-center gap-2 transition">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span>My Articles</span>
+<span class="bg-surface-container-low text-secondary font-label-sm text-label-sm px-2 py-0.2 rounded-full">6</span>
+</button>
+<button class="py-4 font-label-md text-label-md text-secondary hover:text-on-surface flex items-center gap-2 transition">
+<span class="material-symbols-outlined text-[18px]">bookmarks</span>
+<span>Saved Reading List</span>
+<span class="bg-surface-container-low text-secondary font-label-sm text-label-sm px-2 py-0.2 rounded-full">4</span>
+</button>
+<button class="py-4 font-label-md text-label-md text-secondary hover:text-on-surface flex items-center gap-2 transition">
+<span class="material-symbols-outlined text-[18px]">military_tech</span>
+<span>Quiz History &amp; Badges</span>
+<span class="bg-surface-container-low text-secondary font-label-sm text-label-sm px-2 py-0.2 rounded-full">8</span>
+</button>
+<button class="py-4 font-label-md text-label-md text-secondary hover:text-on-surface flex items-center gap-2 transition">
+<span class="material-symbols-outlined text-[18px]">manage_accounts</span>
+<span>Account Settings</span>
+</button>
+</div>
+</div>
+<!-- Primary Content Grid: Overview & Trust Hub -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
+<!-- Left Column: Trust & Verification Hub (5 cols) -->
+<div class="lg:col-span-5 space-y-8">
+<!-- TrustScoreCard -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">shield_person</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Reputation &amp; Trust</h2>
+</div>
+<span class="bg-surface-container-low text-tertiary font-label-sm text-label-sm px-2.5 py-0.5 rounded-full">Automated Audit</span>
+</div>
+<!-- Big Metric Banner -->
+<div class="bg-surface-container-low rounded-xl p-5 mb-6">
+<div class="flex items-baseline justify-between mb-2">
+<span class="font-label-md text-label-md text-secondary">Composite Trust Score</span>
+<div class="flex items-baseline gap-1">
+<span class="font-metric-display text-metric-display text-on-surface">96</span>
+<span class="font-body-md text-body-md text-outline">/ 100</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container rounded-full h-2 mb-3 overflow-hidden">
+<div class="bg-tertiary h-2 rounded-full transition-all duration-500" style="width: 96%"></div>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-tertiary flex items-center gap-1 font-label-sm">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              Tier 1 • Exemplary Authenticated Contributor
+            </span>
+<span class="text-secondary font-mono text-[11px]">Top 1.4% platform-wide</span>
+</div>
+</div>
+<!-- Trust Breakdown -->
+<div class="space-y-4 mb-6">
+<h3 class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Evaluated Criteria Breakdown</h3>
+<div class="space-y-3 font-body-sm">
+<!-- Criterion 1 -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">key</span>
+                  Identity Verification
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface">100%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded-full h-1.5">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 100%"></div>
+</div>
+<p class="text-[11px] text-secondary mt-0.5">Institutional SSO verified &amp; GPG commit signing key active</p>
+</div>
+<!-- Criterion 2 -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">rate_review</span>
+                  Editorial Integrity
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface">98%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded-full h-1.5">
+<div class="bg-tertiary h-1.5 rounded-full" style="width: 98%"></div>
+</div>
+<p class="text-[11px] text-secondary mt-0.5">6 of 6 peer-reviewed technical articles validated without revision flags</p>
+</div>
+<!-- Criterion 3 -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">forum</span>
+                  Community Conduct
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface">95%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded-full h-1.5">
+<div class="bg-tertiary h-1.5 rounded-full" style="width: 95%"></div>
+</div>
+<p class="text-[11px] text-secondary mt-0.5">Zero moderation incidents, zero flagged peer comments across 124 threads</p>
+</div>
+<!-- Criterion 4 -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">quiz</span>
+                  Assessment Quality
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface">92%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded-full h-1.5">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 92%"></div>
+</div>
+<p class="text-[11px] text-secondary mt-0.5">High reader completion rates and high accuracy checkpoints</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3 text-body-sm font-body-sm text-secondary flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary shrink-0 mt-0.5">info</span>
+<span>Trust scores recalculate dynamically every 24 hours based on editorial validations and peer reader feedback.</span>
+</div>
+</div>
+<!-- Reputation Audit Log Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface text-[20px]">history_toggle_off</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Reputation History</h2>
+</div>
+<span class="font-label-sm text-label-sm text-primary hover:underline cursor-pointer">Export Log</span>
+</div>
+<div class="space-y-4">
+<!-- Timeline Event 1 -->
+<div class="flex items-start gap-3.5 pb-3">
+<div class="bg-surface-container-low text-tertiary rounded-lg p-1.5 shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">+15 Reputation Points</span>
+<span class="font-mono text-outline text-[11px]">Oct 22, 2025</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary truncate">
+                Article "Architecting Resilient Event Streams" approved and published to production.
+              </p>
+</div>
+</div>
+<!-- Timeline Event 2 -->
+<div class="flex items-start gap-3.5 pb-3">
+<div class="bg-surface-container-low text-tertiary rounded-lg p-1.5 shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">+10 Reputation Points</span>
+<span class="font-mono text-outline text-[11px]">Oct 18, 2025</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary truncate">
+                Quiz checkpoint module "Kafka Architecture &amp; Durability" certified by Editorial Board.
+              </p>
+</div>
+</div>
+<!-- Timeline Event 3 -->
+<div class="flex items-start gap-3.5">
+<div class="bg-surface-container-low text-primary rounded-lg p-1.5 shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">+5 Reputation Points</span>
+<span class="font-mono text-outline text-[11px]">Sep 14, 2024</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary truncate">
+                Institutional academic identity verification successfully authenticated.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Author Performance & Article Management (7 cols) -->
+<div class="lg:col-span-7 space-y-8">
+<!-- Metrics Strip (Author / Admin role) -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm">
+<div class="flex items-center justify-between text-secondary mb-1">
+<span class="font-label-sm text-label-sm">Total Articles</span>
+<span class="material-symbols-outlined text-[18px] text-primary">library_books</span>
+</div>
+<div class="font-metric-display text-metric-display text-on-surface">6</div>
+<div class="text-[11px] font-body-sm text-outline mt-0.5">Across 3 domains</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm">
+<div class="flex items-center justify-between text-secondary mb-1">
+<span class="font-label-sm text-label-sm">Published</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">check_circle</span>
+</div>
+<div class="font-metric-display text-metric-display text-on-surface">4</div>
+<div class="text-[11px] font-body-sm text-outline mt-0.5">2 in review / draft</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm">
+<div class="flex items-center justify-between text-secondary mb-1">
+<span class="font-label-sm text-label-sm">Article Views</span>
+<span class="material-symbols-outlined text-[18px] text-primary">visibility</span>
+</div>
+<div class="font-metric-display text-metric-display text-on-surface">28.4k</div>
+<div class="text-[11px] font-body-sm text-tertiary flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[12px]">trending_up</span> +14% this month
+          </div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm">
+<div class="flex items-center justify-between text-secondary mb-1">
+<span class="font-label-sm text-label-sm">Endorsements</span>
+<span class="material-symbols-outlined text-[18px] text-error">thumb_up</span>
+</div>
+<div class="font-metric-display text-metric-display text-on-surface">1,842</div>
+<div class="text-[11px] font-body-sm text-outline mt-0.5">Verified readers</div>
+</div>
+</div>
+<!-- Authored Articles Management Strip -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Authored Articles &amp; Checkpoints</h2>
+<p class="font-body-sm text-body-sm text-secondary">Manage editorial states and connected quiz checkpoints</p>
+</div>
+<button class="bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md px-3.5 py-1.5 rounded-lg shadow-sm flex items-center gap-1.5 transition">
+<span class="material-symbols-outlined text-[16px]">add</span>
+            New Article
+          </button>
+</div>
+<div class="space-y-3">
+<!-- Article Item 1 (Published) -->
+<div class="p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="bg-surface-container-lowest text-tertiary font-label-sm text-label-sm px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Published
+                </span>
+<span class="font-mono text-outline text-[11px]">Last synced 2h ago</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface truncate">
+                Architecting Resilient Event Streams with Distributed Kafka Clusters
+              </h3>
+<div class="flex items-center gap-4 text-body-sm text-secondary font-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">quiz</span>
+                  Checkpoint Engine Active (3 Qs)
+                </span>
+<span>14.8k reads</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="bg-surface-container-lowest hover:bg-surface text-on-surface font-label-md text-label-md px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-1 transition">
+<span class="material-symbols-outlined text-[15px]">edit</span> Edit
+              </button>
+<button class="bg-surface-container-lowest hover:bg-surface text-error font-label-md text-label-md px-2 py-1.5 rounded-lg shadow-sm transition" title="Delete Article">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Article Item 2 (Pending Review) -->
+<div class="p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Pending Review
+                </span>
+<span class="font-mono text-outline text-[11px]">Submitted Oct 24, 2025</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface truncate">
+                Zero-Knowledge Rollups vs Optimistic Verification: Architectural Tradeoffs
+              </h3>
+<div class="flex items-center gap-4 text-body-sm text-secondary font-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">pending_actions</span>
+                  Awaiting 2 Peer Reviewers
+                </span>
+<span>Draft v2.1</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="bg-surface-container-lowest hover:bg-surface text-on-surface font-label-md text-label-md px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-1 transition">
+<span class="material-symbols-outlined text-[15px]">edit</span> Edit
+              </button>
+</div>
+</div>
+<!-- Article Item 3 (Draft) -->
+<div class="p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="bg-surface-container text-secondary font-label-sm text-label-sm px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> Draft
+                </span>
+<span class="font-mono text-outline text-[11px]">Updated 3 days ago</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface truncate">
+                PostgreSQL Vacuum &amp; Index Bloat Under High Write Loads
+              </h3>
+<div class="flex items-center gap-4 text-body-sm text-secondary font-body-sm">
+<span>Unpublished preview</span>
+<span>Approx. 8 min read</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="bg-surface-container-lowest hover:bg-surface text-on-surface font-label-md text-label-md px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-1 transition">
+<span class="material-symbols-outlined text-[15px]">edit</span> Edit
+              </button>
+</div>
+</div>
+<!-- Article Item 4 (Changes Requested) -->
+<div class="p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="bg-error-container text-on-error-container font-label-sm text-label-sm px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> Changes Requested
+                </span>
+<span class="font-mono text-outline text-[11px]">Editorial Feedback: Oct 19</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface truncate">
+                Consensus Safety in Asynchronous Byzantine Networks
+              </h3>
+<div class="flex items-center gap-4 text-body-sm text-secondary font-body-sm">
+<span class="text-error font-label-sm">Requires 2 diagram clarification notes</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="bg-surface-container-lowest hover:bg-surface text-primary font-label-md text-label-md px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-1 transition">
+<span class="material-symbols-outlined text-[15px]">comment</span> View Notes
+              </button>
+<button class="bg-surface-container-lowest hover:bg-surface text-on-surface font-label-md text-label-md px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-1 transition">
+<span class="material-symbols-outlined text-[15px]">edit</span> Edit
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Extended Sub-Panels: Saved Reading List & Quiz Activity Previews -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+<!-- Saved Reading List Sub-Panel -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">bookmarks</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Bookmarked Technical Papers</h2>
+</div>
+<span class="font-label-sm text-label-sm text-primary hover:underline cursor-pointer">View All (4)</span>
+</div>
+<div class="space-y-3">
+<!-- Bookmark 1 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low flex items-center justify-between gap-3">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="bg-surface-container text-secondary font-label-sm text-label-sm px-2 py-0.2 rounded-full">Distributed Systems</span>
+<span class="font-body-sm text-body-sm text-outline">12 min read</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface truncate">
+              Formal Proofs in Raft State Machine Replication Under Network Partition
+            </h4>
+</div>
+<button class="text-secondary hover:text-error p-1 rounded-lg shrink-0" title="Remove Bookmark">
+<span class="material-symbols-outlined text-[18px]">bookmark_remove</span>
+</button>
+</div>
+<!-- Bookmark 2 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low flex items-center justify-between gap-3">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="bg-surface-container text-secondary font-label-sm text-label-sm px-2 py-0.2 rounded-full">Database Internals</span>
+<span class="font-body-sm text-body-sm text-outline">8 min read</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface truncate">
+              LSM-Tree Compaction Algorithms for High-Write NVMe Tiered Storage
+            </h4>
+</div>
+<button class="text-secondary hover:text-error p-1 rounded-lg shrink-0" title="Remove Bookmark">
+<span class="material-symbols-outlined text-[18px]">bookmark_remove</span>
+</button>
+</div>
+<!-- Bookmark 3 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low flex items-center justify-between gap-3">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="bg-surface-container text-secondary font-label-sm text-label-sm px-2 py-0.2 rounded-full">Security &amp; Cryptography</span>
+<span class="font-body-sm text-body-sm text-outline">15 min read</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface truncate">
+              Post-Quantum Lattice Cryptography Implementations in TLS 1.3
+            </h4>
+</div>
+<button class="text-secondary hover:text-error p-1 rounded-lg shrink-0" title="Remove Bookmark">
+<span class="material-symbols-outlined text-[18px]">bookmark_remove</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quiz History & Badges Sub-Panel -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">military_tech</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Recent Quiz &amp; Knowledge Checks</h2>
+</div>
+<span class="font-label-sm text-label-sm text-primary hover:underline cursor-pointer">Full Ledger (8)</span>
+</div>
+<div class="space-y-3">
+<!-- Quiz Attempt 1 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest text-tertiary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+</div>
+<div class="space-y-0.5 min-w-0">
+<h4 class="font-label-md text-label-md text-on-surface truncate">
+                Raft Consensus Safety Checkpoint
+              </h4>
+<div class="flex items-center gap-2 text-body-sm font-body-sm text-secondary">
+<span class="text-tertiary font-label-sm">100% Pass (5/5)</span>
+<span>•</span>
+<span class="font-mono text-outline text-[11px]">Completed Oct 20</span>
+</div>
+</div>
+</div>
+<button class="text-primary hover:underline font-label-sm text-label-sm shrink-0">
+            Review
+          </button>
+</div>
+<!-- Quiz Attempt 2 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</div>
+<div class="space-y-0.5 min-w-0">
+<h4 class="font-label-md text-label-md text-on-surface truncate">
+                Distributed Storage Partitioning Fundamentals
+              </h4>
+<div class="flex items-center gap-2 text-body-sm font-body-sm text-secondary">
+<span class="text-on-surface font-label-sm">85% Pass (6/7)</span>
+<span>•</span>
+<span class="font-mono text-outline text-[11px]">Completed Oct 14</span>
+</div>
+</div>
+</div>
+<button class="text-primary hover:underline font-label-sm text-label-sm shrink-0">
+            Review
+          </button>
+</div>
+<!-- Quiz Attempt 3 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest text-tertiary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+</div>
+<div class="space-y-0.5 min-w-0">
+<h4 class="font-label-md text-label-md text-on-surface truncate">
+                B-Tree Concurrency &amp; Page Latches
+              </h4>
+<div class="flex items-center gap-2 text-body-sm font-body-sm text-secondary">
+<span class="text-tertiary font-label-sm">100% Pass (4/4)</span>
+<span>•</span>
+<span class="font-mono text-outline text-[11px]">Completed Sep 28</span>
+</div>
+</div>
+</div>
+<button class="text-primary hover:underline font-label-sm text-label-sm shrink-0">
+            Review
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- EDIT PROFILE MODAL / DIALOG (Inspectable Modal State) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-on-background/40 backdrop-blur-xs" id="editProfileModal">
+<div class="bg-surface-container-lowest rounded-xl shadow-2xl max-w-xl w-full overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+<!-- Modal Header -->
+<div class="bg-surface-container-low px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">manage_accounts</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Edit Profile Details</h3>
+</div>
+<button class="text-secondary hover:text-on-surface p-1 rounded-lg transition" onclick="toggleEditModal(false)">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body Form -->
+<form class="p-6 space-y-4" onsubmit="event.preventDefault(); toggleEditModal(false);">
+<!-- Full Name -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-1.5">Full Legal &amp; Academic Name</label>
+<input class="w-full bg-surface-container-lowest text-on-surface rounded-lg px-3.5 py-2 font-body-md text-body-md focus:bg-surface-container-low outline-none transition" type="text" value="Dr. Jonathan Vance"/>
+</div>
+<!-- Display Email -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-1.5">Institutional Contact Email</label>
+<input class="w-full bg-surface-container-lowest text-on-surface rounded-lg px-3.5 py-2 font-body-md text-body-md focus:bg-surface-container-low outline-none transition" type="email" value="vance@lumen.research"/>
+<p class="text-[11px] font-body-sm text-secondary mt-1">Changing your primary institutional email triggers a temporary re-verification workflow.</p>
+</div>
+<!-- Affiliation -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-1.5">Academic / Professional Affiliation</label>
+<input class="w-full bg-surface-container-lowest text-on-surface rounded-lg px-3.5 py-2 font-body-md text-body-md focus:bg-surface-container-low outline-none transition" type="text" value="Distributed Systems Research Lab"/>
+</div>
+<!-- Bio -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-1.5">Public Research Bio</label>
+<textarea class="w-full bg-surface-container-lowest text-on-surface rounded-lg p-3 font-body-md text-body-md focus:bg-surface-container-low outline-none transition" rows="3">Lead Distributed Systems Architect focusing on event stream topologies and high-throughput consensus protocols.</textarea>
+</div>
+<!-- Verification Key -->
+<div class="bg-surface-container-low rounded-lg p-3 flex items-center justify-between text-body-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary">key</span>
+<div>
+<div class="font-label-sm text-on-surface">Institutional SSO Active</div>
+<div class="text-outline text-[11px]">Last verified via SAML IdP on Oct 1, 2025</div>
+</div>
+</div>
+<span class="font-mono text-[11px] bg-surface-container-lowest px-2 py-1 rounded text-secondary shadow-sm">Verified</span>
+</div>
+<!-- Modal Actions -->
+<div class="pt-4 flex items-center justify-end gap-3">
+<button class="bg-surface-container-low hover:bg-surface-container text-secondary hover:text-on-surface font-label-md text-label-md px-4 py-2 rounded-lg transition" onclick="toggleEditModal(false)" type="button">
+            Cancel
+          </button>
+<button class="bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md px-5 py-2 rounded-lg shadow-sm transition" type="submit">
+            Save Changes
+          </button>
+</div>
+</form>
+</div>
+</div>
+<script>
+    function toggleEditModal(show) {
+      const modal = document.getElementById('editProfileModal');
+      if (show) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      } else {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+  </script>
+</div></main>
+<!-- MODAL / DIALOG: Quiz Reader Preview State (Displayed as an active inspectable overlay) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs" id="quizPreviewModal">
+<div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-2xl w-full overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+<!-- Dialog Header -->
+<div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<span class="p-1.5 rounded-md bg-blue-100 text-brand-700">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+<div>
+<h3 class="text-sm font-bold text-slate-900">Reader Experience Preview</h3>
+<p class="text-xs text-slate-500">Live preview matching public reader styling</p>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-xs font-medium text-slate-500 bg-white px-2.5 py-1 rounded-md border border-slate-200">Question 1 of 3</span>
+<button class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-200 transition" onclick="toggleModal(false)">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Preview Body (Faithful to the public article reader knowledge checkpoint module) -->
+<div class="p-6 sm:p-8 space-y-6">
+<!-- Attached Article Context Banner -->
+<div class="flex items-center justify-between text-xs text-slate-500 pb-3 border-b border-slate-100">
+<div>Attached to: <span class="font-medium text-slate-700">Architecting Resilient Event Streams with Distributed Kafka Clusters</span></div>
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-medium">Peer-Reviewed Checkpoint</span>
+</div>
+<!-- Question Prompt -->
+<div>
+<span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">Assessment Question 1</span>
+<h4 class="text-base sm:text-lg font-bold text-slate-900 mt-1 leading-snug">
+            Which delivery guarantee does standard Kafka broker partitioning provide without supplementary clustering configuration?
+          </h4>
+</div>
+<!-- Reader Options Mockup -->
+<div class="space-y-3">
+<!-- Option A (Unselected) -->
+<label class="flex items-center p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
+<input class="w-4 h-4 text-brand-600 border-slate-300 focus:ring-brand-500" name="preview_choice" type="radio"/>
+<span class="ml-3 text-sm text-slate-700">A. Global strict total ordering across all consumer topics and decoupled partition offsets.</span>
+</label>
+<!-- Option B (Selected by Reader Preview) -->
+<label class="flex items-center p-3.5 rounded-xl border-2 border-brand-600 bg-blue-50/50 cursor-pointer transition">
+<input checked="" class="w-4 h-4 text-brand-600 border-brand-600 focus:ring-brand-500" name="preview_choice" type="radio"/>
+<span class="ml-3 text-sm font-semibold text-brand-900">B. Strict FIFO ordering guaranteed strictly within a specific, single partition key stream.</span>
+</label>
+<!-- Option C (Unselected) -->
+<label class="flex items-center p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
+<input class="w-4 h-4 text-brand-600 border-slate-300 focus:ring-brand-500" name="preview_choice" type="radio"/>
+<span class="ml-3 text-sm text-slate-700">C. Idempotent exactly-once delivery across multi-broker clusters without transaction coordination.</span>
+</label>
+<!-- Option D (Unselected) -->
+<label class="flex items-center p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 cursor-pointer transition">
+<input class="w-4 h-4 text-brand-600 border-slate-300 focus:ring-brand-500" name="preview_choice" type="radio"/>
+<span class="ml-3 text-sm text-slate-700">D. Synchronous page-cache persistence to disk on every individual producer batch.</span>
+</label>
+</div>
+<!-- Verified Explanation Box Preview -->
+<div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+<div class="flex items-center space-x-1.5 text-xs font-bold text-slate-800 uppercase tracking-wider mb-1">
+<svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" fill-rule="evenodd"></path>
+</svg>
+<span>Author's Technical Explanation</span>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed">
+            Kafka guarantees strict FIFO message ordering exclusively within an isolated individual partition. Global ordering across distinct partitions requires external sequence coordination or dedicated single-partition topics.
+          </p>
+</div>
+</div>
+<!-- Preview Footer Controls -->
+<div class="bg-slate-50 px-6 py-4 border-t border-slate-200 flex items-center justify-between">
+<div class="text-xs text-slate-500">
+          Showing reader assessment simulation
+        </div>
+<div class="flex items-center space-x-3">
+<button class="px-4 py-2 text-xs font-medium text-slate-700 bg-white hover:bg-slate-100 rounded-lg border border-slate-300 transition" onclick="toggleModal(false)">
+            Close Preview
+          </button>
+<button class="px-4 py-2 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-lg shadow-sm transition">
+            Validate Choice
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-white border-t border-slate-200 py-6 text-xs text-slate-500 mt-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center space-x-2">
+<span class="font-bold text-slate-800">Lumen CMS</span>
+<span>•</span>
+<span>Quiz Builder Studio</span>
+<span>•</span>
+<span>Precision publishing &amp; assessment engine</span>
+</div>
+<div class="flex items-center space-x-6">
+<a class="hover:text-slate-900" href="#">Author Guidelines</a>
+<a class="hover:text-slate-900" href="#">Documentation</a>
+<a class="hover:text-slate-900" href="#">API Status</a>
+<span>© 2025 Lumen CMS. All rights reserved.</span>
+</div>
+</div>
+</footer>
+<script>
+    function toggleModal(show) {
+      const modal = document.getElementById('quizPreviewModal');
+      if (show) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      } else {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+  </script>
+</body></html>

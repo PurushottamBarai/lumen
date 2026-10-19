@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Lumen CMS - Editorial Knowledge Platform</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"error":"#ba1a1a","tertiary-fixed":"#6ffbbe","on-secondary":"#ffffff","surface":"#f8f9ff","on-secondary-fixed-variant":"#3f465c","primary-container":"#2563eb","tertiary-container":"#007d55","on-surface":"#0b1c30","on-background":"#0b1c30","on-primary-container":"#eeefff","on-secondary-container":"#5c647a","surface-container-high":"#dce9ff","on-surface-variant":"#434655","surface-bright":"#f8f9ff","on-secondary-fixed":"#131b2e","secondary-fixed":"#dae2fd","inverse-on-surface":"#eaf1ff","surface-variant":"#d3e4fe","on-tertiary":"#ffffff","surface-container-low":"#eff4ff","on-primary-fixed-variant":"#003ea8","error-container":"#ffdad6","primary":"#004ac6","secondary-fixed-dim":"#bec6e0","on-tertiary-container":"#bdffdb","surface-container":"#e5eeff","primary-fixed":"#dbe1ff","surface-dim":"#cbdbf5","tertiary":"#006242","on-primary-fixed":"#00174b","on-primary":"#ffffff","outline":"#737686","primary-fixed-dim":"#b4c5ff","inverse-primary":"#b4c5ff","on-error":"#ffffff","tertiary-fixed-dim":"#4edea3","on-tertiary-fixed":"#002113","outline-variant":"#c3c6d7","on-error-container":"#93000a","background":"#f8f9ff","surface-tint":"#0053db","surface-container-highest":"#d3e4fe","secondary":"#565e74","secondary-container":"#dae2fd","on-tertiary-fixed-variant":"#005236","surface-container-lowest":"#ffffff","inverse-surface":"#213145"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"margin":"2rem","gutter-sm":"1rem","space-xs":"0.25rem","space-2xs":"0.125rem","gutter":"1.5rem","space-lg":"1rem","space-md":"0.75rem","space-xl":"1.5rem","margin-sm":"1rem","space-sm":"0.5rem","space-2xl":"2rem"},fontFamily:{"metric-display":["Inter"],"headline-md":["Inter"],"headline-lg":["Inter"],"headline-xl":["Inter"],"label-md":["Inter"],"headline-sm":["Inter"],"body-lg":["Inter"],"body-sm":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"label-lg":["Inter"]},fontSize:{"metric-display":["1.75rem",{"lineHeight":"2rem","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["1.25rem",{"lineHeight":"1.75rem","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-xl":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.025em","fontWeight":"700"}],"label-md":["0.8125rem",{"lineHeight":"1.125rem","fontWeight":"500"}],"headline-sm":["1.125rem",{"lineHeight":"1.5rem","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["1rem",{"lineHeight":"1.5rem","fontWeight":"400"}],"body-sm":["0.75rem",{"lineHeight":"1rem","fontWeight":"400"}],"label-sm":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.025em","fontWeight":"600"}],"body-md":["0.875rem",{"lineHeight":"1.25rem","fontWeight":"400"}],"label-lg":["0.875rem",{"lineHeight":"1.25rem","fontWeight":"500"}]}}}};</script>
+    <!-- Lumen Favicons -->
+    <link rel="icon" type="image/png" href="../assets/lumen-favicon.png">
+    <link rel="shortcut icon" href="../assets/lumen-favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
+
+</head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-2xl"><a class="flex items-center gap-space-xs text-primary font-headline-md text-headline-md tracking-tight focus:outline-none" data-path="explore" href="#"><img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-9 w-auto object-contain" /></a><nav class="hidden md:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-label-md"><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="articles" href="#">Articles</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="quizzes" href="#">Quizzes</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="discussions" href="#">Discussions</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="topics" href="#">Topics</a></nav></div><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="sign-in" href="#">Sign In</a><a class="inline-flex items-center justify-center px-space-lg py-space-xs rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md hover:bg-primary transition-colors shadow-sm" data-path="sign-up" href="#">Get Started</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 bg-surface min-h-[calc(100vh-14rem)]"><div class="flex flex-col w-full">
+<!-- Interactive View State Controller Logic -->
+<script>
+    function switchBrowseView(view) {
+      const grid = document.getElementById('articles-grid-view');
+      const empty = document.getElementById('articles-empty-view');
+      const tabCards = document.getElementById('tab-view-cards');
+      const tabEmpty = document.getElementById('tab-view-empty');
+      const countEl = document.getElementById('article-counter-badge');
+
+      if (view === 'empty') {
+        grid.classList.add('hidden');
+        empty.classList.remove('hidden');
+        tabCards.classList.remove('bg-surface-container-high', 'text-on-surface');
+        tabCards.classList.add('text-on-surface-variant');
+        tabEmpty.classList.add('bg-surface-container-high', 'text-on-surface');
+        tabEmpty.classList.remove('text-on-surface-variant');
+        countEl.textContent = 'Showing 0 articles';
+      } else {
+        grid.classList.remove('hidden');
+        empty.classList.add('hidden');
+        tabEmpty.classList.remove('bg-surface-container-high', 'text-on-surface');
+        tabEmpty.classList.add('text-on-surface-variant');
+        tabCards.classList.add('bg-surface-container-high', 'text-on-surface');
+        tabCards.classList.remove('text-on-surface-variant');
+        countEl.textContent = 'Showing 24 articles';
+      }
+    }
+
+    function toggleBookmark(btn) {
+      const icon = btn.querySelector('.material-symbols-outlined');
+      const isFilled = icon.style.fontVariationSettings.includes("'FILL' 1");
+      if (isFilled) {
+        icon.style.fontVariationSettings = "'FILL' 0";
+        btn.classList.remove('text-primary');
+        btn.classList.add('text-secondary');
+      } else {
+        icon.style.fontVariationSettings = "'FILL' 1";
+        btn.classList.add('text-primary');
+        btn.classList.remove('text-secondary');
+      }
+    }
+
+    function resetFilters() {
+      const search = document.getElementById('browse-search-input');
+      if (search) search.value = '';
+      switchBrowseView('cards');
+    }
+  </script>
+<!-- Page Header & Filtration Zone -->
+<section class="w-full bg-surface-container-lowest shadow-sm">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 pt-space-xl pb-space-lg">
+<!-- Breadcrumbs & Meta Controls -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs font-label-sm text-label-sm text-secondary">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="text-on-surface font-semibold">Articles</span>
+</nav>
+<!-- Development State Preview Switcher -->
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-xs py-space-2xs rounded-lg">
+<span class="font-label-sm text-label-sm text-secondary px-space-xs">State View:</span>
+<button class="px-space-sm py-space-2xs rounded-md bg-surface-container-high text-on-surface font-label-sm text-label-sm shadow-sm transition-all" id="tab-view-cards" onclick="switchBrowseView('cards')">Populated (24)</button>
+<button class="px-space-sm py-space-2xs rounded-md text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" id="tab-view-empty" onclick="switchBrowseView('empty')">Empty State</button>
+</div>
+</div>
+<!-- Heading Row -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-lg">
+<div class="max-w-3xl">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Explore Articles</h1>
+<p class="font-body-md text-body-md text-secondary mt-space-2xs">
+            Browse peer-verified engineering guides, research papers, and technical deep dives across the platform.
+          </p>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<span class="font-label-md text-label-md text-secondary bg-surface-container-low px-space-md py-space-xs rounded-full" id="article-counter-badge">
+            Showing 24 articles
+          </span>
+</div>
+</div>
+<!-- Search & Filters Toolbar -->
+<div class="pt-space-md flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- Search Input -->
+<div class="relative w-full lg:w-96">
+<span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-secondary text-[20px]">search</span>
+<input class="w-full pl-10 pr-10 py-space-xs h-10 rounded-lg bg-surface text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="browse-search-input" placeholder="Search articles, keywords, or topics..." type="text"/>
+<button class="absolute right-space-sm top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" onclick="document.getElementById('browse-search-input').value=''">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Sorting & Views -->
+<div class="flex items-center gap-space-sm self-end lg:self-center">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider" for="sort-select">Sort:</label>
+<div class="relative">
+<select class="appearance-none bg-surface text-on-surface font-label-md text-label-md pl-space-md pr-8 py-space-xs h-10 rounded-lg shadow-sm focus:outline-none cursor-pointer" id="sort-select">
+<option selected="">Newest First</option>
+<option>Most Read</option>
+<option>Top Rated</option>
+<option>Recently Verified</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-xs top-1/2 -translate-y-1/2 text-secondary text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Category Filter Pills -->
+<div class="pt-space-md flex items-center gap-space-xs overflow-x-auto pb-space-xs no-scrollbar">
+<button class="px-space-md py-space-xs rounded-full bg-primary text-on-primary font-label-md text-label-md shrink-0 shadow-sm transition-all">All Topics</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface text-secondary hover:text-on-surface hover:bg-surface-container font-label-md text-label-md shrink-0 transition-all">Technology</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface text-secondary hover:text-on-surface hover:bg-surface-container font-label-md text-label-md shrink-0 transition-all">Science</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface text-secondary hover:text-on-surface hover:bg-surface-container font-label-md text-label-md shrink-0 transition-all">Medicine</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface text-secondary hover:text-on-surface hover:bg-surface-container font-label-md text-label-md shrink-0 transition-all">History</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface text-secondary hover:text-on-surface hover:bg-surface-container font-label-md text-label-md shrink-0 transition-all">Environment</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface text-secondary hover:text-on-surface hover:bg-surface-container font-label-md text-label-md shrink-0 transition-all">Architecture</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface text-secondary hover:text-on-surface hover:bg-surface-container font-label-md text-label-md shrink-0 transition-all">Security</button>
+</div>
+</div>
+</section>
+<!-- Main View Area -->
+<div class="max-w-7xl mx-auto px-6 lg:px-12 py-space-xl w-full">
+<!-- 3-Column Article Card Grid (Populated State) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg" id="articles-grid-view">
+<!-- Article Card 1 -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden group">
+<div>
+<div class="w-full h-44 bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" data-alt="A clean architectural photograph of high-tech data servers bathed in cool cyan and cobalt enterprise blue illumination, neatly bundled fiber-optic cables, precision engineering perspective with clean glass reflections, studio lit." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrZ7h-i5T6IBvh9WrCsPasQGrx2VXuEvcxl7OFYFoLyKiXtL9OEEECD40_E8QApW-BFWRoFqVA6oQEUht_6Jnscjg3cLaSGIzcLt1yA7kooYXWEZz0_GeTD-2CBNTkozaKQ3XnYLLbwdcQ09qzhm5mdkcygTmALwAq7PGOaK6sT18DYMiEjNVi1cXDu-W81AWdgT2IFLSWHDx-qoa4nLzO59cqjBHdlyS0N88P6mvAuTlwys4AiCKv5Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent"></div>
+<div class="absolute top-space-md left-space-md">
+<span class="inline-flex items-center px-space-sm py-space-2xs rounded-full bg-surface-container-lowest text-primary font-label-sm text-label-sm font-semibold shadow-sm">
+                Technology
+              </span>
+</div>
+<div class="absolute bottom-space-sm right-space-md text-on-primary font-label-sm text-label-sm flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>4.2k views</span>
+</div>
+</div>
+<div class="p-space-lg pb-space-sm">
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm mb-space-xs">
+<span>Distributed Systems</span>
+<span>•</span>
+<span>12 min read</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors line-clamp-2">
+              Architecting Resilient Event Streams with Distributed Kafka Clusters
+            </h2>
+<p class="font-body-md text-body-md text-secondary mt-space-xs line-clamp-3 leading-relaxed">
+              An exhaustive architectural evaluation of partition rebalancing anomalies, leader election failover under high-throughput consumer pressure, and disk buffer saturation strategies.
+            </p>
+</div>
+</div>
+<div class="px-space-lg py-space-md bg-surface-container-low/50 mt-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center justify-center font-bold shrink-0">
+              EL
+            </div>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Dr. Elena Lindqvist</span>
+<span class="px-space-2xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-[10px] uppercase font-bold tracking-wider">Admin</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Oct 24, 2025</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="inline-flex items-center gap-space-2xs font-label-sm text-label-sm text-secondary mr-space-xs">
+<span class="material-symbols-outlined text-[16px] text-error">favorite</span>
+<span>142</span>
+</span>
+<button class="p-space-2xs text-secondary hover:text-primary transition-colors rounded-md hover:bg-surface-container" onclick="toggleBookmark(this)" title="Bookmark">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 0;">bookmark</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Article Card 2 -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden group">
+<div>
+<div class="w-full h-44 bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" data-alt="Abstract cryptographic mathematical visualization with intricate geometric hyper-surfaces, subtle glowing lattice nodes, crisp slate navy background with vibrant azure accent highlights, vector-like crisp precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcWlIp6REPJNKVrD5Ywju3Fw5IqjCicG_FJuNObNXsLDNnzD38Hnlx7-F8bAFNYzuP3jQyxYrEMzvIDhVbP77V2ucxF6sqHVPuByOK0VZ02zC_bb7IqzUolB3Aw9_Eec39YFO12b2l2WqoKSyefqfN9giyGH8VumkE_obbKvPHG92v22pgwQ8J8Fm38n8pXTOQzR_9r22utjOEpoj1AuHjDAv5MECwKt9R8wPV3Iu-8PxQB4zdR5pRbg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent"></div>
+<div class="absolute top-space-md left-space-md">
+<span class="inline-flex items-center px-space-sm py-space-2xs rounded-full bg-surface-container-lowest text-primary font-label-sm text-label-sm font-semibold shadow-sm">
+                Security
+              </span>
+</div>
+<div class="absolute bottom-space-sm right-space-md text-on-primary font-label-sm text-label-sm flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>2.8k views</span>
+</div>
+</div>
+<div class="p-space-lg pb-space-sm">
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm mb-space-xs">
+<span>Cryptography</span>
+<span>•</span>
+<span>18 min read</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors line-clamp-2">
+              Zero-Knowledge Rollups and Cryptographic Validity Guarantees
+            </h2>
+<p class="font-body-md text-body-md text-secondary mt-space-xs line-clamp-3 leading-relaxed">
+              Formally verifying succinct non-interactive arguments of knowledge (SNARKs) across layer-two networks to achieve mathematical settlement finality without recursive overhead.
+            </p>
+</div>
+</div>
+<div class="px-space-lg py-space-md bg-surface-container-low/50 mt-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-primary font-label-md text-label-md flex items-center justify-center font-bold shrink-0">
+              MK
+            </div>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Marcus Thorne</span>
+<span class="px-space-2xs py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-[10px] uppercase font-bold tracking-wider">Author</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Oct 22, 2025</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="inline-flex items-center gap-space-2xs font-label-sm text-label-sm text-secondary mr-space-xs">
+<span class="material-symbols-outlined text-[16px] text-error">favorite</span>
+<span>96</span>
+</span>
+<button class="p-space-2xs text-secondary hover:text-primary transition-colors rounded-md hover:bg-surface-container" onclick="toggleBookmark(this)" title="Bookmark">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 0;">bookmark</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Article Card 3 -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden group">
+<div>
+<div class="w-full h-44 bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" data-alt="Schematic blueprint diagram of relational query compilation trees and b-tree index graphs, technical typography, high-contrast monochrome design with subtle sapphire accents, pristine vector illustration style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3oi81y53oUoNp_NDFJYV8HLwfs5Ygufp6jj5_XeZZPmaG5ybYRrjShBIiuxBaLWe0zuKs0otGjn86f1kaBpQmEmeE4VmVpF058LpbdvkkJwK-ubAFRSkKPDj9u07BeevdC48VGPH7Xr8dslOEVaq4GzVL6jCL7pZfx33dq5i7PCG4mZIjPddXmKKmp21rJNLSW9_hQZKecHyR25-jB2BHlmMu-ElIPVSiboevdnBDcx98HfhziAXopg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent"></div>
+<div class="absolute top-space-md left-space-md">
+<span class="inline-flex items-center px-space-sm py-space-2xs rounded-full bg-surface-container-lowest text-primary font-label-sm text-label-sm font-semibold shadow-sm">
+                Technology
+              </span>
+</div>
+<div class="absolute bottom-space-sm right-space-md text-on-primary font-label-sm text-label-sm flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>3.7k views</span>
+</div>
+</div>
+<div class="p-space-lg pb-space-sm">
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm mb-space-xs">
+<span>Database Engines</span>
+<span>•</span>
+<span>15 min read</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors line-clamp-2">
+              Optimizing PostgreSQL Query Plans and Vacuum Diagnostics Under Heavy OLTP
+            </h2>
+<p class="font-body-md text-body-md text-secondary mt-space-xs line-clamp-3 leading-relaxed">
+              Unpacking autovacuum freeze worker starvation, shared buffer lock contention during index re-scans, and statistical estimation divergence across multi-terabyte tables.
+            </p>
+</div>
+</div>
+<div class="px-space-lg py-space-md bg-surface-container-low/50 mt-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary-container font-label-md text-label-md flex items-center justify-center font-bold shrink-0">
+              AR
+            </div>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Anika Rao</span>
+<span class="px-space-2xs py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-[10px] uppercase font-bold tracking-wider">Author</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Oct 20, 2025</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="inline-flex items-center gap-space-2xs font-label-sm text-label-sm text-secondary mr-space-xs">
+<span class="material-symbols-outlined text-[16px] text-error">favorite</span>
+<span>218</span>
+</span>
+<button class="p-space-2xs text-secondary hover:text-primary transition-colors rounded-md hover:bg-surface-container" onclick="toggleBookmark(this)" title="Bookmark">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 0;">bookmark</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Article Card 4 -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden group">
+<div>
+<div class="w-full h-44 bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" data-alt="Microscopic representation of DNA double helix structures bound to synthesized silicon wafer lattices, subtle bioluminescent glow, precise scientific visualization with cool laboratory lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrgUYZd-7DfW4pxp1fLjDItT3PTLF6zN0MXBqS2n3qVdQMVlEM87hqapVqU3uRTkHr3zaRrSYQjxVip31sX4WG5yT7RH0kTvfWtXqpJjzD3aW7SiWOmHedl9_hiTEMPEEsJAzPwoOX9IWqDWEOhFcYVEeAwd1uibBfid7WVK5Bjg6EmgMWsctD1NKR3flKRkAwNSa8eb3NKJ2_8G_9E_k2wuM6G3_zxA33rB_HcZWiezq3tjN_0VwMXg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent"></div>
+<div class="absolute top-space-md left-space-md">
+<span class="inline-flex items-center px-space-sm py-space-2xs rounded-full bg-surface-container-lowest text-tertiary font-label-sm text-label-sm font-semibold shadow-sm">
+                Science
+              </span>
+</div>
+<div class="absolute bottom-space-sm right-space-md text-on-primary font-label-sm text-label-sm flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>1.9k views</span>
+</div>
+</div>
+<div class="p-space-lg pb-space-sm">
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm mb-space-xs">
+<span>Biotechnology</span>
+<span>•</span>
+<span>14 min read</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors line-clamp-2">
+              Biological Computing Systems and DNA-Based Data Storage Paradigms
+            </h2>
+<p class="font-body-md text-body-md text-secondary mt-space-xs line-clamp-3 leading-relaxed">
+              Evaluating nucleotide synthesis density against solid-state NAND flash wear cycles, enzymatic addressing latency, and cold-storage retention benchmarks.
+            </p>
+</div>
+</div>
+<div class="px-space-lg py-space-md bg-surface-container-low/50 mt-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold shrink-0">
+              SL
+            </div>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Dr. Sophia Laurent</span>
+<span class="px-space-2xs py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-[10px] uppercase font-bold tracking-wider">Author</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Oct 18, 2025</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="inline-flex items-center gap-space-2xs font-label-sm text-label-sm text-secondary mr-space-xs">
+<span class="material-symbols-outlined text-[16px] text-error">favorite</span>
+<span>84</span>
+</span>
+<button class="p-space-2xs text-secondary hover:text-primary transition-colors rounded-md hover:bg-surface-container" onclick="toggleBookmark(this)" title="Bookmark">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 0;">bookmark</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Article Card 5 -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden group">
+<div>
+<div class="w-full h-44 bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" data-alt="Industrial immersion cooling rack inside a hyper-scale compute facility, clear dielectric liquid fluid bath, bubbling convection heat dissipation, sharp architectural photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHvboK8lh174l1WDqkvin7VtwblbZINhUkaAyyyoUH2maRQa_aoQ4VptfZX1mwsJpCxEL6qq6bNZ1wcRRCg52WhgafnHMB6mYolfVEvIk3f1myvq_1YRZCB7Nu8WgnGTMLaQal-PDwRpQ24ALwjrYuuvYGcBuva5YB71HuWft2MadkMGHS5p4UYYWUPevNG9Z_Cmq8TR72V0-IBAFbDvO5ARec8b-D0HUpIDDVL3vo8pWAxCZvLIpjtw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent"></div>
+<div class="absolute top-space-md left-space-md">
+<span class="inline-flex items-center px-space-sm py-space-2xs rounded-full bg-surface-container-lowest text-tertiary-container font-label-sm text-label-sm font-semibold shadow-sm">
+                Environment
+              </span>
+</div>
+<div class="absolute bottom-space-sm right-space-md text-on-primary font-label-sm text-label-sm flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>5.1k views</span>
+</div>
+</div>
+<div class="p-space-lg pb-space-sm">
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm mb-space-xs">
+<span>Data Center Systems</span>
+<span>•</span>
+<span>11 min read</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors line-clamp-2">
+              Sustainable Data Center Architecture: Liquid Cooling at Hyperscale
+            </h2>
+<p class="font-body-md text-body-md text-secondary mt-space-xs line-clamp-3 leading-relaxed">
+              Thermodynamic analysis of two-phase dielectric fluid immersion versus direct-to-chip heat exchangers, targeting a 1.04 PUE benchmark across high-density AI cluster pods.
+            </p>
+</div>
+</div>
+<div class="px-space-lg py-space-md bg-surface-container-low/50 mt-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary font-label-md text-label-md flex items-center justify-center font-bold shrink-0">
+              JW
+            </div>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Jonas Weber</span>
+<span class="px-space-2xs py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-[10px] uppercase font-bold tracking-wider">Author</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Oct 16, 2025</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="inline-flex items-center gap-space-2xs font-label-sm text-label-sm text-secondary mr-space-xs">
+<span class="material-symbols-outlined text-[16px] text-error">favorite</span>
+<span>312</span>
+</span>
+<button class="p-space-2xs text-secondary hover:text-primary transition-colors rounded-md hover:bg-surface-container" onclick="toggleBookmark(this)" title="Bookmark">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 0;">bookmark</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Article Card 6 -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden group">
+<div>
+<div class="w-full h-44 bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" data-alt="Compiler syntax graph and memory pointer safety diagram rendered on an ultra-clean matte tablet display, modern developer workspace setup, natural clean Scandinavian lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgFfA9YmwGXOTnf7_xXdRbHCYSyStWXx1-bGZ29EnQfrBO0vyqgLlJ4iqHymk_raQXlOgyNfKw_LFHHfDfngTNlUY74LlWz7COFVzwZzIpA8wJKSn5zgkUBDT6H2WMEN3JRKHPhVgSNCBMkKGO8Y61RWhrDWnS5EBJrjw3XgpEldLPTp3N7Uyl7IVOpuocoqvgmNSaOQsmdUhwLYu6pbEJ-IWbvERm4Vk7F_1ZJH8hC2rgrqe6FFNucA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent"></div>
+<div class="absolute top-space-md left-space-md">
+<span class="inline-flex items-center px-space-sm py-space-2xs rounded-full bg-surface-container-lowest text-primary font-label-sm text-label-sm font-semibold shadow-sm">
+                Technology
+              </span>
+</div>
+<div class="absolute bottom-space-sm right-space-md text-on-primary font-label-sm text-label-sm flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>3.1k views</span>
+</div>
+</div>
+<div class="p-space-lg pb-space-sm">
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm mb-space-xs">
+<span>Compilers &amp; Runtimes</span>
+<span>•</span>
+<span>16 min read</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors line-clamp-2">
+              Comparative Analysis of Memory Safety Primitives in Systems Languages
+            </h2>
+<p class="font-body-md text-body-md text-secondary mt-space-xs line-clamp-3 leading-relaxed">
+              Contrasting compile-time affine ownership types with hardware-enforced pointer authentication (ARM PAC) and conservative concurrent reference counting in microkernels.
+            </p>
+</div>
+</div>
+<div class="px-space-lg py-space-md bg-surface-container-low/50 mt-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center justify-center font-bold shrink-0">
+              EL
+            </div>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Dr. Elena Lindqvist</span>
+<span class="px-space-2xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-[10px] uppercase font-bold tracking-wider">Admin</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Oct 12, 2025</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="inline-flex items-center gap-space-2xs font-label-sm text-label-sm text-secondary mr-space-xs">
+<span class="material-symbols-outlined text-[16px] text-error">favorite</span>
+<span>175</span>
+</span>
+<button class="p-space-2xs text-secondary hover:text-primary transition-colors rounded-md hover:bg-surface-container" onclick="toggleBookmark(this)" title="Bookmark">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 0;">bookmark</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Empty State Container (Collapsible / Toggleable) -->
+<div class="hidden w-full bg-surface-container-lowest rounded-xl p-space-2xl text-center shadow-sm max-w-xl mx-auto my-space-xl" id="articles-empty-view">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mx-auto mb-space-md text-secondary">
+<span class="material-symbols-outlined text-[32px]">manage_search</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">No articles found matching your criteria</h3>
+<p class="font-body-md text-body-md text-secondary mt-space-xs max-w-md mx-auto">
+        Try adjusting your search query, clearing filters, or exploring our active topics list.
+      </p>
+<div class="mt-space-lg flex items-center justify-center gap-space-sm">
+<button class="inline-flex items-center justify-center px-space-lg py-space-xs rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:opacity-90 transition-opacity" onclick="resetFilters()">
+          Reset filters
+        </button>
+<button class="inline-flex items-center justify-center px-space-lg py-space-xs rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="switchBrowseView('cards')">
+          Browse all
+        </button>
+</div>
+</div>
+<!-- Pagination Controls -->
+<div class="mt-space-2xl pt-space-xl flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<p class="font-body-sm text-body-sm text-secondary">
+        Page <span class="font-semibold text-on-surface">1</span> of <span class="font-semibold text-on-surface">8</span> (24 of 186 results)
+      </p>
+<nav aria-label="Pagination Navigation" class="flex items-center gap-space-xs">
+<button class="flex items-center justify-center w-9 h-9 rounded-lg bg-surface-container-lowest text-outline opacity-40 cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold shadow-sm">
+          1
+        </button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors">
+          2
+        </button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors">
+          3
+        </button>
+<span class="w-7 text-center font-label-md text-label-md text-outline">...</span>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors">
+          8
+        </button>
+<button class="flex items-center justify-center w-9 h-9 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</nav>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-lowest shadow-[0_-1px_6px_rgba(0,0,0,0.02)] mt-space-2xl"><div class="max-w-7xl mx-auto px-6 lg:px-12 py-space-2xl"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-xl pb-space-xl"><div class="flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs text-primary font-headline-sm text-headline-sm"><span class="material-symbols-outlined text-[20px]">auto_stories</span><span>Lumen CMS</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">An open editorial platform engineering peer-reviewed knowledge, interactive learning quizzes, and deep architectural publications.</p></div><div class="flex flex-col gap-space-xs"><span class="font-label-md text-label-md text-on-surface font-semibold">Explore Platform</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="articles" href="#">Browse Articles</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="quizzes" href="#">Take Quizzes</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="discussions" href="#">Join Discussions</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="author-studio" href="#">Author Studio</a></div><div class="flex flex-col gap-space-xs"><span class="font-label-md text-label-md text-on-surface font-semibold">Categories</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="topics" href="#">Technology &amp; Systems</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="topics" href="#">Editorial Architecture</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="topics" href="#">Research Methodologies</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="topics" href="#">Design Principles</a></div><div class="flex flex-col gap-space-xs"><span class="font-label-md text-label-md text-on-surface font-semibold">Resources &amp; Docs</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentation" href="#">Documentation</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="guidelines" href="#">Editorial Guidelines</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="terms-of-service" href="#">Terms of Service</a></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2025 Lumen CMS. All rights reserved. Precision publishing infrastructure.</p><div class="flex items-center gap-space-lg"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentation" href="#">Status</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentation" href="#">Changelog</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentation" href="#">API</a></div></div></div></footer></body></html>
