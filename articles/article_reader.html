@@ -11,27 +11,28 @@
     <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
 
 </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
-<aside id="lumen-sidebar" class="fixed left-0 top-0 h-full w-[240px] bg-slate-900 z-50 flex flex-col justify-between overflow-y-auto">
-  <div class="flex flex-col">
-    <div class="h-16 px-5 flex items-center border-b border-slate-700/50">
-      <a href="../articles/home.html" class="flex items-center gap-2 focus:outline-none">
-        <img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-8 w-auto object-contain" />
-      </a>
-    </div>
-    <nav class="px-3 py-5 flex flex-col gap-1">
+<!-- Top Navbar (Spans full width edge-to-edge) -->
+<header class="fixed top-0 left-0 right-0 h-16 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs flex items-center"><div class="h-14 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-space-lg"><a class="flex items-center gap-2.5 focus:outline-none hover:opacity-90 transition-opacity shrink-0 mr-4" href="home.html"><img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-8 w-auto object-contain" /></a><div class="flex items-center gap-space-2xl"></div><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="sign-in" href="#">Sign In</a><a class="inline-flex items-center justify-center px-space-lg py-space-xs rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md hover:bg-primary transition-colors shadow-sm" data-path="sign-up" href="#">Get Started</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header>
+
+<!-- Shared Left Sidebar Navigation (Positioned below Top Navbar) -->
+<aside id="lumen-sidebar" class="fixed left-0 top-16 bottom-0 w-[240px] bg-slate-900 z-40 flex flex-col justify-between overflow-y-auto border-r border-slate-800">
+  <div class="flex flex-col py-4">
+    <nav class="px-3 flex flex-col gap-1">
       <span class="px-3 mb-2 text-[11px] uppercase tracking-wider text-slate-500 font-semibold">Navigation</span>
-      <a href="../articles/home.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">explore</span><span>Home</span></a>
-      <a href="../articles/browse_articles.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600 text-white transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">library_books</span><span>Browse</span></a>
-      <a href="../community/discussions.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">forum</span><span>Discussions</span></a>
-      <a href="../community/chat.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">chat</span><span>Chat</span></a>
+      <a href="../articles/home.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">explore</span><span>Home</span></a>
+      <a href="../articles/browse_articles.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600 text-white font-medium text-sm"><span class="material-symbols-outlined text-lg">library_books</span><span>Browse</span></a>
+      <a href="../community/discussions.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">forum</span><span>Discussions</span></a>
+      <a href="../community/chat.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">chat</span><span>Chat</span></a>
+      
       <span class="px-3 mt-4 mb-2 text-[11px] uppercase tracking-wider text-slate-500 font-semibold">Create</span>
-      <a href="../articles/write_article.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">edit_note</span><span>Write</span></a>
-      <a href="../quizzes/quiz_builder.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">quiz</span><span>Quizzes</span></a>
+      <a href="../articles/write_article.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">edit_note</span><span>Write</span></a>
+      <a href="../quizzes/quiz_builder.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">quiz</span><span>Quizzes</span></a>
+      
       <span class="px-3 mt-4 mb-2 text-[11px] uppercase tracking-wider text-slate-500 font-semibold">Account</span>
-      <a href="../profile/user_profile.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">person</span><span>Profile</span></a>
+      <a href="../profile/user_profile.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">person</span><span>Profile</span></a>
     </nav>
   </div>
-  <div class="p-4 border-t border-slate-700/50">
+  <div class="p-4 border-t border-slate-800">
     <div class="flex items-center gap-3">
       <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs">JV</div>
       <div class="flex flex-col">
@@ -41,7 +42,10 @@
     </div>
   </div>
 </aside>
-<div class="pl-[240px] min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-2xl"></div><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="sign-in" href="#">Sign In</a><a class="inline-flex items-center justify-center px-space-lg py-space-xs rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md hover:bg-primary transition-colors shadow-sm" data-path="sign-up" href="#">Get Started</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 bg-surface min-h-[calc(100vh-14rem)]"><div class="flex flex-col w-full">
+
+<!-- Content Area with Top Navbar & Sidebar Offset -->
+<div class="pt-16 pl-[240px] min-h-screen flex flex-col">
+<main class="w-full pt-14 bg-surface min-h-[calc(100vh-14rem)]"><div class="flex flex-col w-full">
 <!-- Pinned Top Reading Progress Bar (Fixed below 56px shell header) -->
 <div class="fixed top-14 left-0 right-0 z-40 h-[3px] bg-surface-container-high/60 pointer-events-none">
 <div class="h-full bg-primary-container transition-all duration-150" id="readingProgress" style="width: 44.6%;"></div>
@@ -65,73 +69,6 @@
 <!-- Main Viewport Reading Container -->
 <div class="max-w-7xl mx-auto px-6 lg:px-12 py-space-xl w-full">
 <!-- Article Header -->
-<header class="max-w-4xl mb-space-2xl">
-<div class="flex flex-wrap items-center gap-space-xs mb-space-md">
-<span class="px-space-md py-space-2xs rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">Distributed Systems</span>
-<span class="px-space-md py-space-2xs rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Systems Architecture</span>
-</div>
-<h1 class="font-headline-xl text-headline-xl md:text-[2.5rem] md:leading-[3rem] font-bold text-on-surface tracking-tight mb-space-md font-['Newsreader','Playfair_Display','Merriweather',serif]">
-        Architecting Resilient Event Streams with Distributed Kafka Clusters
-      </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-space-xl">
-        An exhaustive architectural blueprint on multi-region partition rebalancing, quorum durability, and backpressure governance for mission-critical asynchronous workloads.
-      </p>
-<!-- Article Metadata Strip -->
-<div class="flex flex-wrap items-center justify-between gap-space-lg py-space-md bg-surface-container-low rounded-xl px-space-lg">
-<!-- Author info -->
-<div class="flex items-center gap-space-md">
-<div class="relative w-11 h-11 rounded-full bg-surface-container-highest overflow-hidden shrink-0">
-<img class="w-full h-full object-cover" data-alt="Portrait photograph of Dr. Elena Lindqvist, a focused female systems software engineer wearing understated glasses against a warm studio architectural background, professional lighting and sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtyW_CXn8gJISFY1IX1DLf7BasPVgH5cszuxEg1tBfoRNvdSGaslqfle21QAdVK_8Qg0oTt9vKDeaIybt3Fm4-uDVGDMoyKVSf9nI_J7HcnDVNwT2HV50U0lCCIxM35K1YbmTMoGwxozwMXpP510AR5cHhLJSICiY_0cuYRm176OiZgvzMKxHjl14vdIy7BPOtUAluaLfAsG5efNwGztudJ3CHGMH64Mr-lu2h-Y2gLZMI6H42ib4KHQ"/>
-</div>
-<div>
-<div class="flex items-center gap-space-xs">
-<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Dr. Elena Lindqvist</span>
-<span class="px-space-xs py-[1px] rounded bg-primary text-on-primary font-label-sm text-[10px] tracking-wider uppercase font-bold">ADMIN</span>
-</div>
-<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-tertiary mt-0.5">
-<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">verified</span>
-<span>98.4% Trust Score • Tier 1 Verified Contributor</span>
-</div>
-</div>
-</div>
-<!-- Meta metrics & Quick Actions -->
-<div class="flex flex-wrap items-center gap-space-lg">
-<div class="flex items-center gap-space-md font-body-sm text-body-sm text-on-surface-variant">
-<span class="inline-flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]">schedule</span>
-              12 min read
-            </span>
-<span>•</span>
-<span class="inline-flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]">calendar_today</span>
-              Oct 24, 2025
-            </span>
-<span>•</span>
-<span class="inline-flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]">visibility</span>
-              4.2k views
-            </span>
-</div>
-<!-- Action buttons -->
-<div class="flex items-center gap-space-xs">
-<button class="h-8 px-space-md rounded-lg bg-primary-container text-on-primary font-label-md text-label-md inline-flex items-center gap-1 hover:bg-primary transition-colors shadow-sm" id="subscribeBtn" onclick="toggleSubscribe()">
-<span class="material-symbols-outlined text-[16px]" id="subscribeIcon">notifications</span>
-<span id="subscribeText">Subscribe</span>
-</button>
-<button class="h-8 w-8 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors inline-flex items-center justify-center" id="bookmarkBtn" onclick="toggleBookmark()" title="Bookmark Article">
-<span class="material-symbols-outlined text-[18px]" id="bookmarkIcon">bookmark_border</span>
-</button>
-<button class="h-8 w-8 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors inline-flex items-center justify-center" onclick="copyShareLink()" title="Share Article">
-<span class="material-symbols-outlined text-[18px]">share</span>
-</button>
-<button class="h-8 px-space-sm rounded-lg bg-surface-container-lowest text-error hover:bg-error-container hover:text-on-error-container font-label-sm text-label-sm transition-colors inline-flex items-center gap-1" onclick="openReportModal()">
-<span class="material-symbols-outlined text-[16px]">flag</span>
-<span class="hidden sm:inline">Report</span>
-</button>
-</div>
-</div>
-</div>
-</header>
 <!-- Two-Column Main Reading Workspace -->
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-start">
 <!-- Main Content Column (~68% width, max-w-3xl) -->
@@ -469,5 +406,7 @@
     </div>
   </footer>
 </div>
+</div>
+
 </body>
 </html>

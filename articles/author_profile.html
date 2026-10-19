@@ -8,27 +8,28 @@
     <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
 
 </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col">
-<aside id="lumen-sidebar" class="fixed left-0 top-0 h-full w-[240px] bg-slate-900 z-50 flex flex-col justify-between overflow-y-auto">
-  <div class="flex flex-col">
-    <div class="h-16 px-5 flex items-center border-b border-slate-700/50">
-      <a href="../articles/home.html" class="flex items-center gap-2 focus:outline-none">
-        <img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-8 w-auto object-contain" />
-      </a>
-    </div>
-    <nav class="px-3 py-5 flex flex-col gap-1">
+<!-- Top Navbar (Spans full width edge-to-edge) -->
+<header class="fixed top-0 left-0 right-0 h-16 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs flex items-center"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-space-lg"><a class="flex items-center gap-2.5 focus:outline-none hover:opacity-90 transition-opacity shrink-0 mr-4" href="home.html"><img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-8 w-auto object-contain" /></a><div class="flex items-center gap-space-2xl"></div><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex px-space-md py-space-xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="sign-in" href="#">Sign In</a><a class="inline-flex items-center justify-center px-space-md py-space-xs rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary transition-colors shadow-sm" data-path="write" href="#">Write</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header>
+
+<!-- Shared Left Sidebar Navigation (Positioned below Top Navbar) -->
+<aside id="lumen-sidebar" class="fixed left-0 top-16 bottom-0 w-[240px] bg-slate-900 z-40 flex flex-col justify-between overflow-y-auto border-r border-slate-800">
+  <div class="flex flex-col py-4">
+    <nav class="px-3 flex flex-col gap-1">
       <span class="px-3 mb-2 text-[11px] uppercase tracking-wider text-slate-500 font-semibold">Navigation</span>
-      <a href="../articles/home.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">explore</span><span>Home</span></a>
-      <a href="../articles/browse_articles.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600 text-white transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">library_books</span><span>Browse</span></a>
-      <a href="../community/discussions.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">forum</span><span>Discussions</span></a>
-      <a href="../community/chat.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">chat</span><span>Chat</span></a>
+      <a href="../articles/home.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">explore</span><span>Home</span></a>
+      <a href="../articles/browse_articles.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600 text-white font-medium text-sm"><span class="material-symbols-outlined text-lg">library_books</span><span>Browse</span></a>
+      <a href="../community/discussions.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">forum</span><span>Discussions</span></a>
+      <a href="../community/chat.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">chat</span><span>Chat</span></a>
+      
       <span class="px-3 mt-4 mb-2 text-[11px] uppercase tracking-wider text-slate-500 font-semibold">Create</span>
-      <a href="../articles/write_article.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">edit_note</span><span>Write</span></a>
-      <a href="../quizzes/quiz_builder.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">quiz</span><span>Quizzes</span></a>
+      <a href="../articles/write_article.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">edit_note</span><span>Write</span></a>
+      <a href="../quizzes/quiz_builder.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">quiz</span><span>Quizzes</span></a>
+      
       <span class="px-3 mt-4 mb-2 text-[11px] uppercase tracking-wider text-slate-500 font-semibold">Account</span>
-      <a href="../profile/user_profile.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">person</span><span>Profile</span></a>
+      <a href="../profile/user_profile.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">person</span><span>Profile</span></a>
     </nav>
   </div>
-  <div class="p-4 border-t border-slate-700/50">
+  <div class="p-4 border-t border-slate-800">
     <div class="flex items-center gap-3">
       <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs">JV</div>
       <div class="flex flex-col">
@@ -38,7 +39,10 @@
     </div>
   </div>
 </aside>
-<div class="pl-[240px] min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-2xl"></div><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex px-space-md py-space-xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="sign-in" href="#">Sign In</a><a class="inline-flex items-center justify-center px-space-md py-space-xs rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary transition-colors shadow-sm" data-path="write" href="#">Write</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full flex-1 pt-16 bg-surface"><div class="flex flex-col w-full">
+
+<!-- Content Area with Top Navbar & Sidebar Offset -->
+<div class="pt-16 pl-[240px] min-h-screen flex flex-col">
+<main class="w-full flex-1 pt-16 bg-surface"><div class="flex flex-col w-full">
 <!-- Subtle Ambient Top Glow (Contained) -->
 <div class="relative w-full overflow-hidden">
 <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-64 bg-gradient-to-b from-primary/5 via-secondary-container/20 to-transparent blur-3xl pointer-events-none -z-10"></div>
@@ -56,63 +60,6 @@
 <span class="text-on-surface font-semibold truncate">Dr. Jonathan Vance</span>
 </nav>
 <!-- Centered Author Introduction Header Card -->
-<header class="bg-surface-container-lowest rounded-xl shadow-sm p-8 sm:p-10 mb-12 flex flex-col items-center text-center relative">
-<!-- Avatar Wrapper with Precise Status Ring -->
-<div class="relative mb-5">
-<div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden bg-surface-container-high shadow-sm">
-<img class="w-full h-full object-cover" data-alt="Editorial black-and-white portrait of Dr. Jonathan Vance, a distinguished senior distributed systems engineer and computer scientist in his mid-forties with wireframe glasses, contemplative expression, soft studio key lighting, crisp focus, clean white backdrop matching enterprise technical aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKIiKQek-lPAsjUtp5YU5GZ4A8YUq55qKrF5mWiBQznl6S64mILSKE9fmcnBUd17kLP9A3_tWCXdkFwDQpR2q79Vu55KXuRn79P-jYmxsjmInNH-4WM-couRg9olkH2r7iub4egpoqTcEO6Kb9x-p1u8A2xs76AQnG01aSijNSTA2o64gnSWh-kkumqYWnc4ASHTHHbpIUrWD6zSvYVb-P0Ltoed7SpFvYlB-XbnKQHAKVcvfPYx-QvA"/>
-</div>
-<!-- Sub-badge micro icon -->
-<div class="absolute bottom-0 right-0 w-8 h-8 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center text-primary" title="Lumen Fellow Verified">
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">verified</span>
-</div>
-</div>
-<!-- Name & Badges Row -->
-<div class="flex flex-wrap items-center justify-center gap-2 mb-2">
-<h1 class="text-headline-xl font-headline-xl text-on-surface tracking-tight">
-            Dr. Jonathan Vance
-          </h1>
-<!-- Role Badge: Exact "Author" -->
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed text-label-sm font-label-sm font-semibold">
-            Author
-          </span>
-</div>
-<!-- Academic & Technical Title -->
-<p class="text-label-lg font-label-lg text-secondary mb-4 max-w-xl">
-          Principal Distributed Systems Engineer &amp; Technical Fellow
-        </p>
-<!-- Biography -->
-<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl leading-relaxed mb-6">
-          Researching consensus algorithms, event-driven architectures, and high-throughput stream processing. Contributing technical dispatches and peer-reviewed checkpoints to the Lumen research collective.
-        </p>
-<!-- Verification & Tenure Meta Bar -->
-<div class="flex flex-wrap items-center justify-center gap-y-2 gap-x-4 pt-5 bg-surface-container-low rounded-lg px-5 py-3 w-full max-w-2xl text-label-md font-label-md text-on-surface-variant">
-<!-- Official TrustBadge -->
-<div class="inline-flex items-center gap-1.5 text-tertiary">
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">shield_person</span>
-<span class="font-semibold text-label-sm">Level 4: Verified Fellow</span>
-</div>
-<span class="text-outline-variant hidden sm:inline">•</span>
-<!-- Membership Tenure -->
-<div class="inline-flex items-center gap-1.5 text-on-surface-variant">
-<span class="material-symbols-outlined text-[18px] text-secondary">history_edu</span>
-<span class="text-label-sm">Contributing Author since March 2022</span>
-</div>
-<span class="text-outline-variant hidden sm:inline">•</span>
-<span class="text-secondary text-label-sm">2 yrs, 10 mos tenure</span>
-</div>
-<!-- Clean Restrained Profile Actions -->
-<div class="flex items-center justify-center gap-3 mt-6">
-<a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-label-md font-label-md transition-colors" data-path="discussions" href="#">
-<span class="material-symbols-outlined text-[18px]">forum</span>
-<span>Contact via Discussion</span>
-</a>
-<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-label-md font-label-md transition-colors" id="copyProfileLinkBtn" title="Copy profile link to clipboard" type="button">
-<span class="material-symbols-outlined text-[18px]">link</span>
-<span id="copyLinkFeedback">Copy Profile</span>
-</button>
-</div>
-</header>
 <!-- Section Controls Bar -->
 <section aria-labelledby="dispatches-heading" class="flex flex-col gap-6">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4">
@@ -355,5 +302,8 @@
       });
     }
   </script>
-</div></main><footer class="w-full bg-surface-container-low shadow-[0_-1px_8px_rgba(0,0,0,0.02)] mt-auto"><div class="max-w-7xl mx-auto px-6 lg:px-12 py-space-2xl flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex flex-col sm:flex-row items-center gap-space-lg"><div class="flex items-center gap-space-2xs text-on-surface font-headline-sm text-headline-sm font-bold tracking-tight"><span class="material-symbols-outlined text-primary text-[20px]">flare</span><span>Lumen CMS</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">© 2025 Lumen Platform Inc. All rights reserved.</p></div><nav class="flex flex-wrap items-center justify-center gap-space-lg"><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="author-guidelines" href="#">Author Guidelines</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentation" href="#">Documentation</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-space-xs" data-path="api-status" href="#"><span class="inline-block w-2 h-2 rounded-full bg-tertiary"></span>API Status</a></nav></div></footer></div>
-</body></html>
+</div></main><footer class="w-full bg-surface-container-low shadow-[0_-1px_8px_rgba(0,0,0,0.02)] mt-auto"><div class="max-w-7xl mx-auto px-6 lg:px-12 py-space-2xl flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex flex-col sm:flex-row items-center gap-space-lg"><div class="flex items-center gap-space-2xs text-on-surface font-headline-sm text-headline-sm font-bold tracking-tight"><span class="material-symbols-outlined text-primary text-[20px]">flare</span><span>Lumen CMS</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">© 2025 Lumen Platform Inc. All rights reserved.</p></div><nav class="flex flex-wrap items-center justify-center gap-space-lg"><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="author-guidelines" href="#">Author Guidelines</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentation" href="#">Documentation</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-space-xs" data-path="api-status" href="#"><span class="inline-block w-2 h-2 rounded-full bg-tertiary"></span>API Status</a></nav></div></footer>
+</div>
+
+</body>
+</html>

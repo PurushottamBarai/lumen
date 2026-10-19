@@ -12,27 +12,28 @@
     <link rel="apple-touch-icon" href="../assets/lumen-touch-icon.png">
 
 </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
-<aside id="lumen-sidebar" class="fixed left-0 top-0 h-full w-[240px] bg-slate-900 z-50 flex flex-col justify-between overflow-y-auto">
-  <div class="flex flex-col">
-    <div class="h-16 px-5 flex items-center border-b border-slate-700/50">
-      <a href="../articles/home.html" class="flex items-center gap-2 focus:outline-none">
-        <img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-8 w-auto object-contain" />
-      </a>
-    </div>
-    <nav class="px-3 py-5 flex flex-col gap-1">
+<!-- Top Navbar (Spans full width edge-to-edge) -->
+<header class="fixed top-0 left-0 right-0 h-16 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs flex items-center"><div class="h-14 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-space-lg"><a class="flex items-center gap-2.5 focus:outline-none hover:opacity-90 transition-opacity shrink-0 mr-4" href="../articles/home.html"><img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-8 w-auto object-contain" /></a><div class="flex items-center gap-space-2xl"></div><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="sign-in" href="#">Sign In</a><a class="inline-flex items-center justify-center px-space-lg py-space-xs rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md hover:bg-primary transition-colors shadow-sm" data-path="sign-up" href="#">Get Started</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header>
+
+<!-- Shared Left Sidebar Navigation (Positioned below Top Navbar) -->
+<aside id="lumen-sidebar" class="fixed left-0 top-16 bottom-0 w-[240px] bg-slate-900 z-40 flex flex-col justify-between overflow-y-auto border-r border-slate-800">
+  <div class="flex flex-col py-4">
+    <nav class="px-3 flex flex-col gap-1">
       <span class="px-3 mb-2 text-[11px] uppercase tracking-wider text-slate-500 font-semibold">Navigation</span>
-      <a href="../articles/home.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">explore</span><span>Home</span></a>
-      <a href="../articles/browse_articles.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">library_books</span><span>Browse</span></a>
-      <a href="../community/discussions.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600 text-white transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">forum</span><span>Discussions</span></a>
-      <a href="../community/chat.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">chat</span><span>Chat</span></a>
+      <a href="../articles/home.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">explore</span><span>Home</span></a>
+      <a href="../articles/browse_articles.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">library_books</span><span>Browse</span></a>
+      <a href="../community/discussions.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600 text-white font-medium text-sm"><span class="material-symbols-outlined text-lg">forum</span><span>Discussions</span></a>
+      <a href="../community/chat.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">chat</span><span>Chat</span></a>
+      
       <span class="px-3 mt-4 mb-2 text-[11px] uppercase tracking-wider text-slate-500 font-semibold">Create</span>
-      <a href="../articles/write_article.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">edit_note</span><span>Write</span></a>
-      <a href="../quizzes/quiz_builder.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">quiz</span><span>Quizzes</span></a>
+      <a href="../articles/write_article.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">edit_note</span><span>Write</span></a>
+      <a href="../quizzes/quiz_builder.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">quiz</span><span>Quizzes</span></a>
+      
       <span class="px-3 mt-4 mb-2 text-[11px] uppercase tracking-wider text-slate-500 font-semibold">Account</span>
-      <a href="../profile/user_profile.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">person</span><span>Profile</span></a>
+      <a href="../profile/user_profile.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors font-medium text-sm"><span class="material-symbols-outlined text-lg">person</span><span>Profile</span></a>
     </nav>
   </div>
-  <div class="p-4 border-t border-slate-700/50">
+  <div class="p-4 border-t border-slate-800">
     <div class="flex items-center gap-3">
       <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs">JV</div>
       <div class="flex flex-col">
@@ -42,7 +43,10 @@
     </div>
   </div>
 </aside>
-<div class="pl-[240px] min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-2xl"></div><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="sign-in" href="#">Sign In</a><a class="inline-flex items-center justify-center px-space-lg py-space-xs rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md hover:bg-primary transition-colors shadow-sm" data-path="sign-up" href="#">Get Started</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 bg-surface min-h-[calc(100vh-14rem)]"><div class="flex flex-col w-full">
+
+<!-- Content Area with Top Navbar & Sidebar Offset -->
+<div class="pt-16 pl-[240px] min-h-screen flex flex-col">
+<main class="w-full pt-14 bg-surface min-h-[calc(100vh-14rem)]"><div class="flex flex-col w-full">
 <!-- Editorial Page Title Section -->
 <section class="w-full bg-surface-container-lowest border-b border-outline-variant/30 py-space-xl">
 <div class="max-w-7xl mx-auto px-6 lg:px-12">
@@ -429,5 +433,6 @@
   </div>
 </footer>
 </div>
+
 </body>
 </html>
