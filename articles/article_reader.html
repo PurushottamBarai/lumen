@@ -135,6 +135,60 @@
 </div>
 </div>
 <!-- Section 1 -->
+<!-- AI Article Summarization Module (Feature 8) -->
+<div class="w-full bg-gradient-to-r from-blue-50/80 via-indigo-50/60 to-surface-container-low border border-blue-200/80 rounded-2xl p-5 sm:p-6 shadow-xs space-y-3">
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-lg bg-blue-600 text-white flex items-center justify-center shadow-xs">
+        <span class="material-symbols-outlined text-[18px]">bolt</span>
+      </div>
+      <div>
+        <h3 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-1.5">
+          <span>AI Executive Summary &amp; Key Takeaways</span>
+          <span class="px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-wider">AI Generated</span>
+        </h3>
+        <p class="text-[11px] text-slate-500">Synthesized in 1.2s from 4,800 words · Estimated time saved: 10 mins</p>
+      </div>
+    </div>
+    <button onclick="toggleAiSummary()" id="btn-toggle-summary" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition flex items-center gap-1">
+      <span id="summary-toggle-text">Collapse</span>
+      <span class="material-symbols-outlined text-sm transition-transform duration-200" id="summary-toggle-icon">expand_less</span>
+    </button>
+  </div>
+
+  <div id="ai-summary-content" class="space-y-2.5 pt-1 text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-blue-100/80">
+    <div class="flex items-start gap-2.5">
+      <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">1</span>
+      <p><strong>Partition Rebalancing Overhead:</strong> Eager rebalance protocols trigger stop-the-world consumer group pauses; cooperative sticky partition assignors reduce partition migration downtime by up to 88%.</p>
+    </div>
+    <div class="flex items-start gap-2.5">
+      <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">2</span>
+      <p><strong>Quorum Durability &amp; Min-ISR:</strong> Setting <code>min.insync.replicas=2</code> alongside <code>acks=all</code> mathematically guarantees zero acknowledge data loss across multi-zone broker failures without cascading split-brain.</p>
+    </div>
+    <div class="flex items-start gap-2.5">
+      <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">3</span>
+      <p><strong>Buffer Saturation Prevention:</strong> Dynamic backpressure throttles producer ingest before broker page-cache queues drop below Linux disk flush thresholds, preventing GC pause cascades.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleAiSummary() {
+    const el = document.getElementById('ai-summary-content');
+    const txt = document.getElementById('summary-toggle-text');
+    const icon = document.getElementById('summary-toggle-icon');
+    if (el.classList.contains('hidden')) {
+      el.classList.remove('hidden');
+      txt.textContent = 'Collapse';
+      icon.style.transform = 'rotate(0deg)';
+    } else {
+      el.classList.add('hidden');
+      txt.textContent = 'Expand';
+      icon.style.transform = 'rotate(180deg)';
+    }
+  }
+</script>
+
 <section class="space-y-space-md" id="section-1">
 <h2 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight font-['Newsreader','Playfair_Display','Merriweather',serif]">
             1. The Fundamental Geometry of Partition Rebalancing
@@ -324,6 +378,77 @@
 
         </aside>
       </div>
+
+      <!-- Related Articles & Smart Linking (Features 7 & 10) -->
+      <section class="mt-space-2xl pt-space-xl border-t border-outline-variant/30 max-w-4xl space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold uppercase tracking-wider mb-1">
+              <span class="material-symbols-outlined text-[14px]">share</span>
+              <span>Semantic Content Graph</span>
+            </div>
+            <h2 class="font-headline-md text-headline-md text-on-surface font-bold">Related Articles &amp; Smart Linking</h2>
+            <p class="text-xs text-slate-500">AI-suggested deep dives based on technical semantic similarity</p>
+          </div>
+          <a href="browse_articles.html" class="text-xs font-semibold text-blue-600 hover:underline">Explore Topic Graph</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- Related Card 1 -->
+          <article class="bg-white rounded-xl border border-slate-200 p-5 shadow-xs hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between group">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[10px] font-bold uppercase">
+                  96% Semantic Match
+                </span>
+                <span class="text-[11px] text-slate-400 font-mono">14 min read</span>
+              </div>
+              <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition-colors text-base leading-snug">
+                <a href="article_reader.html">Consensus Invariants: Formally Verifying Raft Leader Elections</a>
+              </h3>
+              <!-- Recommendation Explanation (Feature 10) -->
+              <div class="p-2 rounded bg-slate-50 border border-slate-100 text-[11px] text-slate-600 leading-relaxed flex items-start gap-1.5">
+                <span class="material-symbols-outlined text-[14px] text-blue-600 shrink-0 mt-0.5">link</span>
+                <span><strong>Why Linked:</strong> Complements Kafka KRaft quorum controller consensus with formal TLA+ election proofs.</span>
+              </div>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="font-medium text-slate-700">Prof. Aris Thorne</span>
+              <a href="article_reader.html" class="text-blue-600 font-bold hover:underline flex items-center gap-0.5">
+                <span>Read Article</span>
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Related Card 2 -->
+          <article class="bg-white rounded-xl border border-slate-200 p-5 shadow-xs hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between group">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[10px] font-bold uppercase">
+                  91% Semantic Match
+                </span>
+                <span class="text-[11px] text-slate-400 font-mono">11 min read</span>
+              </div>
+              <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition-colors text-base leading-snug">
+                <a href="article_reader.html">LSM-Trees vs B-Trees: The Storage Engine Trade-Offs</a>
+              </h3>
+              <!-- Recommendation Explanation -->
+              <div class="p-2 rounded bg-slate-50 border border-slate-100 text-[11px] text-slate-600 leading-relaxed flex items-start gap-1.5">
+                <span class="material-symbols-outlined text-[14px] text-blue-600 shrink-0 mt-0.5">link</span>
+                <span><strong>Why Linked:</strong> Examines sequential write log append performance utilized by Kafka segment files.</span>
+              </div>
+            </div>
+            <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="font-medium text-slate-700">Marcus Chen</span>
+              <a href="article_reader.html" class="text-blue-600 font-bold hover:underline flex items-center gap-0.5">
+                <span>Read Article</span>
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
 
       <!-- Comments Section (Doc Section 8.3 / CommentSection.jsx) -->
       <section class="mt-space-2xl pt-space-xl border-t border-outline-variant/30 max-w-4xl space-y-space-xl">

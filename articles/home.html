@@ -201,6 +201,339 @@
       </div>
     </section>
 
+    <!-- AI Topic & Trend Detection Bar (New AI Module) -->
+    <section class="w-full bg-slate-900 text-white py-4 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <div class="flex items-center gap-2 shrink-0">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-500/20 text-blue-400">
+              <span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+            </span>
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-400">AI Topic & Trend Detection</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          </div>
+          <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 text-xs">
+            <span class="text-slate-400 text-[11px] shrink-0">Surging Keywords:</span>
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700/80 hover:border-blue-500 transition-colors cursor-pointer text-slate-200 shrink-0">
+              <span class="text-blue-400 font-bold">#KafkaPartitioning</span>
+              <span class="text-[10px] text-emerald-400 font-medium">+340%</span>
+            </span>
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700/80 hover:border-blue-500 transition-colors cursor-pointer text-slate-200 shrink-0">
+              <span class="text-blue-400 font-bold">#ZeroKnowledge</span>
+              <span class="text-[10px] text-emerald-400 font-medium">+280%</span>
+            </span>
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700/80 hover:border-blue-500 transition-colors cursor-pointer text-slate-200 shrink-0">
+              <span class="text-blue-400 font-bold">#LSMTrees</span>
+              <span class="text-[10px] text-emerald-400 font-medium">+195%</span>
+            </span>
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700/80 hover:border-blue-500 transition-colors cursor-pointer text-slate-200 shrink-0">
+              <span class="text-blue-400 font-bold">#RaftConsensus</span>
+              <span class="text-[10px] text-emerald-400 font-medium">+160%</span>
+            </span>
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700/80 hover:border-blue-500 transition-colors cursor-pointer text-slate-200 shrink-0">
+              <span class="text-blue-400 font-bold">#ServerComponents</span>
+              <span class="text-[10px] text-emerald-400 font-medium">+140%</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Trending & Personalized "For You" Section (New Modules: Trending Articles & Personalized Recommendations) -->
+    <section class="w-full py-12 border-b border-slate-200 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200 text-xs font-semibold uppercase tracking-wider mb-2">
+              <span class="material-symbols-outlined text-[14px]">psychology</span>
+              <span>Intelligent Discovery Engine</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">AI Curated & Personalized Dispatches</h2>
+          </div>
+
+          <!-- Feed Switcher Tabs -->
+          <div class="inline-flex p-1 bg-slate-100 rounded-xl border border-slate-200 self-start sm:self-auto">
+            <button id="tab-btn-trending" onclick="switchHomeFeed('trending')" class="px-4 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-900 shadow-xs transition-all flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-amber-500">local_fire_department</span>
+              <span>Trending Articles</span>
+            </button>
+            <button id="tab-btn-foryou" onclick="switchHomeFeed('foryou')" class="px-4 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-blue-600">person_pin</span>
+              <span>For You (Recommended)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 1. AI Trending Articles Grid -->
+        <div id="feed-trending-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Trending Article 1 -->
+          <article class="bg-slate-50/70 rounded-2xl border border-slate-200 hover:border-blue-400 shadow-xs hover:shadow-md transition-all overflow-hidden flex flex-col justify-between group">
+            <div class="p-6 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 text-[11px] font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">trending_up</span>
+                  <span>#1 Trending · Velocity +420%</span>
+                </span>
+                <span class="text-[11px] font-mono text-slate-400">Score 98.4</span>
+              </div>
+              <h3 class="font-serif-editorial text-2xl font-normal text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+                <a href="article_reader.html">Architecting Resilient Event Streams with Distributed Kafka Clusters</a>
+              </h3>
+              <!-- Recommendation Explanation (Feature 10) -->
+              <div class="p-2.5 rounded-lg bg-blue-50/80 border border-blue-100 text-[11px] text-blue-800 leading-relaxed flex items-start gap-1.5">
+                <span class="material-symbols-outlined text-[15px] text-blue-600 shrink-0 mt-0.5">info</span>
+                <span><strong>Why Trending:</strong> High engagement velocity from systems engineers with 1.8k saves in 48 hours.</span>
+              </div>
+              <!-- Engagement Rates & Metrics (Feature 1 & 5) -->
+              <div class="grid grid-cols-4 gap-2 pt-2 text-center text-xs text-slate-600 border-t border-slate-200/80">
+                <div class="p-1.5 rounded bg-white border border-slate-100">
+                  <div class="font-bold text-slate-900">24.5k</div>
+                  <div class="text-[10px] text-slate-400">Views</div>
+                </div>
+                <div class="p-1.5 rounded bg-white border border-slate-100">
+                  <div class="font-bold text-slate-900">1.8k</div>
+                  <div class="text-[10px] text-slate-400">Likes</div>
+                </div>
+                <div class="p-1.5 rounded bg-white border border-slate-100">
+                  <div class="font-bold text-slate-900">640</div>
+                  <div class="text-[10px] text-slate-400">Shares</div>
+                </div>
+                <div class="p-1.5 rounded bg-white border border-slate-100">
+                  <div class="font-bold text-slate-900">280</div>
+                  <div class="text-[10px] text-slate-400">Comments</div>
+                </div>
+              </div>
+            </div>
+            <div class="px-6 py-3.5 border-t border-slate-200/80 bg-white flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-800">Dr. Elena Lindqvist</span>
+              <a href="article_reader.html" class="text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1">
+                <span>Read Dispatch</span>
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Trending Article 2 -->
+          <article class="bg-slate-50/70 rounded-2xl border border-slate-200 hover:border-blue-400 shadow-xs hover:shadow-md transition-all overflow-hidden flex flex-col justify-between group">
+            <div class="p-6 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 text-[11px] font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">trending_up</span>
+                  <span>#2 Trending · Velocity +290%</span>
+                </span>
+                <span class="text-[11px] font-mono text-slate-400">Score 94.2</span>
+              </div>
+              <h3 class="font-serif-editorial text-2xl font-normal text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+                <a href="article_reader.html">Zero-Knowledge Rollups: Cryptographic Guarantees</a>
+              </h3>
+              <!-- Recommendation Explanation -->
+              <div class="p-2.5 rounded-lg bg-blue-50/80 border border-blue-100 text-[11px] text-blue-800 leading-relaxed flex items-start gap-1.5">
+                <span class="material-symbols-outlined text-[15px] text-blue-600 shrink-0 mt-0.5">info</span>
+                <span><strong>Why Trending:</strong> Surging discussion on KZG polynomial proofs and Ethereum rollup audits.</span>
+              </div>
+              <!-- Engagement Metrics -->
+              <div class="grid grid-cols-4 gap-2 pt-2 text-center text-xs text-slate-600 border-t border-slate-200/80">
+                <div class="p-1.5 rounded bg-white border border-slate-100">
+                  <div class="font-bold text-slate-900">18.2k</div>
+                  <div class="text-[10px] text-slate-400">Views</div>
+                </div>
+                <div class="p-1.5 rounded bg-white border border-slate-100">
+                  <div class="font-bold text-slate-900">1.4k</div>
+                  <div class="text-[10px] text-slate-400">Likes</div>
+                </div>
+                <div class="p-1.5 rounded bg-white border border-slate-100">
+                  <div class="font-bold text-slate-900">490</div>
+                  <div class="text-[10px] text-slate-400">Shares</div>
+                </div>
+                <div class="p-1.5 rounded bg-white border border-slate-100">
+                  <div class="font-bold text-slate-900">195</div>
+                  <div class="text-[10px] text-slate-400">Comments</div>
+                </div>
+              </div>
+            </div>
+            <div class="px-6 py-3.5 border-t border-slate-200/80 bg-white flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-800">Dr. Jonathan Vance</span>
+              <a href="article_reader.html" class="text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1">
+                <span>Read Dispatch</span>
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Trending Article 3 -->
+          <article class="bg-slate-50/70 rounded-2xl border border-slate-200 hover:border-blue-400 shadow-xs hover:shadow-md transition-all overflow-hidden flex flex-col justify-between group">
+            <div class="p-6 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 text-[11px] font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">trending_up</span>
+                  <span>#3 Trending · Velocity +185%</span>
+                </span>
+                <span class="text-[11px] font-mono text-slate-400">Score 91.0</span>
+              </div>
+              <h3 class="font-serif-editorial text-2xl font-normal text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+                <a href="article_reader.html">LSM-Trees vs B-Trees: The Storage Engine Trade-Offs</a>
+              </h3>
+              <!-- Recommendation Explanation -->
+              <div class="p-2.5 rounded-lg bg-blue-50/80 border border-blue-100 text-[11px] text-blue-800 leading-relaxed flex items-start gap-1.5">
+                <span class="material-symbols-outlined text-[15px] text-blue-600 shrink-0 mt-0.5">info</span>
+                <span><strong>Why Trending:</strong> Broad readership across database designers comparing write amplification.</span>
+              </div>
+              <!-- Engagement Metrics -->
+              <div class="grid grid-cols-4 gap-2 pt-2 text-center text-xs text-slate-600 border-t border-slate-200/80">
+                <div class="p-1.5 rounded bg-white border border-slate-100">
+                  <div class="font-bold text-slate-900">14.9k</div>
+                  <div class="text-[10px] text-slate-400">Views</div>
+                </div>
+                <div class="p-1.5 rounded bg-white border border-slate-100">
+                  <div class="font-bold text-slate-900">1.1k</div>
+                  <div class="text-[10px] text-slate-400">Likes</div>
+                </div>
+                <div class="p-1.5 rounded bg-white border border-slate-100">
+                  <div class="font-bold text-slate-900">380</div>
+                  <div class="text-[10px] text-slate-400">Shares</div>
+                </div>
+                <div class="p-1.5 rounded bg-white border border-slate-100">
+                  <div class="font-bold text-slate-900">142</div>
+                  <div class="text-[10px] text-slate-400">Comments</div>
+                </div>
+              </div>
+            </div>
+            <div class="px-6 py-3.5 border-t border-slate-200/80 bg-white flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-800">Marcus Chen</span>
+              <a href="article_reader.html" class="text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1">
+                <span>Read Dispatch</span>
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- 2. Personalized "For You" Recommendations Grid (Hidden by default, switched via tab) -->
+        <div id="feed-foryou-grid" class="hidden grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- For You Card 1 -->
+          <article class="bg-indigo-50/40 rounded-2xl border border-indigo-200 hover:border-indigo-400 shadow-xs hover:shadow-md transition-all overflow-hidden flex flex-col justify-between group">
+            <div class="p-6 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-full bg-indigo-100 text-indigo-800 text-[11px] font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                  <span>99% Affinity Match</span>
+                </span>
+                <span class="text-[11px] font-medium text-indigo-600 bg-white px-2 py-0.5 rounded border border-indigo-100">Distributed Systems</span>
+              </div>
+              <h3 class="font-serif-editorial text-2xl font-normal text-slate-900 group-hover:text-indigo-600 transition-colors leading-snug">
+                <a href="article_reader.html">Consensus Invariants: Formally Verifying Raft Elections</a>
+              </h3>
+              <!-- Recommendation Explanation -->
+              <div class="p-2.5 rounded-lg bg-white border border-indigo-100 text-[11px] text-indigo-900 leading-relaxed flex items-start gap-1.5">
+                <span class="material-symbols-outlined text-[15px] text-indigo-600 shrink-0 mt-0.5">recommend</span>
+                <span><strong>Recommended For You:</strong> Matches your authoring history in Kafka partition leaders and cluster failovers.</span>
+              </div>
+              <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                TLA+ proofs verifying split-brain prevention and term counter monotonicity in quorum elections.
+              </p>
+            </div>
+            <div class="px-6 py-3.5 border-t border-indigo-100 bg-white flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-800">Prof. Aris Thorne</span>
+              <a href="article_reader.html" class="text-xs font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1">
+                <span>Read Dispatch</span>
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- For You Card 2 -->
+          <article class="bg-indigo-50/40 rounded-2xl border border-indigo-200 hover:border-indigo-400 shadow-xs hover:shadow-md transition-all overflow-hidden flex flex-col justify-between group">
+            <div class="p-6 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-full bg-indigo-100 text-indigo-800 text-[11px] font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                  <span>95% Affinity Match</span>
+                </span>
+                <span class="text-[11px] font-medium text-indigo-600 bg-white px-2 py-0.5 rounded border border-indigo-100">Databases</span>
+              </div>
+              <h3 class="font-serif-editorial text-2xl font-normal text-slate-900 group-hover:text-indigo-600 transition-colors leading-snug">
+                <a href="article_reader.html">Write Amplification in High-Throughput NVMe Engines</a>
+              </h3>
+              <!-- Recommendation Explanation -->
+              <div class="p-2.5 rounded-lg bg-white border border-indigo-100 text-[11px] text-indigo-900 leading-relaxed flex items-start gap-1.5">
+                <span class="material-symbols-outlined text-[15px] text-indigo-600 shrink-0 mt-0.5">recommend</span>
+                <span><strong>Recommended For You:</strong> Based on your recent read of LSM-Trees and storage engine benchmarks.</span>
+              </div>
+              <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                Deep dive into page cache kernel bypassing and io_uring concurrency for low-latency disk writes.
+              </p>
+            </div>
+            <div class="px-6 py-3.5 border-t border-indigo-100 bg-white flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-800">Sarah Jenkins</span>
+              <a href="article_reader.html" class="text-xs font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1">
+                <span>Read Dispatch</span>
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- For You Card 3 -->
+          <article class="bg-indigo-50/40 rounded-2xl border border-indigo-200 hover:border-indigo-400 shadow-xs hover:shadow-md transition-all overflow-hidden flex flex-col justify-between group">
+            <div class="p-6 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-full bg-indigo-100 text-indigo-800 text-[11px] font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                  <span>92% Affinity Match</span>
+                </span>
+                <span class="text-[11px] font-medium text-indigo-600 bg-white px-2 py-0.5 rounded border border-indigo-100">Cryptography</span>
+              </div>
+              <h3 class="font-serif-editorial text-2xl font-normal text-slate-900 group-hover:text-indigo-600 transition-colors leading-snug">
+                <a href="article_reader.html">Post-Quantum Lattice Cryptography in Web Assembly</a>
+              </h3>
+              <!-- Recommendation Explanation -->
+              <div class="p-2.5 rounded-lg bg-white border border-indigo-100 text-[11px] text-indigo-900 leading-relaxed flex items-start gap-1.5">
+                <span class="material-symbols-outlined text-[15px] text-indigo-600 shrink-0 mt-0.5">recommend</span>
+                <span><strong>Recommended For You:</strong> Frequently co-read by engineers reading Zero-Knowledge Rollups.</span>
+              </div>
+              <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                Compiling Kyber and Dilithium implementations into sandboxed Wasm runtimes for client-side signing.
+              </p>
+            </div>
+            <div class="px-6 py-3.5 border-t border-indigo-100 bg-white flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-800">Dr. Jonathan Vance</span>
+              <a href="article_reader.html" class="text-xs font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1">
+                <span>Read Dispatch</span>
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab Switching Script -->
+    <script>
+      function switchHomeFeed(tab) {
+        const trendingGrid = document.getElementById('feed-trending-grid');
+        const foryouGrid = document.getElementById('feed-foryou-grid');
+        const btnTrending = document.getElementById('tab-btn-trending');
+        const btnForyou = document.getElementById('tab-btn-foryou');
+
+        if (tab === 'trending') {
+          trendingGrid.classList.remove('hidden');
+          trendingGrid.classList.add('grid');
+          foryouGrid.classList.add('hidden');
+          foryouGrid.classList.remove('grid');
+
+          btnTrending.className = 'px-4 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-900 shadow-xs transition-all flex items-center gap-1.5';
+          btnForyou.className = 'px-4 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5';
+        } else {
+          trendingGrid.classList.add('hidden');
+          trendingGrid.classList.remove('grid');
+          foryouGrid.classList.remove('hidden');
+          foryouGrid.classList.add('grid');
+
+          btnForyou.className = 'px-4 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-900 shadow-xs transition-all flex items-center gap-1.5';
+          btnTrending.className = 'px-4 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5';
+        }
+      }
+    </script>
+
     <!-- 2. Trending Topics Grid: 4 Curated Cards (Doc Section 8.1) -->
     <section class="w-full py-12 border-b border-slate-200 bg-slate-50/50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
