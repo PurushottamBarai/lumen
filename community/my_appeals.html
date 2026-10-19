@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en"><head>
 <meta charset="utf-8"/>
@@ -135,17 +135,41 @@
 
 </head>
 <body class="bg-surface text-on-surface antialiased">
+<aside id="lumen-sidebar" class="fixed left-0 top-0 h-full w-[240px] bg-slate-900 z-50 flex flex-col justify-between overflow-y-auto">
+  <div class="flex flex-col">
+    <div class="h-16 px-5 flex items-center border-b border-slate-700/50">
+      
+    </div>
+    <nav class="px-3 py-5 flex flex-col gap-1">
+      <span class="px-3 mb-2 text-[11px] uppercase tracking-wider text-slate-500 font-semibold">Navigation</span>
+      <a href="../articles/home.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">explore</span><span>Home</span></a>
+      <a href="../articles/browse_articles.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">library_books</span><span>Browse</span></a>
+      <a href="../community/discussions.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600 text-white transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">forum</span><span>Discussions</span></a>
+      <a href="../community/chat.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">chat</span><span>Chat</span></a>
+      <span class="px-3 mt-4 mb-2 text-[11px] uppercase tracking-wider text-slate-500 font-semibold">Create</span>
+      <a href="../articles/write_article.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">edit_note</span><span>Write</span></a>
+      <a href="../quizzes/quiz_builder.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">quiz</span><span>Quizzes</span></a>
+      <span class="px-3 mt-4 mb-2 text-[11px] uppercase tracking-wider text-slate-500 font-semibold">Account</span>
+      <a href="../profile/user_profile.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium"><span class="material-symbols-outlined text-lg">person</span><span>Profile</span></a>
+    </nav>
+  </div>
+  <div class="p-4 border-t border-slate-700/50">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs">JV</div>
+      <div class="flex flex-col">
+        <span class="text-xs font-semibold text-white leading-tight">Dr. Jonathan Vance</span>
+        <span class="text-[11px] text-slate-400 leading-tight">Author</span>
+      </div>
+    </div>
+  </div>
+</aside>
+<div class="pl-[240px] min-h-screen flex flex-col">
 <!-- Header: 64px (h-16) -->
 <header class="fixed top-0 left-0 right-0 z-40 bg-surface-container-lowest shadow-sm border-b border-outline-variant/30">
 <div class="max-w-7xl mx-auto px-gutter-sm sm:px-gutter h-16 flex items-center justify-between">
 <div class="flex items-center space-x-space-xl">
-<a class="flex items-center focus:outline-none" data-path="articles" href="#"><img src="../assets/lumen_logo.png" alt="Lumen CMS" class="h-9 w-auto object-contain" /></a>
-<nav class="hidden md:flex items-center space-x-space-xs" data-active-classes="bg-surface-container text-primary font-semibold" data-inactive-classes="text-secondary hover:text-on-surface hover:bg-surface-container-low font-normal">
-<a class="px-space-md py-space-sm rounded-lg font-label-md text-label-md transition-colors text-secondary hover:text-on-surface hover:bg-surface-container-low" data-path="articles" href="#">Articles</a>
-<a class="px-space-md py-space-sm rounded-lg font-label-md text-label-md transition-colors text-secondary hover:text-on-surface hover:bg-surface-container-low" data-path="quiz-builder" href="#">Quiz Builder</a>
-<a class="px-space-md py-space-sm rounded-lg font-label-md text-label-md transition-colors text-secondary hover:text-on-surface hover:bg-surface-container-low" data-path="discussions" href="#">Discussions</a>
-<a class="px-space-md py-space-sm rounded-lg font-label-md text-label-md transition-colors text-secondary hover:text-on-surface hover:bg-surface-container-low" data-path="author-studio" href="#">Author Studio</a>
-</nav>
+
+
 </div>
 <div class="flex items-center space-x-space-md">
 <div class="relative group">
@@ -661,4 +685,5 @@
 </div>
 </div>
 </footer>
+</div>
 </body></html>
